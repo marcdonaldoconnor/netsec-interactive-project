@@ -1,0 +1,18 @@
+\@noreply@gmail.com@\
+
+
+This is some email content
+it might have something suspecious like \!this!\.
+or something \?off?\ like that.
+
+
+
+\*
+"\" is an escape escape charecter
+"\\" is an escape escape charecter, which just prints "\"
+"\!" and "!\" represent a redflag
+"\?" and "?\" represent a grey flag
+"\@" and "@\" represent an email adress
+"\*" and "\*\" represent a comment
+note that the above example has an escape charecter before the close, this is because we are in a comment, and dont want to close it.
+*\
