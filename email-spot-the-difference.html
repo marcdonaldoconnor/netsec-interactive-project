@@ -19,6 +19,32 @@
 
     </body>
     <script>
+        function readFileToDiv() {
+            // Get the filename from the input box
+            const filename = document.getElementById('fileInput').value;
+            const outputDiv = document.getElementById('outputDiv');
 
+            // Validate input
+            if (!filename) {
+                outputDiv.textContent = 'Please enter a filename.';
+                return;
+            }
+
+            // Use Fetch API to read the file
+            fetch(filename)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('File not found or inaccessible.');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    // Display file content in the div
+                    outputDiv.textContent = data;
+                })
+                .catch(error => {
+                    outputDiv.textContent = `Error: ${error.message}`;
+                });
+        }
     </script>
 </html>
