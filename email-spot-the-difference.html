@@ -9,8 +9,7 @@
     </head>
     <body>
         <div id = "boxForStart">
-            <button id = "loadButton">start</button>
-            <input id = "quizName">
+            <button id = "loadButton" function = readFileDiv>start</button>
         </div>
         
         <div id="emailContent">
@@ -21,7 +20,7 @@
     <script>
         function readFileToDiv() {
             // Get the filename from the input box
-            const filename = document.getElementById('fileInput').value;
+            const filename = "emailQuiz.txt"
             const outputDiv = document.getElementById('outputDiv');
 
             // Validate input
