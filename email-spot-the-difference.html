@@ -25,7 +25,7 @@
     <script>
         function readFileToDiv() {
             // Get the filename from the input box
-            const filename = "emalQuiz.txt"
+            const filename = "emalQuiz.json"
             const outputDiv = document.getElementById('emailContent');
 
             // Validate input
@@ -35,21 +35,23 @@
             }
 
             // Use Fetch API to read the file
-            fetch(filename)
+            let data = fetch(filename)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('File not found or inaccessible.');
                     }
                     return response.text();
                 })
-                .then(data => {
-                    // Display file content in the div
-                    outputDiv.textContent = data;
-                })
-                .catch(error => {
-                    outputDiv.textContent = `Error: ${error.message}`;
-                });
-                console.log("asfyins")
+            .then(data => {
+                // Display file content in the div
+                const dataJ = data.json;
+                outputDiv.textContent = dataJ;
+                
+            })
+            .catch(error => {
+                outputDiv.textContent = `Error: ${error.message}`;
+            });
+            console.log("asfyins")
         }
     </script>
 </html>
