@@ -1,7 +1,12 @@
-<html>
+<html lang = "EN">
     <head>
+        <title>asfa</title>
         <style>
             #boxForStart {
+                border: solid 2px black;
+                width: 80%
+            }
+            #emailContent {
                 border: solid 2px black;
                 width: 80%
             }
@@ -9,7 +14,7 @@
     </head>
     <body>
         <div id = "boxForStart">
-            <button id = "loadButton" function = readFileDiv>start</button>
+            <button id = "loadButton" onclick = "readFileToDiv()">start</button>
         </div>
         
         <div id="emailContent">
@@ -21,7 +26,7 @@
         function readFileToDiv() {
             // Get the filename from the input box
             const filename = "emailQuiz.txt"
-            const outputDiv = document.getElementById('outputDiv');
+            const outputDiv = document.getElementById('emailContent');
 
             // Validate input
             if (!filename) {
@@ -44,6 +49,7 @@
                 .catch(error => {
                     outputDiv.textContent = `Error: ${error.message}`;
                 });
+                console.log("asfyins")
         }
     </script>
 </html>
