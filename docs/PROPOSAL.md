@@ -8,6 +8,6 @@
 
 # Technical outline
 
-- `reactjs` will be used for the slideshow, as it is a de facto standard for HTML presentations
+- `reactjs` will be used for the slideshow, as Liam was already familiar with how it works.
 - `SurveyJS` will be used for the quizzes
 - We will have to build a custom interface for spot-the-difference
