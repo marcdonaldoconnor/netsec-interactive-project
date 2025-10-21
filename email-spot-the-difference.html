@@ -10,6 +10,12 @@
                 border: solid 2px black;
                 width: 80%
             }
+            .emailWord {
+                font-size: 12px;
+            }
+            .emailWord:hover{
+                color: blue;
+            }
         </style>
     </head>
     <body>
@@ -23,7 +29,7 @@
 
     </body>
     <script>
-        function readFileToDiv() {
+        function readFileToDiv() {//old function, ignore
             const filename = "emailQuiz.json"
             const outputDiv = document.getElementById('emailContent');
 
@@ -52,7 +58,7 @@
             console.log("asfyins")
         }
 
-        function getEmailData(email_name){
+        async function getEmailData(email_name){
             const filename = "emailQuiz.json"
             let data = fetch(filename)
                 .then(response => {
@@ -62,15 +68,16 @@
                     return response.json();
                 })
                 .then(data => {
-                return JSON.stringify(data[email_name]);
+                return data[email_name];
             })
             .catch(error => {
                 console.log(error);
             });
+            return data
         }
 
         //this function was also written in grok
-        function wrapWordsInSpans(text, className = 'word-span') {
+        function wrapWordsInSpans(text, className = 'emailWord') {
             // Split the string into words
             const words = text.split(/\s+/);
             
@@ -83,10 +90,10 @@
             return spans.join(' ');
         }
 
-        function buttonPress(){
-            result1 = getEmailData("no 1")
-            result2 = wrapWordsInSpans(result)
-            document.getElementById('emailContent').innerHTML = result;
+        async function buttonPress(){
+            result1 = getEmailData("no 1").then(result1 =>
+            {result2 = wrapWordsInSpans(result1["content"]);
+            document.getElementById('emailContent').innerHTML = result2;})
         }
     </script>
 </html>
