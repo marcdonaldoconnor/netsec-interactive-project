@@ -29,35 +29,6 @@
 
     </body>
     <script>
-        function readFileToDiv() {//old function, ignore
-            const filename = "emailQuiz.json"
-            const outputDiv = document.getElementById('emailContent');
-
-            // Validate input
-            if (!filename) {
-                outputDiv.textContent = 'Please enter a filename.';
-                return;
-            }
-
-            // Use Fetch API to read the file
-            let data = fetch(filename)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('File not found or inaccessible.');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                // Display file content in the div
-                outputDiv.textContent = JSON.stringify( data["no 1"]);
-                
-            })
-            .catch(error => {
-                outputDiv.textContent = `Error: ${error.message}`;
-            });
-            console.log("asfyins")
-        }
-
         async function getEmailData(email_name){
             const filename = "emailQuiz.json"
             let data = fetch(filename)
