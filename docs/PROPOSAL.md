@@ -11,3 +11,4 @@
 - `reactjs` will be used for the slideshow, as Liam was already familiar with how it works.
 - `SurveyJS` will be used for the quizzes
 - We will have to build a custom interface for spot-the-difference
+- Blake and Liam both elected to use `git` for version control and code management, as we are both already familiar with how it works and recognise that it is the de facto standard for software development.
