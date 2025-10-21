@@ -1,0 +1,14 @@
+#boxForStart {
+    border: solid 2px black;
+    width: 80%
+}
+#emailContent {
+    border: solid 2px black;
+    width: 80%
+}
+.emailWord {
+    font-size: 24px;
+}
+.emailWord:hover{
+    color: blue;
+}
