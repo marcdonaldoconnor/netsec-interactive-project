@@ -24,7 +24,7 @@
     </body>
     <script>
         function readFileToDiv() {
-            const filename = "emalQuiz.json"
+            const filename = "emailQuiz.json"
             const outputDiv = document.getElementById('emailContent');
 
             // Validate input
@@ -53,7 +53,7 @@
         }
 
         function getEmailData(email_name){
-            const filename = "emalQuiz.json"
+            const filename = "emailQuiz.json"
             let data = fetch(filename)
                 .then(response => {
                     if (!response.ok) {
