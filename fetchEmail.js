@@ -16,6 +16,10 @@ async function getEmailData(email_name){
     return data
 }
 
+function wordClicked(span){
+    span.classList.toggle('wordSelected');
+}
+
 //this function was also written in grok
 function wrapWordsInSpans(text, className = 'emailWord') {
     // Split the string into words
@@ -23,7 +27,7 @@ function wrapWordsInSpans(text, className = 'emailWord') {
     
     // Create spans for each word
     const spans = words.map((word, index) => {
-        return `<span id="word-${index}" class="${className}">${word}</span>`;
+        return `<span id="word-${index}" class="${className}" onClick="wordClicked(this)">${word}</span>`;
     });
     
     // Join spans with a space

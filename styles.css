@@ -12,3 +12,6 @@
 .emailWord:hover{
     color: blue;
 }
+.wordSelected{
+    background-color: lightblue;
+}
