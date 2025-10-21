@@ -16,7 +16,7 @@
 }
 
 .emailSubject{
-    font-size: 14px;
+    font-size: 24px;
     color: black;
 }
 .emailContent{
@@ -24,6 +24,6 @@
     color: black;
 }
 .emailSender{
-    font-size: 14px;
-    color: black;
+    font-size: 6px;
+    color: grey;
 }

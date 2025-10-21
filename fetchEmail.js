@@ -21,17 +21,17 @@ function wordClicked(span){
 }
 
 //this function was also written in grok
-function wrapWordsInSpans(text, prefix, seperator = " ") {//the three prefixes are: "emailSubject", "emailContent", "emailSender"
+function wrapWordsInSpans(text, prefix, separator = " ") {//the three prefixes are: "emailSubject", "emailContent", "emailSender"
     // Split the string into words
-    const words = text.split(seperator);
+    const words = text.split(separator);
     
     // Create spans for each word
     const spans = words.map((word, index) => {
         return `<span id="${prefix}-${index}" class="span ${prefix}" onClick="wordClicked(this)">${word}</span>`;
     });
     
-    // Join spans with a space
-    return spans.join(seperator);
+    // Join spans with appropiate seperator
+    return spans.join(`<span class="separator ${prefix}">${separator}</span>`);
 }
 
 async function buttonPress(){
