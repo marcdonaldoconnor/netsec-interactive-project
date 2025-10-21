@@ -14,7 +14,7 @@
     </head>
     <body>
         <div id = "boxForStart">
-            <button id = "loadButton" onclick = "readFileToDiv()">start</button>
+            <button id = "loadButton" onclick = "buttonPress()">start</button>
         </div>
         
         <div id="emailContent">
@@ -81,6 +81,12 @@
             
             // Join spans with a space
             return spans.join(' ');
+        }
+
+        function buttonPress(){
+            result1 = getEmailData("no 1")
+            result2 = wrapWordsInSpans(result)
+            document.getElementById('emailContent').innerHTML = result;
         }
     </script>
 </html>
