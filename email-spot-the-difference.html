@@ -40,12 +40,11 @@
                     if (!response.ok) {
                         throw new Error('File not found or inaccessible.');
                     }
-                    return response.text();
+                    return response.json();
                 })
-            .then(data => {
+                .then(data => {
                 // Display file content in the div
-                const dataJ = data.json;
-                outputDiv.textContent = dataJ;
+                outputDiv.textContent = JSON.stringify( data["no 1"]);
                 
             })
             .catch(error => {
