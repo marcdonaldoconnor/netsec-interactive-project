@@ -2,16 +2,28 @@
     border: solid 2px black;
     width: 80%
 }
-#emailContent {
+#emailContentBox {
     border: solid 2px black;
     width: 80%
 }
-.emailWord {
-    font-size: 24px;
-}
-.emailWord:hover{
+
+
+.span:hover{
     color: blue;
 }
 .wordSelected{
     background-color: lightblue;
+}
+
+.emailSubject{
+    font-size: 14px;
+    color: black;
+}
+.emailContent{
+    font-size: 14px;
+    color: black;
+}
+.emailSender{
+    font-size: 14px;
+    color: black;
 }
