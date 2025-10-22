@@ -60,32 +60,37 @@ function verify() {//this hole functin was written by grok
     let spans = document.querySelectorAll('.span');
     
     // Initialize arrays to store flagged and selected spans
-    let flaggedSpans = [];
-    let selectedSpans = [];
     
     // Iterate through all spans
+    let correct =[]
+    let missed = []
+    let wrong =[]
+
     spans.forEach(span => {
-        // Check if span has redFlag or yellowFlag class
-        if (span.classList.contains('redFlag') || span.classList.contains('yellowFlag')) {
-            flaggedSpans.push(span.id);
-        }
-        // Check if span has wordSelected class
-        if (span.classList.contains('wordSelected')) {
-            selectedSpans.push(span.id);
-        }
+        let red = span.classList.contains('redFlag');
+        let yel = span.classList.contains('yellowFlag');
+        let sel = span.classList.contains('wordSelected');
+        if (sel){
+            if(red||yel){
+                correct.push(span);
+            }else{
+                wrong.push(span);
+            }
+        }if (red){
+            if(!sel){
+                missed.push(span);
+    }}});
+
+    correct.forEach(span => {
+        span.classList.remove("selected");
+        span.classList.toggle("correct");
     });
-    
-    // Verify if selected spans match flagged spans
-    let correct = selectedSpans.length === flaggedSpans.length &&
-                 selectedSpans.every(id => flaggedSpans.includes(id)) &&
-                 flaggedSpans.every(id => selectedSpans.includes(id));
-    
-    // Return or display result
-    if (correct) {
-        console.log("All flagged words correctly selected!");
-        return true;
-    } else {
-        console.log("Selection is incorrect. Selected:", selectedSpans, "Flagged:", flaggedSpans);
-        return false;
-    }
+    wrong.forEach(span => {
+        span.classList.remove("selected");
+        span.classList.toggle("wrong");
+    });
+    missed.forEach(span => {
+        span.classList.toggle("missed");
+    });
+
 }
