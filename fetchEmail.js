@@ -26,8 +26,18 @@ function wrapWordsInSpans(text, prefix, separator = " ") {//the three prefixes a
     const words = text.split(separator);
     
     // Create spans for each word
-    const spans = words.map((word, index) => {
-        return `<span id="${prefix}-${index}" class="span ${prefix}" onClick="wordClicked(this)">${word}</span>`;
+    const spans = words.map((wordI, index) => {
+        let risk = "";
+        let word = wordI
+        if (word.startsWith("\!")){
+            risk = "redFlag";
+            word = word.slice(2);
+        }
+        if (word.startsWith("\?")){
+            risk = "yellowFlag";//yellow flag will overide redflag. just incase to avoid problems
+            word = word.slice(2);
+        }
+        return `<span id="${prefix}-${index}" class="span ${prefix} ${risk}" onClick="wordClicked(this)">${word}</span>`;
     });
     
     // Join spans with appropiate seperator
@@ -43,4 +53,9 @@ async function buttonPress(){
         document.getElementById('emailContentBox').innerHTML = [sender,subject,content].join("<br>");
     }
     )
+}
+
+function verify(){
+    let spans = []
+    
 }

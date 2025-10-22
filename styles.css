@@ -4,7 +4,8 @@
 }
 #emailContentBox {
     border: solid 2px black;
-    width: 80%
+    width: 80%;
+    padding: 2px;
 }
 
 
@@ -16,7 +17,7 @@
 }
 
 .emailSubject{
-    font-size: 24px;
+    font-size: 22px;
     color: black;
 }
 .emailContent{
@@ -24,6 +25,6 @@
     color: black;
 }
 .emailSender{
-    font-size: 6px;
+    font-size: 14px;
     color: grey;
 }

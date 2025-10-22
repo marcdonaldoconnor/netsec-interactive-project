@@ -4,14 +4,18 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <div id = "boxForStart">
-            <button id = "loadButton" onclick = "buttonPress()">start</button>
-        </div>
-        
-        <div id="emailContentBox">
+        <div id="levelSelectPanel">
 
         </div>
-
+        <div id="playArea">
+            <div id = "boxForStart">
+                <button id = "loadButton" onclick = "buttonPress()">start</button>
+            </div>
+            <div id="emailContentBox"></div>
+            <div id ="playerFooter">
+                <button id = "verifyButton" onclick = "verify()"></button>
+            </div>
+        </div>
     </body>
     <script src="fetchEmail.js"></script>
 </html>
