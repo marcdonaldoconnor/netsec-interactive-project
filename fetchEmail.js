@@ -55,7 +55,37 @@ async function buttonPress(){
     )
 }
 
-function verify(){
-    let spans = []
+function verify() {//this hole functin was written by grok
+    // Get all spans with class "span"
+    let spans = document.querySelectorAll('.span');
     
+    // Initialize arrays to store flagged and selected spans
+    let flaggedSpans = [];
+    let selectedSpans = [];
+    
+    // Iterate through all spans
+    spans.forEach(span => {
+        // Check if span has redFlag or yellowFlag class
+        if (span.classList.contains('redFlag') || span.classList.contains('yellowFlag')) {
+            flaggedSpans.push(span.id);
+        }
+        // Check if span has wordSelected class
+        if (span.classList.contains('wordSelected')) {
+            selectedSpans.push(span.id);
+        }
+    });
+    
+    // Verify if selected spans match flagged spans
+    let correct = selectedSpans.length === flaggedSpans.length &&
+                 selectedSpans.every(id => flaggedSpans.includes(id)) &&
+                 flaggedSpans.every(id => selectedSpans.includes(id));
+    
+    // Return or display result
+    if (correct) {
+        console.log("All flagged words correctly selected!");
+        return true;
+    } else {
+        console.log("Selection is incorrect. Selected:", selectedSpans, "Flagged:", flaggedSpans);
+        return false;
+    }
 }
