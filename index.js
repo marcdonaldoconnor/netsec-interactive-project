@@ -392,7 +392,7 @@ const json = {
       "correctAnswer": true
     }]
   }, {
-    // Question 24: How many kinds of hackers are there? (Re-used rating type for variety)
+    // Question 24: Daily Security Checklist (Re-used rating type for variety)
     "elements": [{
       "type": "rating",
       "name": "qDailySecurityChecklist",
@@ -498,7 +498,8 @@ const json = {
         "text": "Report it to your IT department (if applicable) and delete it."
       }]
     }]
-  }]
+  }],
+  "firstPageIsStartPage": true
 };
 // Add a custom `score` property to survey questions
 Survey.Serializer.addProperty("question", {
@@ -537,6 +538,4 @@ survey.onCompleting.add((sender) => {
   sender.setValue("maxScore", maxScore);
   sender.setValue("totalScore", totalScore);
 });
-// Assuming SurveyJS library is loaded in the environment
-// survey.render(document.getElementById("surveyElement")); 
-// The render call is commented out as this is a code response, not an execution environment.
+survey.render(document.getElementById("surveyElement"));
