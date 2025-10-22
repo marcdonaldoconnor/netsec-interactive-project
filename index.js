@@ -1,5 +1,4 @@
 // Add a custom 'score' property and a new 'feedback' property to survey questions.
-// This allows us to store an explanation for the user on each question.
 Survey.Serializer.addProperty("question", {
   name: "score:number"
 });
@@ -13,8 +12,7 @@ const json = {
   "showTimer": true,
   "timeLimitPerPage": 30,
   
-  // The 'completedHtml' now uses placeholders for the final score message and the feedback HTML,
-  // which will be calculated in the onCompleting event.
+  // The 'completedHtml' now uses placeholders for the final score message and the feedback HTML.
   "completedHtml": "<h3>Your Cyber Security Quiz Results</h3>{scoreMessage}</br></br><hr><h2>Questions for Review</h2>{feedbackHtml}",
 
   "pages": [{
@@ -573,17 +571,24 @@ function getWrongAnswersHtml(survey) {
 
       // Construct the display value for different types
       let displayValue;
+      let correctAnswer;
+
       if (question.getType() === 'boolean') {
           displayValue = question.value ? question.labelTrue : question.labelFalse;
+          correctAnswer = question.correctAnswer ? question.labelTrue : question.labelFalse;
       } else if (question.getType() === 'radiogroup') {
           // Find the choice text based on the stored value
           const choice = question.choices.find(c => c.value === question.value);
           displayValue = choice ? choice.text : question.displayValue;
-      } else {
+
+          // Find the correct choice text based on the stored correct answer
+          const correctChoice = question.choices.find(c => c.value === question.correctAnswer);
+          correctAnswer = correctChoice ? correctChoice.text : question.correctAnswer;
+
+      } else { // For rating questions
           displayValue = question.displayValue;
+          correctAnswer = question.correctAnswer;
       }
-      
-      const correctAnswer = question.getType() === 'boolean' ? (question.correctAnswer === true ? question.labelTrue : question.labelFalse) : question.correctAnswer;
 
       html += `
         <div style="border: 2px solid #CC0000; padding: 15px; margin-bottom: 20px; background-color: #FEE; border-radius: 5px;">
@@ -617,9 +622,10 @@ survey.onCompleting.add((sender) => {
 
   // Determine the score message based on performance
   let scoreMessage = `You got ${totalScore} out of ${maxScore} points.</br></br>`;
-  if (totalScore / maxScore > 0.7) {
+  const percentage = totalScore / maxScore;
+  if (percentage > 0.7) {
     scoreMessage += "<strong>Congratulations! You did great and passed the quiz!</strong>";
-  } else if (totalScore / maxScore > 0.3) {
+  } else if (percentage > 0.3) {
     scoreMessage += "<strong>Well Done! You passed the quiz. Keep studying to improve!</strong>";
   } else {
     scoreMessage += "<i>In my experience</i>, as Obi-Wan Kenobi said, <i>womp womp</i>. You've got some concepts to review!";
@@ -632,10 +638,10 @@ survey.onCompleting.add((sender) => {
 });
 
 survey.onComplete.add((sender, options) => {
-    // You can keep the console log or remove it.
+    // Optional: Log the results to the console.
     console.log(JSON.stringify(sender.data, null, 3));
 });
 
-// Assuming SurveyJS library is loaded in the environment
-// The original render call is uncommented to ensure the quiz displays.
-// survey.render(document.getElementById("surveyElement"));
+// THIS LINE IS CRITICAL FOR RENDERING:
+// It tells SurveyJS to render the quiz inside the HTML element with the ID 'surveyElement'.
+survey.render(document.getElementById("surveyElement"));
