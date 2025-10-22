@@ -1,21 +1,22 @@
+// Add a custom 'score' property and a new 'feedback' property to survey questions.
+// This allows us to store an explanation for the user on each question.
+Survey.Serializer.addProperty("question", {
+  name: "score:number"
+});
+Survey.Serializer.addProperty("question", {
+  name: "feedback:string"
+});
+
 const json = {
   "title": "Cyber security quiz",
   "showProgressBar": true,
   "showTimer": true,
   "timeLimitPerPage": 30,
-  "completedHtmlOnCondition": [{
-    "expression": "{totalScore} > 14",
-    "html":
-      "You got {totalScore} out of {maxScore} points.</br></br>Congratulations! You did great!"
-  }, {
-    "expression": "{totalScore} > 7",
-    "html":
-      "You got {totalScore} out of {maxScore} points.</br></br>Well Done! You passed the quiz. "
-  }, {
-    "expression": "{totalScore} <= 7",
-    "html":
-      "You got {totalScore} out of {maxScore} points.</br></br><i>In my experience</i>, as Obi-Wan Kenobi said, <i>womp womp</i>. "
-  }],
+  
+  // The 'completedHtml' now uses placeholders for the final score message and the feedback HTML,
+  // which will be calculated in the onCompleting event.
+  "completedHtml": "<h3>Your Cyber Security Quiz Results</h3>{scoreMessage}</br></br><hr><h2>Questions for Review</h2>{feedbackHtml}",
+
   "pages": [{
     "name": "startPage",
     "elements": [{
@@ -30,7 +31,8 @@ const json = {
       "title": "How many billons of dollars are lost each year to cyber crime?",
       "choices": [ 5, 15, 30, 45, 100],
       "correctAnswer": 30,
-      "score": 5
+      "score": 5,
+      "feedback": "The cost of cyber crime is massive, and while exact figures vary, it is in the tens of billions annually, projected to reach trillions within a few years."
     }]
   }, {
     "elements": [{
@@ -48,7 +50,8 @@ const json = {
       }, {
         "value": "din",
         "text": "When a piece of malware infects multiple computers at the same time."
-      }]
+      }],
+      "feedback": "Social engineering is the psychological manipulation of people into performing actions or divulging confidential information, often through impersonation."
     }]
   }, {
     "elements": [{
@@ -57,7 +60,8 @@ const json = {
       "score": 3,
       "title": "How many kinds of hackers are there?",
       "correctAnswer": 3,
-      "rateValues": [ 0, 1, 2, 3, 4 ]
+      "rateValues": [ 0, 1, 2, 3, 4 ],
+      "feedback": "There are primarily three types: **White Hat** (ethical), **Black Hat** (malicious), and **Grey Hat** (falls between the two)."
     }]
   }, {
     "elements": [{
@@ -67,7 +71,8 @@ const json = {
       "title": "True or false? All hackers are unethical.",
       "labelTrue": "True",
       "labelFalse": "False",
-      "correctAnswer": false
+      "correctAnswer": false,
+      "feedback": "False. **White Hat** hackers are ethical security professionals who use their skills to protect systems. The term 'hacker' simply refers to an individual with advanced knowledge of computer systems."
     }]
   }, {
     "elements": [{
@@ -90,9 +95,16 @@ const json = {
       }, {
         "value": "falcon",
         "text": "A keylogger."
-      }]
+      }],
+      "feedback": "The picture shows a message demanding money to release encrypted files, which is the definition of **Ransomware**."
     }]
   },
+  
+  
+  
+  // --- New Pages with 20 Cybersecurity Questions ---
+
+  
   
   {
     // Question 7: Multi-factor authentication
@@ -111,7 +123,8 @@ const json = {
       }, {
         "value": "C",
         "text": "Malicious File Analyzer"
-      }]
+      }],
+      "feedback": "MFA stands for **Multi-Factor Authentication**. It requires at least two pieces of evidence—like a password and a temporary code—to verify a user's identity."
     }]
   }, {
     // Question 8: Phishing definition
@@ -130,7 +143,8 @@ const json = {
       }, {
         "value": "C",
         "text": "Software that monitors keystrokes."
-      }]
+      }],
+      "feedback": "**Phishing** is a form of social engineering where attackers use fraudulent communication (usually email) to lure users into revealing sensitive data."
     }]
   }, {
     // Question 9: Best password practice
@@ -149,7 +163,8 @@ const json = {
       }, {
         "value": "C",
         "text": "Using a unique, long passphrase that combines upper/lower case letters, numbers, and symbols."
-      }]
+      }],
+      "feedback": "The best passwords are long, unique, and use a combination of character types. A **passphrase** is often more secure and easier to remember than a complex, short password."
     }]
   }, {
     // Question 10: Firewall purpose
@@ -168,7 +183,8 @@ const json = {
       }, {
         "value": "C",
         "text": "Scan for and remove viruses."
-      }]
+      }],
+      "feedback": "A **firewall** acts as a security guard for your network, permitting or blocking traffic based on a set of predetermined security rules."
     }]
   }, {
     // Question 11: VPN function
@@ -187,7 +203,8 @@ const json = {
       }, {
         "value": "C",
         "text": "Protects against physical theft of your device."
-      }]
+      }],
+      "feedback": "A **VPN** creates a secure, encrypted tunnel over the public internet, masking your IP address and protecting your data from snooping, especially on public Wi-Fi."
     }]
   }, {
     // Question 12: Updating software
@@ -198,7 +215,8 @@ const json = {
       "title": "True or false? Ignoring software updates won't compromise my security.",
       "labelTrue": "True",
       "labelFalse": "False",
-      "correctAnswer": false
+      "correctAnswer": false,
+      "feedback": "False. Software updates often include **security patches** that fix newly discovered vulnerabilities. Ignoring them leaves you open to attacks."
     }]
   }, {
     // Question 13: Zero-day exploit
@@ -217,7 +235,8 @@ const json = {
       }, {
         "value": "C",
         "text": "A vulnerability that is exploited before the developer has a chance to fix it."
-      }]
+      }],
+      "feedback": "A **Zero-Day** is a previously unknown software vulnerability that hackers can exploit before the software vendor becomes aware of it and develops a patch."
     }]
   }, {
     // Question 14: What is a Botnet?
@@ -236,7 +255,8 @@ const json = {
       }, {
         "value": "C",
         "text": "Automated chat programs."
-      }]
+      }],
+      "feedback": "A **Botnet** is a collection of internet-connected devices, each running one or more bots, typically used to perform large-scale automated tasks like DDoS attacks."
     }]
   }, {
     // Question 15: Data backup guarantee
@@ -247,7 +267,8 @@ const json = {
       "title": "True or false? Having a recent, offline backup is the best defense against data loss from ransomware.",
       "labelTrue": "True",
       "labelFalse": "False",
-      "correctAnswer": true
+      "correctAnswer": true,
+      "feedback": "True. If your files are locked by ransomware, an **offline, verified backup** allows you to wipe your system and restore your data without paying the ransom. This follows the 3-2-1 backup rule."
     }]
   }, {
     // Question 16: Shoulder surfing risk
@@ -258,7 +279,8 @@ const json = {
       "title": "True or false? 'Shoulder surfing' is a physical security risk.",
       "labelTrue": "True",
       "labelFalse": "False",
-      "correctAnswer": true
+      "correctAnswer": true,
+      "feedback": "True. **Shoulder surfing** is observing a person's computer screen or keyboard to get sensitive information, which is a physical (not digital) threat."
     }]
   }, {
     // Question 17: Keylogger function
@@ -277,7 +299,8 @@ const json = {
       }, {
         "value": "C",
         "text": "The movement of the mouse."
-      }]
+      }],
+      "feedback": "A **keylogger** is malicious software (or sometimes hardware) that records every keystroke made by a user, allowing attackers to capture passwords and other sensitive information."
     }]
   }, {
     // Question 18: IoT security risk
@@ -296,7 +319,8 @@ const json = {
       }, {
         "value": "C",
         "text": "They use too much bandwidth."
-      }]
+      }],
+      "feedback": "Many **IoT devices** are mass-produced with weak, factory-default passwords and receive little to no security updates over their lifespan, making them easy targets for hackers."
     }]
   }, {
     // Question 19: Spear Phishing
@@ -315,7 +339,8 @@ const json = {
       }, {
         "value": "C",
         "text": "Baiting"
-      }]
+      }],
+      "feedback": "**Spear Phishing** is highly personalized phishing, targeting a specific person or small group with information unique to them to increase the likelihood of success."
     }]
   }, {
     // Question 20: Principle of Least Privilege
@@ -334,7 +359,8 @@ const json = {
       }, {
         "value": "C",
         "text": "Principle of Least Privilege (PoLP)"
-      }]
+      }],
+      "feedback": "The **Principle of Least Privilege (PoLP)** minimizes the harm a compromised account can cause by limiting what it can access or do on a network."
     }]
   }, {
     // Question 21: DDoS Attack
@@ -353,7 +379,8 @@ const json = {
       }, {
         "value": "C",
         "text": "Steal a single, highly sensitive piece of data."
-      }]
+      }],
+      "feedback": "A **Distributed Denial of Service (DDoS)** attack floods a target's server with junk traffic from multiple sources, making it unavailable to legitimate users."
     }]
   }, {
     // Question 22: Brute Force Attack
@@ -372,7 +399,8 @@ const json = {
       }, {
         "value": "C",
         "text": "A targeted attack using malware."
-      }]
+      }],
+      "feedback": "A **Brute Force** attack is a methodical way of guessing passwords, typically automated, by systematically checking all possible character combinations. This is why multi-factor authentication is critical."
     }]
   }, {
     // Question 23: HTTPS security
@@ -383,7 +411,8 @@ const json = {
       "title": "True or false? HTTPS indicates that the connection to a website is encrypted and secure.",
       "labelTrue": "True",
       "labelFalse": "False",
-      "correctAnswer": true
+      "correctAnswer": true,
+      "feedback": "True. The 'S' in **HTTPS** stands for 'Secure' and means the communication channel between your browser and the website is protected by SSL/TLS encryption."
     }]
   }, {
     // Question 24: Daily Security Checklist (Re-used rating type for variety)
@@ -393,7 +422,8 @@ const json = {
       "score": 1,
       "title": "On a scale of 0 to 4, how many times a day should a typical employee check their daily security checklist?",
       "correctAnswer": 1,
-      "rateValues": [ 0, 1, 2, 3, 4 ]
+      "rateValues": [ 0, 1, 2, 3, 4 ],
+      "feedback": "A full security checklist is usually performed **once** at the start of the day or before performing sensitive operations, not multiple times a day."
     }]
   }, {
     // Question 25: PII definition
@@ -412,7 +442,8 @@ const json = {
       }, {
         "value": "C",
         "text": "Personally Identifiable Information"
-      }]
+      }],
+      "feedback": "**PII** (Personally Identifiable Information) is any data that can be used to identify a specific individual (e.g., name, address, social security number) and must be protected."
     }]
   }, {
     // Question 26: Strongest Authentication Factor (Re-used rating type for variety)
@@ -422,7 +453,8 @@ const json = {
       "score": 5,
       "title": "How many authentication factors are considered necessary for a secure system (e.g., 1=Password, 2=Password+Token, etc.)?",
       "correctAnswer": 2,
-      "rateValues": [ 0, 1, 2, 3, 4 ]
+      "rateValues": [ 0, 1, 2, 3, 4 ],
+      "feedback": "**Two** factors (MFA) are considered the minimum standard for a secure system, combining 'something you know' (password) with 'something you have' (token/phone) or 'something you are' (biometrics)."
     }]
   }, {
     // Question 27: Air-gapped definition
@@ -441,7 +473,8 @@ const json = {
       }, {
         "value": "C",
         "text": "It is a cloud-based server."
-      }]
+      }],
+      "feedback": "An **air-gapped** system is physically and logically isolated from unsecured networks, offering maximum security for the most sensitive data."
     }]
   }, {
     // Question 28: Social Engineering Prevention
@@ -452,7 +485,8 @@ const json = {
       "title": "True or false? The most effective defense against social engineering is technical software.",
       "labelTrue": "True",
       "labelFalse": "False",
-      "correctAnswer": false
+      "correctAnswer": false,
+      "feedback": "False. Since social engineering targets human psychology, the most effective defense is continuous **security awareness training and user education**."
     }]
   }, {
     // Question 29: Cross-site Scripting (XSS)
@@ -471,7 +505,8 @@ const json = {
       }, {
         "value": "C",
         "text": "SQL Injection"
-      }]
+      }],
+      "feedback": "**Cross-Site Scripting (XSS)** is a code injection attack that allows an attacker to execute malicious JavaScript in a victim's browser."
     }]
   }, {
     // Question 30: Best practice for suspicious link
@@ -490,19 +525,15 @@ const json = {
       }, {
         "value": "C",
         "text": "Report it to your IT department (if applicable) and delete it."
-      }]
+      }],
+      "feedback": "Never click on suspicious links. The best and safest action is to **report it to your security team** so they can investigate and block the threat, then delete the email."
     }]
   }],
   "firstPageIsStartPage": true
 };
-// Add a custom `score` property to survey questions
-Survey.Serializer.addProperty("question", {
-  name: "score:number"
-});
-const survey = new Survey.Model(json);
-survey.onComplete.add((sender, options) => {
-    console.log(JSON.stringify(sender.data, null, 3));
-});
+
+// --- Custom Functions for Score and Feedback ---
+
 function calculateMaxScore(questions) {
   var maxScore = 0;
   questions.forEach((question) => {
@@ -516,7 +547,7 @@ function calculateTotalScore(data) {
   var totalScore = 0;
   Object.keys(data).forEach((qName) => {
     const question = survey.getQuestionByValueName(qName);
-    if (question.isAnswerCorrect()) {
+    if (question && question.isAnswerCorrect()) {
       if (!!question.score) {
         totalScore += question.score;
       }
@@ -524,12 +555,87 @@ function calculateTotalScore(data) {
   });
   return totalScore;
 }
+
+// FUNCTION: Generates the HTML list of incorrect answers and their feedback
+function getWrongAnswersHtml(survey) {
+  let html = '';
+
+  // Filter out non-answered and non-scoreable questions (like the start page)
+  const answeredQuestions = survey.getAllQuestions().filter(q => 
+    q.score && q.getType() !== 'html' && q.value !== undefined
+  );
+
+  answeredQuestions.forEach((question) => {
+    // Check if the question is NOT correct
+    if (!question.isAnswerCorrect()) {
+      const feedback = question.feedback || "No specific feedback available. Review the concept covered in the question title.";
+      const questionTitle = question.title || question.name;
+
+      // Construct the display value for different types
+      let displayValue;
+      if (question.getType() === 'boolean') {
+          displayValue = question.value ? question.labelTrue : question.labelFalse;
+      } else if (question.getType() === 'radiogroup') {
+          // Find the choice text based on the stored value
+          const choice = question.choices.find(c => c.value === question.value);
+          displayValue = choice ? choice.text : question.displayValue;
+      } else {
+          displayValue = question.displayValue;
+      }
+      
+      const correctAnswer = question.getType() === 'boolean' ? (question.correctAnswer === true ? question.labelTrue : question.labelFalse) : question.correctAnswer;
+
+      html += `
+        <div style="border: 2px solid #CC0000; padding: 15px; margin-bottom: 20px; background-color: #FEE; border-radius: 5px;">
+          <h4 style="color: #CC0000; margin-top: 0;">❌ ${questionTitle}</h4>
+          <p><strong>Your Answer:</strong> ${displayValue}</p>
+          <p><strong>Correct Answer:</strong> ${correctAnswer}</p>
+          <p><strong>Feedback:</strong> ${feedback}</p>
+        </div>
+      `;
+    }
+  });
+
+  if (html === '') {
+    return "<h3>Perfect Score! You answered all questions correctly. 🎉</h3><p>Keep up the great work in practicing cyber hygiene!</p>";
+  }
+
+  return html;
+}
+
+// --- SurveyJS Initialization and Event Handling ---
+
+const survey = new Survey.Model(json);
+
 survey.onCompleting.add((sender) => {
   const totalScore = calculateTotalScore(sender.data);
   const maxScore = calculateMaxScore(sender.getAllQuestions());
   
-  // Save the scores in survey results
+  // Calculate and set the scores in survey results
   sender.setValue("maxScore", maxScore);
   sender.setValue("totalScore", totalScore);
+
+  // Determine the score message based on performance
+  let scoreMessage = `You got ${totalScore} out of ${maxScore} points.</br></br>`;
+  if (totalScore / maxScore > 0.7) {
+    scoreMessage += "<strong>Congratulations! You did great and passed the quiz!</strong>";
+  } else if (totalScore / maxScore > 0.3) {
+    scoreMessage += "<strong>Well Done! You passed the quiz. Keep studying to improve!</strong>";
+  } else {
+    scoreMessage += "<i>In my experience</i>, as Obi-Wan Kenobi said, <i>womp womp</i>. You've got some concepts to review!";
+  }
+  sender.setValue("scoreMessage", scoreMessage);
+
+  // Calculate and set the detailed wrong answers feedback HTML
+  const feedbackHtml = getWrongAnswersHtml(sender);
+  sender.setValue("feedbackHtml", feedbackHtml);
 });
-survey.render(document.getElementById("surveyElement"));
+
+survey.onComplete.add((sender, options) => {
+    // You can keep the console log or remove it.
+    console.log(JSON.stringify(sender.data, null, 3));
+});
+
+// Assuming SurveyJS library is loaded in the environment
+// The original render call is uncommented to ensure the quiz displays.
+// survey.render(document.getElementById("surveyElement"));
