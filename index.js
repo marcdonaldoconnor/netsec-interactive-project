@@ -94,12 +94,6 @@ const json = {
     }]
   },
   
-  
-  
-  // --- New Pages with 20 Cybersecurity Questions ---
-
-  
-  
   {
     // Question 7: Multi-factor authentication
     "elements": [{
