@@ -1,7 +1,7 @@
 {
     "no 1":{
         "sender": "noreply@email.com",
-        "content": "some content is in here",
+        "content": "\\!some content \\!is in here",
         "subject": "asfsafasf"
     }
 }

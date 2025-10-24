@@ -29,11 +29,13 @@ function wrapWordsInSpans(text, prefix, separator = " ") {//the three prefixes a
     const spans = words.map((wordI, index) => {
         let risk = "";
         let word = wordI
-        if (word.startsWith("\!")){
+        console.log(word)
+        if (word.startsWith("\\!")){
+            console.log("hausfb")
             risk = "redFlag";
             word = word.slice(2);
         }
-        if (word.startsWith("\?")){
+        if (word.startsWith("\\?")){
             risk = "yellowFlag";//yellow flag will overide redflag. just incase to avoid problems
             word = word.slice(2);
         }
@@ -80,6 +82,7 @@ function verify() {//this hole functin was written by grok
             if(!sel){
                 missed.push(span);
     }}});
+    console.log(correct + missed + wrong);
 
     correct.forEach(span => {
         span.classList.remove("selected");
