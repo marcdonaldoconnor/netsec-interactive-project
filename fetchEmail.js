@@ -86,14 +86,14 @@ function verify() {//this hole functin was written by grok
 
     correct.forEach(span => {
         span.classList.remove("selected");
-        span.classList.toggle("correct");
+        span.classList.add("correct");
     });
     wrong.forEach(span => {
         span.classList.remove("selected");
-        span.classList.toggle("wrong");
+        span.classList.add("wrong");
     });
     missed.forEach(span => {
-        span.classList.toggle("missed");
+        span.classList.add("missed");
     });
 
 }

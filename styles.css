@@ -28,3 +28,15 @@
     font-size: 14px;
     color: grey;
 }
+
+.correct{
+    background-color: green;
+}
+.wrong{
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    text-decoration-color: red;
+}
+.missed{
+    background-color: lightcoral;
+}
