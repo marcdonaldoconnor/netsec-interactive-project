@@ -7,7 +7,7 @@ Survey.Serializer.addProperty("question", {
 });
 
 const json = {
-  "title": "Cyber security quiz",
+  "title": "Module 1: Cybersecurity Basics Quiz",
   "showProgressBar": true,
   "showTimer": true,
   "timeLimitPerPage": 30,
@@ -20,7 +20,7 @@ const json = {
     "elements": [{
       "type": "html",
       "name": "welcomeMsg",
-      "html": "<b>Take this quiz to find out how well you know cybersecurity.</b></br></br><i>Don't get hacked.</i></br><img src='https://www.shutterstock.com/image-photo/hacker-spy-man-one-person-260nw-2233718123.jpg' alt='image that might load when a man threatens your computer' width='100%' height='auto'></img>\n"
+      "html": "<b>Take this quiz to find out how well you know cybersecurity.</b></br></br><i>Don't get hacked.</i></br><img src='https://www.shutterstock.com/image-photo/hacker-spy-man-one-person-260nw-2233718123.jpg' alt='Image of a man in  hoodie pointing a gun at a computer' width='100%' height='auto'></img>\n"
     }]
   }, {
     "elements": [{
@@ -54,7 +54,7 @@ const json = {
   }, {
     "elements": [{
       "type": "rating",
-      "name": "How many kinds of hackers are there?",
+      "name": "How many kinds of hackers are there? (Hint: think about the colours they could have.) ",
       "score": 3,
       "title": "How many kinds of hackers are there?",
       "correctAnswer": 3,
@@ -232,7 +232,7 @@ const json = {
         "text": "A type of attack that only affects new computers."
       }, {
         "value": "C",
-        "text": "A vulnerability that is exploited before the developer has a chance to fix it."
+        "text": "A vulnerability that is unknown to the developers of the software."
       }],
       "feedback": "A Zero-Day is a previously unknown software vulnerability that hackers can exploit before the software vendor becomes aware of it and develops a patch."
     }]
@@ -657,3 +657,4 @@ survey.onComplete.add((sender, options) => {
 // THIS LINE IS CRITICAL FOR RENDERING:
 // It tells SurveyJS to render the quiz inside the HTML element with the ID 'surveyElement'.
 survey.render(document.getElementById("surveyElement"));
+
