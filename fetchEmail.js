@@ -96,4 +96,12 @@ function verify() {//this hole functin was written by grok
         span.classList.add("missed");
     });
 
+    const numCorrect = getElementById("correctNumber");
+    const numWrong = getElementById("wrongNumber");
+    const numMissed = getElementById("missedNumber");
+
+    numCorrect.textContent = correct.length;
+    numWrong.textContent = wrong.length;
+    numMissed.textContent = missed.length;
+
 }
