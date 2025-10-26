@@ -53,6 +53,13 @@ async function buttonPress(){
         let subject = wrapWordsInSpans(result["subject"],"emailSubject");
         let content = wrapWordsInSpans(result["content"],"emailContent");
         document.getElementById('emailContentBox').innerHTML = [sender,subject,content].join("<br>");
+        document.getElementById("explanation").textContent = result["explanation"]; 
+
+        document.getElementById("nextQuestionButton").style.display = 'none';
+        document.getElementById("explanation").style.display = 'none';
+        document.getElementById("correctNumber").style.display = 'none';
+        document.getElementById("wrongNumber").style.display = 'none';
+        document.getElementById("missedNumber").style.display = 'none';
     }
     )
 }
@@ -104,4 +111,10 @@ function verify() {//this hole functin was written by grok
     numWrong.textContent = "wrong: "+wrong.length;
     numMissed.textContent = "missed: "+missed.length;
 
+    numCorrect.style.display = 'block';
+    numWrong.style.display = 'block';
+    numMissed.style.display = 'block';
+
+    document.getElementById("nextQuestionButton").style.display = 'block';
+    document.getElementById("explanation").style.display = 'block';
 }
