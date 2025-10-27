@@ -47,7 +47,11 @@ function wrapWordsInSpans(text, prefix, separator = " ") {//the three prefixes a
 }
 
 async function buttonPress(){
-    getEmailData("no 1").then(result =>
+    load("no 1");
+}
+
+async function load(emailName = ""){
+    getEmailData(emailName).then(result =>
     {
         let sender = wrapWordsInSpans(result["sender"],"emailSender", "@");
         let subject = wrapWordsInSpans(result["subject"],"emailSubject");
@@ -92,11 +96,11 @@ function verify() {//this hole functin was written by grok
     console.log(correct + missed + wrong);
 
     correct.forEach(span => {
-        span.classList.remove("selected");
+        span.classList.remove("wordSelected");
         span.classList.add("correct");
     });
     wrong.forEach(span => {
-        span.classList.remove("selected");
+        span.classList.remove("wordSelected");
         span.classList.add("wrong");
     });
     missed.forEach(span => {
