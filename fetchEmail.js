@@ -122,3 +122,23 @@ function verify() {//this hole functin was written by grok
     document.getElementById("nextQuestionButton").style.display = 'block';
     document.getElementById("explanation").style.display = 'block';
 }
+
+async function loadLevelSelect(filename="emailQuiz.json"){
+    const filename = "emailQuiz.json"
+    let data = fetch(filename)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('File not found or inaccessible.');
+            }
+            return response.json();
+        })
+    .catch(error => {
+        console.log(error);
+    });
+    let iner =[];
+    data.keys.forEach(name => {
+        iner.push(`<div class ="questionSelectButton" onclick="load(${name})">${name}</div>`);
+    });
+    document.getElementById("levelSelectPanel").innerHTML = iner.join('');
+
+}

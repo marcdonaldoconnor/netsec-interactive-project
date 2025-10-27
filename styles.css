@@ -40,3 +40,9 @@
 .missed{
     background-color: lightcoral;
 }
+
+.questionSelectButton{
+    border: solid 1px black;
+    width: 80%;
+    padding: 2px;
+}
