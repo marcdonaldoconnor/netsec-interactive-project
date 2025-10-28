@@ -29,9 +29,7 @@ function wrapWordsInSpans(text, prefix, separator = " ") {//the three prefixes a
     const spans = words.map((wordI, index) => {
         let risk = "";
         let word = wordI
-        console.log(word)
         if (word.startsWith("\\!")){
-            console.log("hausfb")
             risk = "redFlag";
             word = word.slice(2);
         }
@@ -93,7 +91,6 @@ function verify() {//this hole functin was written by grok
             if(!sel){
                 missed.push(span);
     }}});
-    console.log(correct + missed + wrong);
 
     correct.forEach(span => {
         span.classList.remove("wordSelected");
@@ -124,21 +121,20 @@ function verify() {//this hole functin was written by grok
 }
 
 async function loadLevelSelect(filename="emailQuiz.json"){
-    const filename = "emailQuiz.json"
     let data = fetch(filename)
         .then(response => {
             if (!response.ok) {
                 throw new Error('File not found or inaccessible.');
             }
             return response.json();
+        }).then(response => {
+            let iner =[];
+            Object.keys(response).forEach(name => {
+                iner.push(`<button class ="questionSelectButton" onclick="load(${name})">${name}</button>`);
+            });
+            document.getElementById("levelSelectPanel").innerHTML = iner.join('');
         })
     .catch(error => {
         console.log(error);
     });
-    let iner =[];
-    data.keys.forEach(name => {
-        iner.push(`<div class ="questionSelectButton" onclick="load(${name})">${name}</div>`);
-    });
-    document.getElementById("levelSelectPanel").innerHTML = iner.join('');
-
 }
