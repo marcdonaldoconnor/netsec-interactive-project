@@ -46,3 +46,11 @@
     width: 80%;
     padding: 2px;
 }
+#levelSelectPanel{
+    width: 100px; 
+    overflow: hidden;
+}
+#playArea{
+    border: solid 1px grey;
+    flex: 1;
+}
