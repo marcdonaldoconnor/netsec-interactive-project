@@ -130,7 +130,7 @@ async function loadLevelSelect(filename="emailQuiz.json"){
         }).then(response => {
             let iner =[];
             Object.keys(response).forEach(name => {
-                iner.push(`<button class ="questionSelectButton" onclick="load(${name})">${name}</button>`);
+                iner.push(`<button class ="questionSelectButton" onclick="load('${name}')">'${name}'</button>`);
             });
             document.getElementById("levelSelectPanel").innerHTML = iner.join('');
         })
