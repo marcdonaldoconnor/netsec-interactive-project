@@ -82,20 +82,32 @@
     outline: none;
 }
 
-button {/*grok AI made the next three styles*/
-  padding: 12px 24px;
-  font-size: 16px;
-  font-weight: 500;
-  color: white;
-  background-color: #007bff;
-  border: none;
-  border-radius: 8px;
+
+.btn {/*grok AI made the next three styles*/
+  /* Reset to browser default button appearance */
+  appearance: button;
+  -webkit-appearance: button;
+  -moz-appearance: button;
+
+  /* Inherit default font and color */
+  font: inherit;
+  color: inherit;
+
+  /* Default button layout */
+  display: inline-block;
+  padding: 6px 12px;
+  margin: 0;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
   cursor: pointer;
-  transition: background-color 0.2s;
-}
-button:hover {
-  background-color: #0056b3;
-}
-button:active {
-  transform: translateY(1px);
+  background-image: none;
+  border: 1px solid;
+  border-color: inherit;
+  border-radius: 4px;
+  user-select: none;
+
+  /* Optional: match default focus outline */
+  outline: none;
 }
