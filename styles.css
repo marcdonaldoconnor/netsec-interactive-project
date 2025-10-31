@@ -83,3 +83,6 @@
   /* Optional: match default focus outline */
   outline: none;
 }
+.selectedQuestion{
+    background-color: darkblue;
+}
