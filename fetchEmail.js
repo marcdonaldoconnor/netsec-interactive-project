@@ -66,7 +66,7 @@ async function load(emailName = ""){
     )
 }
 
-function verify() {//this hole functin was written by grok
+function verify() {
     // Get all spans with class "span"
     let spans = document.querySelectorAll('.span');
     
