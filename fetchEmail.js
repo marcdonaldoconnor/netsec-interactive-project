@@ -122,6 +122,14 @@ function verify() {
     document.getElementById("explanation").style.display = 'block';
 }
 
+let listOfCompleted = {
+    "emailName":{
+        "correct": 2,
+        "wrong": 2,
+        "missed":2
+    }
+}
+
 async function loadLevelSelect(selected = null, filename="emailQuiz.json"){
     let data = fetch(filename)
         .then(response => {
@@ -134,7 +142,10 @@ async function loadLevelSelect(selected = null, filename="emailQuiz.json"){
             Object.keys(response).forEach(name => {
                 if(selected ==name){
                     iner.push(`<button id="sel-'${name}'" class ="questionSelectButton selectedQuestion" onclick="load('${name}')">'${name}'</button>`);
-                }else{
+                }else if(selected in listOfCompleted){
+                    iner.push(`<button id="sel-'${name}'" class ="questionSelectButton completedQuestion" onclick="load('${name}')">'${name}'</button>`);
+                }
+                else{
                     iner.push(`<button id="sel-'${name}'" class ="questionSelectButton" onclick="load('${name}')">'${name}'</button>`);
                 }
                 });

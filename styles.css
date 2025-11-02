@@ -86,3 +86,6 @@
 .selectedQuestion{
     background-color: darkblue;
 }
+.completedQuestion{
+    background-color: green;
+}
