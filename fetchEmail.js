@@ -44,10 +44,11 @@ function wrapWordsInSpans(text, prefix, separator = " ") {//the three prefixes a
     return spans.join(`<span class="separator ${prefix}">${separator}</span>`);
 }
 
-
+let current_email = "";
 async function load(emailName = ""){
     getEmailData(emailName).then(result =>
     {
+        current_email = emailName;
         let sender = wrapWordsInSpans(result["sender"],"emailSender", "@");
         let subject = wrapWordsInSpans(result["subject"],"emailSubject");
         let content = wrapWordsInSpans(result["content"],"emailContent");
