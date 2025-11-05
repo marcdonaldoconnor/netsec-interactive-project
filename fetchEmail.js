@@ -62,7 +62,7 @@ async function load(emailName = ""){
         document.getElementById("missedNumber").style.display = 'none';
     }
     ).then(function(){//this is to change style of button pressed
-        loadLevelSelect(emailName)
+        loadLevelSelect();
     })
 }
 
@@ -128,7 +128,7 @@ let listOfCompleted = {
     }
 }
 
-async function loadLevelSelect(selected = null, filename="emailQuiz.json"){
+async function loadLevelSelect(filename="emailQuiz.json"){
     let data = fetch(filename)
         .then(response => {
             if (!response.ok) {
@@ -138,9 +138,9 @@ async function loadLevelSelect(selected = null, filename="emailQuiz.json"){
         }).then(response => {
             let iner =[];
             Object.keys(response).forEach(name => {
-                if(selected ==name){
+                if(current_email ==name){
                     iner.push(`<button id="sel-'${name}'" class ="questionSelectButton selectedQuestion" onclick="load('${name}')">'${name}'</button>`);
-                }else if(selected in listOfCompleted){
+                }else if(name in listOfCompleted){
                     iner.push(`<button id="sel-'${name}'" class ="questionSelectButton completedQuestion" onclick="load('${name}')">'${name}'</button>`);
                 }
                 else{
