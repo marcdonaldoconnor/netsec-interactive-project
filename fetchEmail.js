@@ -159,6 +159,7 @@ async function loadLevelSelect(filename="emailQuiz.json"){
                     document.getElementById("nextQuestionButton").onclick = function(){
                         load(name)
                     }
+                    nextIt = false;
                 }
             });
                 
