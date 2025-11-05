@@ -1,3 +1,5 @@
+import { saveDict, loadDict, updateDict } from './loadDict.js';
+
 async function getEmailData(email_name){
     const filename = "emailQuiz.json"
     let data = fetch(filename)
@@ -194,5 +196,5 @@ async function locateSelectButtons(filename="emailQuiz.json"){
 }
 
 function getSummery(){
-    
+
 }
