@@ -145,6 +145,12 @@ async function loadLevelSelect(filename="emailQuiz.json"){
             let iner =[];
             let nextIt = false;
             Object.keys(response).forEach(name => {
+                if(nextIt){//to change the next level button.
+                    document.getElementById("nextQuestionButton").onclick = function(){
+                        load(name)
+                    }
+                    nextIt = false;
+                }
                 if(current_email ==name){
                     iner.push(`<button id="sel-'${name}'" class ="questionSelectButton selectedQuestion" onclick="load('${name}')">'${name}'</button>`);
                     nextIt = true;
@@ -155,12 +161,7 @@ async function loadLevelSelect(filename="emailQuiz.json"){
                     iner.push(`<button id="sel-'${name}'" class ="questionSelectButton" onclick="load('${name}')">'${name}'</button>`);
                 }
 
-                if(nextIt){//to change the next level button.
-                    document.getElementById("nextQuestionButton").onclick = function(){
-                        load(name)
-                    }
-                    nextIt = false;
-                }
+                
             });
                 
             document.getElementById("levelSelectPanel").innerHTML = iner.join('');
