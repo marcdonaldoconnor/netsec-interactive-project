@@ -193,4 +193,6 @@ async function locateSelectButtons(filename="emailQuiz.json"){
     });
 }
 
-nextQuestion()
+function getSummery(){
+    
+}
