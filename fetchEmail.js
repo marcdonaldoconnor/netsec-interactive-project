@@ -44,9 +44,6 @@ function wrapWordsInSpans(text, prefix, separator = " ") {//the three prefixes a
     return spans.join(`<span class="separator ${prefix}">${separator}</span>`);
 }
 
-async function buttonPress(){
-    load("no 1");
-}
 
 async function load(emailName = ""){
     getEmailData(emailName).then(result =>
