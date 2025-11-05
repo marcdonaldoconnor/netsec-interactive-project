@@ -108,6 +108,12 @@ function verify() {
     const numWrong = document.getElementById("wrongNumber");
     const numMissed = document.getElementById("missedNumber");
 
+    listOfCompleted[current_email] = {
+        "correct": correct.length,
+        "wrong": wrong.length,
+        "missed":missed.length
+    }
+
     numCorrect.textContent = "correct: "+correct.length;
     numWrong.textContent = "wrong: "+wrong.length;
     numMissed.textContent = "missed: "+missed.length;
@@ -137,16 +143,25 @@ async function loadLevelSelect(filename="emailQuiz.json"){
             return response.json();
         }).then(response => {
             let iner =[];
+            let nextIt = false;
             Object.keys(response).forEach(name => {
                 if(current_email ==name){
                     iner.push(`<button id="sel-'${name}'" class ="questionSelectButton selectedQuestion" onclick="load('${name}')">'${name}'</button>`);
+                    nextIt = true;
                 }else if(name in listOfCompleted){
                     iner.push(`<button id="sel-'${name}'" class ="questionSelectButton completedQuestion" onclick="load('${name}')">'${name}'</button>`);
                 }
                 else{
                     iner.push(`<button id="sel-'${name}'" class ="questionSelectButton" onclick="load('${name}')">'${name}'</button>`);
                 }
-                });
+
+                if(nextIt){//to change the next level button.
+                    document.getElementById("nextQuestionButton").onclick = function(){
+                        load(name)
+                    }
+                }
+            });
+                
             document.getElementById("levelSelectPanel").innerHTML = iner.join('');
         })
     .catch(error => {
