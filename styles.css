@@ -84,8 +84,8 @@
   outline: none;
 }
 .selectedQuestion{
-    border: solid 4px darkblue;
+    border: solid 4px lightblue;
 }
 .completedQuestion{
-    background-color: green;
+    background-color: rgb(73, 214, 73);
 }
