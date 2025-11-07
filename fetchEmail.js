@@ -132,7 +132,6 @@ function verify() {
 }
 
 let listOfCompleted = {
-    
 }
 
 async function loadLevelSelect(filename="emailQuiz.json"){
@@ -223,7 +222,8 @@ async function attemptFinsish(){
         alert("You must complete all modules");
         load(unfinishedList[0]);
     } else {
-        saveDict("email", listOfCompleted);
+        saveDict("stats", listOfCompleted);
+        window.open("/summery.html", "_blank");
     }
 }
 
