@@ -157,16 +157,14 @@ async function loadLevelSelect(filename="emailQuiz.json"){
                     nextIt = false;
                 }
                 if(current_email ==name){
-                    iner.push(`<button id="sel-${name}" class ="questionSelectButton selectedQuestion" onclick="load('${name}')">'${name}'</button>`);
+                    iner.push(`<button id="sel-${name}" disabled class ="questionSelectButton selectedQuestion" onclick="load('${name}')">'${name}'</button>`);
                     nextIt = true;
                 }else if(name in listOfCompleted){
-                    iner.push(`<button id="sel-${name}" class ="questionSelectButton completedQuestion" onclick="load('${name}')">'${name}'</button>`);
+                    iner.push(`<button id="sel-${name}" disabled class ="questionSelectButton completedQuestion" onclick="load('${name}')">'${name}'</button>`);
                 }
                 else{
                     iner.push(`<button id="sel-${name}" class ="questionSelectButton" onclick="load('${name}')">'${name}'</button>`);
                 }
-
-                
             });
                 
             document.getElementById("levelSelectPanel").innerHTML = iner.join('');
