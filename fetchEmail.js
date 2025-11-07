@@ -195,7 +195,30 @@ async function locateSelectButtons(filename="emailQuiz.json"){
         console.log(error);
     });
 }
-
-function getSummery(){
-    
+let unFinished = [];
+async function checkIfDone(filename="emailQuiz.json"){
+    return fetch(filename)
+    .then(response => {
+        if (!response.ok) {
+            console.log('File not found or inaccessible.');
+            throw new Error('File not found or inaccessible.');
+        }
+        return response.json();
+    }).then(response => {
+        unFinished = []
+        for (const key in response) {
+            if (!(key in listOfCompleted)) {
+                unFinished.push(key);
+            }
+        }
+        return unFinished;
+    })
 }
+
+function attemptFinsish(){
+    if(saveDict().length >0){
+        alert("you must complete all modules")
+        load(unFinished[0])
+    }
+}
+
