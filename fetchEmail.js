@@ -1,4 +1,5 @@
-import { saveDict, loadDict, updateDict } from './loadDict.js';
+// loadDict.js must be loaded first so these exist
+// <script src="loadDict.js"></script> is already above us in HTML
 
 async function getEmailData(email_name){
     const filename = "emailQuiz.json"
@@ -196,5 +197,5 @@ async function locateSelectButtons(filename="emailQuiz.json"){
 }
 
 function getSummery(){
-
+    
 }
