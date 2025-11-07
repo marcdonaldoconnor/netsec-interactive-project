@@ -132,11 +132,7 @@ function verify() {
 }
 
 let listOfCompleted = {
-    "emailName":{
-        "correct": 2,
-        "wrong": 2,
-        "missed":2
-    }
+    
 }
 
 async function loadLevelSelect(filename="emailQuiz.json"){
@@ -166,6 +162,11 @@ async function loadLevelSelect(filename="emailQuiz.json"){
                     iner.push(`<button id="sel-${name}" class ="questionSelectButton" onclick="load('${name}')">'${name}'</button>`);
                 }
             });
+            if(nextIt){//this is for if the last question was the selected one
+                document.getElementById("nextQuestionButton").onclick = function(){
+                        attemptFinsish();
+                    }
+            }
                 
             document.getElementById("levelSelectPanel").innerHTML = iner.join('');
         })
@@ -215,10 +216,15 @@ async function checkIfDone(filename="emailQuiz.json"){
     })
 }
 
-function attemptFinsish(){
-    if(saveDict().length >0){
-        alert("you must complete all modules")
-        load(unFinished[0])
+async function attemptFinsish(){
+    const unfinishedList = await checkIfDone();
+
+    if (unfinishedList.length > 0) {
+        alert("You must complete all modules");
+        load(unfinishedList[0]);
+    } else {
+        saveDict("email", listOfCompleted);
     }
 }
+
 
