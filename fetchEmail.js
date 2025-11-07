@@ -127,6 +127,8 @@ function verify() {
 
     document.getElementById("nextQuestionButton").style.display = 'block';
     document.getElementById("explanation").style.display = 'block';
+    document.getElementById(`sel-'${current_email}`).classList.add("completedQuestion");
+
 }
 
 let listOfCompleted = {
