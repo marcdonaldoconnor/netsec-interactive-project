@@ -1,5 +1,5 @@
 // localDict.js
-export function saveDict(key, dict) {
+function saveDict(key, dict) {
   if (typeof key !== 'string' || key === '') {
     console.error('[saveDict] key must be a non-empty string');
     return;
@@ -11,7 +11,7 @@ export function saveDict(key, dict) {
   }
 }
 
-export function loadDict(key, defaultDict = {}) {
+function loadDict(key, defaultDict = {}) {
   if (typeof key !== 'string' || key === '') {
     console.error('[loadDict] key must be a non-empty string');
     return defaultDict;
@@ -25,7 +25,7 @@ export function loadDict(key, defaultDict = {}) {
   }
 }
 
-export function updateDict(key, updates) {
+function updateDict(key, updates) {
   if (typeof key !== 'string' || key === '') {
     console.error('[updateDict] key must be a non-empty string');
     return {};
