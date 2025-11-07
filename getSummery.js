@@ -7,7 +7,7 @@ async function loadSummery(){
     // Create header
     const thead = document.createElement("thead");
     const headerRow = document.createElement("tr");
-    ["Name", "Age", "City"].forEach(headerText => {
+    ["quesiton", "correct", "wrong", "missed"].forEach(headerText => {
         const th = document.createElement("th");
         th.textContent = headerText;
         headerRow.appendChild(th);
@@ -21,7 +21,7 @@ async function loadSummery(){
         const keyCell = document.createElement("td");
         keyCell.textContent = key;
         row.appendChild(keyCell);
-        Object.entries(values).forEach(value =>{
+        Object.entries(values).forEach(([key,value]) =>{
             const cell = document.createElement("td");
             cell.textContent = value;
             row.appendChild(cell);
