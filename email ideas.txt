@@ -1,0 +1,19 @@
+Bank Alert: “Your account has been compromised. Click here to verify your identity.”
+
+Account Update: “Your account needs updating. Log in immediately to avoid suspension.”
+
+Payment Confirmation: “Thank you for your payment. Please review the transaction details here.”
+
+Password Reset: “You requested a password reset. Click here to change your password.”
+
+Unusual Activity: “We detected unusual activity in your account. Verify your information now.”
+
+Invoice Attached: “Please find the attached invoice for your recent purchase.”
+
+Lottery Winner: “Congratulations! You have won a lottery. Claim your prize here.”
+
+Tax Refund: “You are eligible for a tax refund. Submit your information to process the refund.”
+
+Job Offer: “We have reviewed your application. Click here to complete your employment form.”
+
+Social Media Alert: “Your account is at risk. Secure your account by logging in here.”
