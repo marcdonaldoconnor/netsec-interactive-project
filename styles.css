@@ -22,7 +22,7 @@ footer {
 
 #emailContentBox {
     border: solid 2px black;
-    width: 80%;
+    width: 90%;
     padding: 2px;
 }
 #sideBar {
@@ -38,7 +38,9 @@ footer {
 }
 #playArea{
     border: solid 1px grey;
-    float: left;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .span:hover{
