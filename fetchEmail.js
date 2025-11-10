@@ -227,4 +227,6 @@ async function attemptFinsish(){
     }
 }
 
-
+document.addEventListener("DOMContentLoaded", function() {
+    loadLevelSelect();
+});
