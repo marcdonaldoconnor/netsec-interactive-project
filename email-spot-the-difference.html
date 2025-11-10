@@ -10,24 +10,22 @@
                 <div id="levelSelectPanel">
                 </div>
             </div>
-            <div style="width:100%; float: up;">
-                <div id="playArea">
-                    <div id="emailContentBox"></div>
-                    <div id ="playerFooter">
-                        <button id = "verifyButton" onclick = "verify()">verify</button>
-                        <p id="correctNumber" style="display: none;">correct: </p>
-                        <p id="wrongNumber" style="display: none;">wrong: </p>
-                        <p id="missedNumber" style="display: none;">missed: </p>
-                        <p id ="explanation" style="display: none;">explanation</p>
-                        <button id = "nextQuestionButton" style="display: none;">next question</button>
-                    </div>
+            <div id="playArea">
+                <div id="emailContentBox"></div>
+                <div id ="playerFooter">
+                    <button id = "verifyButton" onclick = "verify()">verify</button>
+                    <p id="correctNumber" style="display: none;">correct: </p>
+                    <p id="wrongNumber" style="display: none;">wrong: </p>
+                    <p id="missedNumber" style="display: none;">missed: </p>
+                    <p id ="explanation" style="display: none;">explanation</p>
+                    <button id = "nextQuestionButton" style="display: none;">next question</button>
                 </div>
             </div>
         </div>
-    </body>
-    <footer>
+        <footer>
         <P>some questions are generated partially or fully with grok AI prior to anotating</P>
-    </footer>
+        </footer>
+    </body>
     <script src="loadDict.js"></script>
     <script src="fetchEmail.js"></script>
 </html>

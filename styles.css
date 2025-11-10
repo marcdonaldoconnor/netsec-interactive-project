@@ -1,3 +1,25 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em;
+}
+
+#container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
 #emailContentBox {
     border: solid 2px black;
     width: 80%;
@@ -7,7 +29,10 @@
     border: 2px solid black;
     float: left;
 }
-
+#playArea{
+    border: solid 1px grey;
+    float: left;
+}
 
 .span:hover{
     color: blue;
@@ -50,9 +75,7 @@
     width: 100px; 
     overflow: hidden;
 }
-#playArea{
-    border: solid 1px grey;
-}
+
 
 .questionSelectButton {/*grok AI made the next three styles*/
   /* Reset to browser default button appearance */
