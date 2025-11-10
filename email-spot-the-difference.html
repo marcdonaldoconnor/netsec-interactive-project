@@ -4,28 +4,26 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <table>
-            <tr>
-                <td>
-                    <button onclick="loadLevelSelect()"><b>start!</b></button>
-                    <div id="levelSelectPanel">
+        <div id="container">
+            <div id="sideBar">
+                <button onclick="loadLevelSelect()"><b>start!</b></button>
+                <div id="levelSelectPanel">
+                </div>
+            </div>
+            <div style="width:100%; float: up;">
+                <div id="playArea">
+                    <div id="emailContentBox"></div>
+                    <div id ="playerFooter">
+                        <button id = "verifyButton" onclick = "verify()">verify</button>
+                        <p id="correctNumber" style="display: none;">correct: </p>
+                        <p id="wrongNumber" style="display: none;">wrong: </p>
+                        <p id="missedNumber" style="display: none;">missed: </p>
+                        <p id ="explanation" style="display: none;">explanation</p>
+                        <button id = "nextQuestionButton" style="display: none;">next question</button>
                     </div>
-                </td>
-                <td style="width:100%; float: up;">
-                    <div id="playArea">
-                        <div id="emailContentBox"></div>
-                        <div id ="playerFooter">
-                            <button id = "verifyButton" onclick = "verify()">verify</button>
-                            <p id="correctNumber" style="display: none;">correct: </p>
-                            <p id="wrongNumber" style="display: none;">wrong: </p>
-                            <p id="missedNumber" style="display: none;">missed: </p>
-                            <p id ="explanation" style="display: none;">explanation</p>
-                            <button id = "nextQuestionButton" style="display: none;">next question</button>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-        </table>
+                </div>
+            </div>
+        </div>
     </body>
     <footer>
         <P>some questions are generated partially or fully with grok AI prior to anotating</P>

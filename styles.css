@@ -3,6 +3,10 @@
     width: 80%;
     padding: 2px;
 }
+#sideBar {
+    border: 2px solid black;
+    float: left;
+}
 
 
 .span:hover{
@@ -48,7 +52,6 @@
 }
 #playArea{
     border: solid 1px grey;
-    flex: 1;
 }
 
 .questionSelectButton {/*grok AI made the next three styles*/
