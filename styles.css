@@ -28,6 +28,11 @@ footer {
 #sideBar {
     border: 2px solid black;
     float: left;
+    width: 100px;
+
+    display: flex;
+    flex-direction: column;
+
 }
 #playArea{
     border: solid 1px grey;
@@ -74,6 +79,12 @@ footer {
 #levelSelectPanel{
     width: 100px; 
     overflow: hidden;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    gap: 8px;
 }
 
 
@@ -89,7 +100,7 @@ footer {
 
   /* Default button layout */
   display: inline-block;
-  padding: 6px 12px;
+  padding: 6px 6px;
   margin: 0;
   text-align: center;
   text-decoration: none;
@@ -104,6 +115,8 @@ footer {
 
   /* Optional: match default focus outline */
   outline: none;
+
+  width:90%;
 }
 .selectedQuestion{
     border: solid 4px lightblue;
