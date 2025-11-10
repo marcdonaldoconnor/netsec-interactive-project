@@ -22,8 +22,8 @@ footer {
 
 #emailContentBox {
     border: solid 2px black;
-    width: 90%;
     padding: 2px;
+    align-self: stretch;
 }
 #sideBar {
     border: 2px solid black;
@@ -41,6 +41,8 @@ footer {
 
     display: flex;
     flex-direction: column;
+    align-items: stretch;
+
 }
 
 .span:hover{
