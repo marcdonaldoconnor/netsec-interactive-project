@@ -1,5 +1,11 @@
 
 {
+    "tutorial":{
+        "sender": "tutorial@email_Safety.com",
+        "content": "in this game, you will have to select which words are red flags in a series of spam emails.\nclick on words thast are suspecisous like \\!THIS! make sure it is highlighted.\n there are also yellow flags like \\?THIS!. it might look suspecious, so feel free to select it. but its fine if you miss it.\nthen just press 'verify' when your done. remember that there can be red flags in the senders address and the subject aswell.",
+        "subject": "The tutorial",
+        "explanation": "awsome. once you have veryfied your answer, you can press 'continue' to go to the first question"
+    },
     "no 1": {
         "sender": "noreply@\\?paypa1.com",
         "content": "Dear user, your account requires immediate verification to avoid suspension. Click the link below to secure your account now:\nhttps:// \\?paypa1-login.com/verify\n \\!Urgent action required within 24 hours or funds will be frozen.",
