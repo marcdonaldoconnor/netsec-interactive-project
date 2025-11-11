@@ -232,7 +232,7 @@ async function attemptFinsish(){
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    loadLevelSelect();
+    load("tutorial");
 });
 
 function broken(){
