@@ -11,10 +11,14 @@ async function getEmailData(email_name){
             return response.json();
         })
         .then(data => {
+        if (!(email_name in data)){
+            throw new Error('Email not found');
+        }
         return data[email_name];
     })
     .catch(error => {
         console.log(error);
+        broken();
     });
     return data
 }
@@ -230,3 +234,7 @@ async function attemptFinsish(){
 document.addEventListener("DOMContentLoaded", function() {
     loadLevelSelect();
 });
+
+function broken(){
+    alert("sorry, someting went wrong")
+}
