@@ -35,7 +35,7 @@ function updateDict(key, updates) {
     return loadDict(key);
   }
   const current = loadDict(key, {});
-  const merged = { ...current, ...updates };
+  const merged = {...updates, ...current};
   saveDict(key, merged);
   return merged;
 }

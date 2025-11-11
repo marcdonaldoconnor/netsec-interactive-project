@@ -121,6 +121,8 @@ function verify() {
         "missed":missed.length
     }
 
+    updateDict("stats", listOfCompleted);
+
     numCorrect.textContent = "correct: "+correct.length;
     numWrong.textContent = "wrong: "+wrong.length;
     numMissed.textContent = "missed: "+missed.length;
@@ -232,6 +234,7 @@ async function attemptFinsish(){
 }
 
 document.addEventListener("DOMContentLoaded", function() {
+    listOfCompleted = loadDict("stats")
     load("tutorial");
 });
 
