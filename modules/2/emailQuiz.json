@@ -2,15 +2,15 @@
 {
     "tutorial":{
         "sender": "tutorial@email_Safety.com",
-        "content": "in this game, you will have to select which words are red flags in a series of spam emails.\nclick on words thast are suspecisous like \\!THIS! make sure it is highlighted.\n there are also yellow flags like \\?THIS!. it might look suspecious, so feel free to select it. but its fine if you miss it.\nthen just press 'verify' when your done. remember that there can be red flags in the senders address and the subject aswell.",
+        "content": "In this game, you will have to select which words are red flags in a series of spam emails.\n Click on words thast are suspicious, like \\!THIS! \n there are also \"yellow flags\" like \\?THIS! It might look suspicious, so feel free to select it for extra points, but it's fine if you miss it. \n When you are satisfied with your choices, press \"Verify\". Remember that there can also be red flags in the sender's address and the email subject.",
         "subject": "The tutorial",
-        "explanation": "awsome. once you have veryfied your answer, you can press 'continue' to go to the first question"
+        "explanation": "Awesome! Normally there would be some feedback here, but there's nothing yet. Press \"continue\" to go to the first question."
     },
     "no 1": {
         "sender": "noreply@\\?paypa1.com",
-        "content": "Dear user, your account requires immediate verification to avoid suspension. Click the link below to secure your account now:\nhttps:// \\?paypa1-login.com/verify\n \\!Urgent action required within 24 hours or funds will be frozen.",
+        "content": "Dear user, your account requires immediate verification to avoid suspension. Click the link below to secure your account now:\nhttps://\\?paypa1-login.com/verify\n \\!Urgent action required within 24 hours or funds will be frozen.",
         "subject": "Security Alert: Verify Your \\?PayPa1 Account Now",
-        "explanation": "The domain uses 'paypa1' instead of 'paypal' (\\?), and the urgent threat of account suspension/fund freeze is a common phishing tactic (\\!)."
+        "explanation": "The domain uses 'paypa1' instead of 'paypal', and the urgent threat of account suspension/fund freeze is a common phishing tactic."
     },
     "no 2": {
         "sender": "\\!security@amazon.com",
