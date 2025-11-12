@@ -1,0 +1,30 @@
+<html lang = "EN">
+    <head>
+        <title>red flags</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div id="container">
+            <div id="sideBar">
+                <div id="levelSelectPanel">
+                </div>
+            </div>
+            <div id="playArea">
+                <div id="emailContentBox"></div>
+                <div id ="playerFooter">
+                    <button id = "verifyButton" onclick = "verify()">verify</button>
+                    <p id="correctNumber" style="display: none;">correct: </p>
+                    <p id="wrongNumber" style="display: none;">wrong: </p>
+                    <p id="missedNumber" style="display: none;">missed: </p>
+                    <p id ="explanation" style="display: none;">explanation</p>
+                    <button id = "nextQuestionButton" style="display: none;">next question</button>
+                </div>
+            </div>
+        </div>
+        <footer>
+        <P>some questions are generated partially or fully with grok AI prior to anotating</P>
+        </footer>
+    </body>
+    <script src="loadDict.js"></script>
+    <script src="fetchEmail.js"></script>
+</html>
