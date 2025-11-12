@@ -8,7 +8,7 @@
     },
     "no 1": {
         "sender": "noreply@\\?paypa1.com",
-        "content": "Dear user, your account requires immediate verification to avoid suspension. Click the link below to secure your account now:\nhttps://\\?paypa1-login.com/verify\n \\!Urgent action required within 24 hours or funds will be frozen.",
+        "content": "Dear user, your account requires immediate verification to avoid suspension. Click the link below to secure your account now:\nhttps:// \\?paypa1-login.com/verify\n \\!Urgent action required within 24 hours or funds will be frozen.",
         "subject": "Security Alert: Verify Your \\?PayPa1 Account Now",
         "explanation": "The domain uses 'paypa1' instead of 'paypal', and the urgent threat of account suspension/fund freeze is a common phishing tactic."
     },
