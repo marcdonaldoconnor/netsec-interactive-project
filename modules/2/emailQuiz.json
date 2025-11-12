@@ -13,10 +13,10 @@
         "explanation": "The domain uses 'paypa1' instead of 'paypal', and the urgent threat of account suspension/fund freeze is a common phishing tactic."
     },
     "no 2": {
-        "sender": "\\!security@amazon.com",
+        "sender": "\\?security@amazon.com",
         "content": "We detected unusual activity on your Amazon account. Please review the attached invoice and confirm payment details to prevent service interruption.\n Attachment: Invoice_ \\?0823.pdf.exe",
         "subject": "Action Required: Unusual Sign-in Attempt",
-        "explanation": "The sender appears legitimate but could be spoofed (check full headers in real scenarios); the attachment has a double extension hiding an executable (\\?), which is a major red flag (\\!)."
+        "explanation": "The sender appears legitimate, but keep in mind that automated emails normally come from noreply@ email addresses. The attachment has a double extension hiding an executable, which is a major red flag."
     },
     "no 3": {
         "sender": "support@\\?micros0ft-security.com",
