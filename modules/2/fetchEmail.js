@@ -229,7 +229,7 @@ async function attemptFinsish(){
         load(unfinishedList[0]);
     } else {
         saveDict("stats", listOfCompleted);
-        window.open("/summary.html", "_blank");
+        window.open("/netsec-interactive-project/modules/2/summary.html", "_blank");
     }
 }
 
