@@ -229,7 +229,7 @@ async function attemptFinsish(){
         load(unfinishedList[0]);
     } else {
         saveDict("stats", listOfCompleted);
-        window.open("/summery.html", "_blank");
+        window.open("/summary.html", "_blank");
     }
 }
 

@@ -1,4 +1,4 @@
-async function loadSummery(){
+async function loadSummary(){
     let stats = loadDict("stats");
 
     const table = document.createElement("table");
@@ -34,5 +34,5 @@ async function loadSummery(){
 
 document.addEventListener("DOMContentLoaded", function() {
     // Your function to create a table
-    loadSummery();
+    loadSummary();
 });
