@@ -7,7 +7,7 @@ async function loadSummary(){
     // Create header
     const thead = document.createElement("thead");
     const headerRow = document.createElement("tr");
-    ["quesiton", "correct", "wrong", "missed"].forEach(headerText => {
+    ["Question", "Correct", "Wrong", "Missed"].forEach(headerText => {
         const th = document.createElement("th");
         th.textContent = headerText;
         headerRow.appendChild(th);

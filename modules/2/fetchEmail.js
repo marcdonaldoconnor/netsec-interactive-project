@@ -169,7 +169,7 @@ async function loadLevelSelect(filename="emailQuiz.json"){
             });
             if(nextIt){//this is for if the last question was the selected one
                 document.getElementById("nextQuestionButton").onclick = function(){
-                        attemptFinsish();
+                        attemptFinish();
                     }
             }
                 
@@ -221,7 +221,7 @@ async function checkIfDone(filename="emailQuiz.json"){
     })
 }
 
-async function attemptFinsish(){
+async function attemptFinish(){
     const unfinishedList = await checkIfDone();
 
     if (unfinishedList.length > 0) {

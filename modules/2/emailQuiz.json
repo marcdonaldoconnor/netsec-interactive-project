@@ -2,39 +2,39 @@
 {
     "tutorial":{
         "sender": "tutorial@email_Safety.com",
-        "content": "in this game, you will have to select which words are red flags in a series of spam emails.\nclick on words thast are suspecisous like \\!THIS! make sure it is highlighted.\n there are also yellow flags like \\?THIS!. it might look suspecious, so feel free to select it. but its fine if you miss it.\nthen just press 'verify' when your done. remember that there can be red flags in the senders address and the subject aswell.",
+        "content": "In this game, you will have to select which words are red flags in a series of spam emails.\n Click on words thast are suspicious, like \\!THIS! \n there are also \"yellow flags\" like \\?THIS! It might look suspicious, so feel free to select it for extra points, but it's fine if you miss it. \n When you are satisfied with your choices, press \"Verify\". Remember that there can also be red flags in the sender's address and the email subject.",
         "subject": "The tutorial",
-        "explanation": "awsome. once you have veryfied your answer, you can press 'continue' to go to the first question"
+        "explanation": "Awesome! Normally there would be some feedback here, but there's nothing yet. Press \"continue\" to go to the first question."
     },
     "no 1": {
         "sender": "noreply@\\?paypa1.com",
         "content": "Dear user, your account requires immediate verification to avoid suspension. Click the link below to secure your account now:\nhttps:// \\?paypa1-login.com/verify\n \\!Urgent action required within 24 hours or funds will be frozen.",
         "subject": "Security Alert: Verify Your \\?PayPa1 Account Now",
-        "explanation": "The domain uses 'paypa1' instead of 'paypal' (\\?), and the urgent threat of account suspension/fund freeze is a common phishing tactic (\\!)."
+        "explanation": "The domain uses 'paypa1' instead of 'paypal', and the urgent threat of account suspension/fund freeze is a common phishing tactic."
     },
     "no 2": {
-        "sender": "\\!security@amazon.com",
+        "sender": "\\?security@amazon.com",
         "content": "We detected unusual activity on your Amazon account. Please review the attached invoice and confirm payment details to prevent service interruption.\n Attachment: Invoice_ \\?0823.pdf.exe",
         "subject": "Action Required: Unusual Sign-in Attempt",
-        "explanation": "The sender appears legitimate but could be spoofed (check full headers in real scenarios); the attachment has a double extension hiding an executable (\\?), which is a major red flag (\\!)."
+        "explanation": "The sender appears legitimate, but keep in mind that automated emails normally come from noreply@ email addresses. The attachment has a double extension hiding an executable, which is a major red flag."
     },
     "no 3": {
-        "sender": "support@\\?micros0ft-security.com",
-        "content": "Your Windows license will expire in 48 hours. Call our toll-free number \\?1-800-555-0199 to renew immediately and avoid system lockout.\n \\!Do not ignore this official Microsoft notification.",
+        "sender": "support@\\!micros0ft-security.com",
+        "content": "Your Windows license will expire in 48 hours. Call our toll-free number \\?1-800-555-0199 to renew immediately and avoid system lockout.\n Do not ignore this official Microsoft notification.",
         "subject": "Windows License Expiration Warning",
-        "explanation": "Domain uses 'micros0ft' with a zero instead of 'o' (\\?), and pressuring the user to call a phone number for 'renewal' is a tech support scam hallmark (\\!)."
+        "explanation": "Domain uses 'micros0ft' with a zero instead of 'o', and pressuring the user to call a phone number for 'renewal' is a tech support scam hallmark."
     },
     "no 4": {
-        "sender": "noreply@\\?bankofamerica-alerts.com",
-        "content": "A new device has logged into your Bank of America account from an unrecognized location. If this wasn't you, click here to secure your account:\nhttps:// \\?bofa-secure-login.com/reset\nTransaction ID: \\?BOA-7834921",
+        "sender": "noreply@\\!bankofamerica-alerts.com",
+        "content": "A new device has logged into your Bank of America account from an unrecognized location. If this wasn't you, click here to secure your account:\nhttps:// \\!bofa-secure-login.com/reset\nTransaction ID: \\?BOA-7834921",
         "subject": "Unauthorized Login Attempt Detected",
-        "explanation": "The domain is not the official bankofamerica.com (\\?), and fake transaction IDs are used to create legitimacy while pushing for credential entry (\\!)."
+        "explanation": "The domain is not the official bankofamerica.com, and fake transaction IDs are used to create legitimacy while pushing for credential entry."
     },
     "no 5": {
-        "sender": "hr@ \\?companyname.co",
-        "content": "Congratulations! You've been selected for the Senior Developer position. To proceed with onboarding, please provide your SSN, bank details, and a copy of your ID via the secure portal:\nhttps:// \\?companyname-hr.com/onboard\n \\!Offer expires in 48 hours.",
+        "sender": "hr@companyname.co",
+        "content": "Congratulations! You've been selected for the Senior Developer position. To proceed with onboarding, please provide your \\!SSN, \\!bank details, and a copy of your \\!ID via the secure portal:\nhttps://companyname-hr.com/onboard\n Offer \\?expires in 48 hours.",
         "subject": "Job Offer - Immediate Action Required",
-        "explanation": "Asking for SSN and bank details before any interview or official paperwork is a job scam red flag (\\!), and the domain is slightly off from the real company (\\?)."
+        "explanation": "Asking for SSN and bank details before any interview or official paperwork is a major red flag."
     },
     "no 6": {
         "sender": "no-reply@accounts.google.com",
@@ -49,16 +49,16 @@
         "explanation": "Official GitHub domain, provides a time-limited code without asking for additional info, and warns against sharing."
     },
     "no 8": {
-        "sender": "lottery@\\?euromillions-claims.net",
-        "content": "WINNER! Ticket \\?#EM-7741 has won €950,000 in the EuroMillions draw. To claim your prize, pay a processing fee of €499 via Bitcoin to the wallet below:\n \\!bc1qxy2kgdygjrsqtzq2ntkt9n3z0k8qr7jemh... (truncated)\n \\!You must pay within 72 hours or forfeit the prize.",
+        "sender": "lottery@\\!euromillions-claims.net",
+        "content": "WINNER! Ticket \\?#EM-7741 has won €950,000 in the EuroMillions draw. To claim your prize, pay a processing fee of €499 via Bitcoin to the wallet below:\n \\!bc1qxy2kgdygjrsqtzq2ntkt9n3z0k8qr7jemh... (truncated)\n You must pay within \\?72 hours or \\?forfeit the prize.",
         "subject": "EuroMillions Winner - Claim Your €950,000 Now!",
-        "explanation": "Asking for upfront payment in Bitcoin to 'claim' a prize is a classic lottery scam (\\!), and the domain is not official (\\?)."
+        "explanation": "Asking for upfront payment in Bitcoin to 'claim' a prize is a classic lottery scam, and the domain is not official."
     },
     "no 9": {
         "sender": "admin@\\?appleid-apple.com",
-        "content": "Your Apple ID has been locked for security reasons. Unlock it by entering your password and credit card details here:\nhttps:// \\?appleid.apple.com/unlock\n \\!Failure to comply will result in permanent disablement.",
+        "content": "Your Apple ID has been locked for security reasons. Unlock it by entering your password here:\nhttps:// \\?appleid.apple.com/unlock\n Failure to comply will result in \\!permanent disablement.",
         "subject": "Apple ID Locked - Immediate Action Needed",
-        "explanation": "Official Apple communications never ask for full credit card details via email, and the domain is spoofed (\\?). Threat of permanent disablement is a coercion tactic (\\!)."
+        "explanation": "Official Apple communications never ask for your password, and the domain doesn't belong to Apple. Threat of permanent disablement is a coercion tactic."
     },
     "no 10": {
         "sender": "noreply@spotify.com",
