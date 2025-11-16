@@ -1,75 +1,101 @@
 <!DOCTYPE html>
+<!-- This is the document type declaration for HTML5 -->
 <html lang="en">
+<!-- The main HTML element with language set to English -->
+
 <head>
-    <!-- Basic page setup - character encoding and responsive viewport -->
+    <!-- The head section contains meta information and links to external resources -->
     <meta charset="UTF-8">
+    <!-- Sets character encoding to UTF-8 for proper text display -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Makes the page responsive on mobile devices -->
     <title>CyberLearn - Cybersecurity Training Platform</title>
-    <!-- Linking our CSS stylesheet for all the visual styling -->
-    <link rel="stylesheet" href="styles.css
-	<link rel="shortcut icon" type="image/x-icon" href="./assets/favicon.ico"
+    <!-- The title that appears in the browser tab -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Links to the external CSS file for styling -->
 </head>
+
 <body>
-    <!-- Header section with navigation - stays at top of page -->
+    <!-- The body contains all visible content on the page -->
     <header>
+        <!-- Header section with navigation -->
         <nav class="navbar">
+            <!-- Navigation bar -->
             <div class="container">
-                <!-- Company logo/branding -->
+                <!-- Container to center content and control width -->
                 <div class="logo">
+                    <!-- Logo section -->
                     <h1>CyberLearn</h1>
+                    <!-- Main logo text -->
                 </div>
-                <!-- Mobile menu toggle (hamburger icon) for small screens -->
                 <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+                    <!-- Mobile menu toggle button (hamburger icon) -->
                     <span></span>
+                    <!-- Three lines for hamburger menu -->
                     <span></span>
                     <span></span>
                 </button>
-                <!-- Main navigation menu with links to different sections -->
                 <ul class="nav-menu" id="nav-menu">
+                    <!-- Navigation menu list -->
                     <li><a href="#home" class="nav-link active">Home</a></li>
+                    <!-- Home navigation link -->
                     <li><a href="#learning" class="nav-link">Learning Modules</a></li>
+                    <!-- Learning Modules navigation link -->
                     <li><a href="#quiz" class="nav-link">Quiz</a></li>
+                    <!-- Quiz navigation link -->
                     <li><a href="#simulations" class="nav-link">Simulations</a></li>
+                    <!-- Simulations navigation link -->
                     <li><a href="#progress" class="nav-link">Progress</a></li>
+                    <!-- Progress tracking navigation link -->
                 </ul>
             </div>
         </nav>
     </header>
 
     <main>
-        <!-- Home/Landing section - first thing users see -->
+        <!-- Main content area of the page -->
         <section id="home" class="section active">
+            <!-- Home section - initially active -->
             <div class="container">
-                <!-- Hero section with main headline and description -->
                 <div class="hero">
+                    <!-- Hero section with main headline and call-to-action -->
                     <h2>Strengthen Your Team's Cybersecurity Skills</h2>
+                    <!-- Main headline -->
                     <p class="subtitle">Comprehensive, interactive training designed for Australian businesses. Master essential cybersecurity concepts through engaging quizzes and real-world simulations.</p>
+                    <!-- Subtitle description -->
                     <p>Enhance your team's security awareness with interactive training modules, comprehensive quizzes, and real-world simulations based on Australian cybersecurity incidents.</p>
-                    <!-- Call-to-action buttons to guide users -->
+                    <!-- Additional description -->
                     <div class="cta-buttons">
+                        <!-- Call-to-action buttons container -->
                         <button class="btn btn-primary" onclick="navigateTo('learning')">Start Training</button>
+                        <!-- Primary button to start training -->
                         <button class="btn btn-secondary" onclick="navigateTo('progress')">View Progress</button>
+                        <!-- Secondary button to view progress -->
                     </div>
                 </div>
 
-                <!-- Feature cards showing what the platform offers -->
                 <div class="features-grid">
+                    <!-- Grid layout for feature cards -->
                     <div class="feature-card">
+                        <!-- Individual feature card -->
                         <div class="feature-icon">
-                            <!-- Email icon representing phishing topic -->
+                            <!-- Icon container for visual representation -->
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <!-- SVG icon for phishing topic -->
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                                 <polyline points="22,6 12,13 2,6"></polyline>
                             </svg>
                         </div>
                         <h3>Phishing & Social Engineering</h3>
+                        <!-- Feature title -->
                         <p>Learn to identify and defend against phishing attacks and social engineering tactics</p>
+                        <!-- Feature description -->
                     </div>
-                    <!-- Additional feature cards for other cybersecurity topics -->
                     <div class="feature-card">
+                        <!-- Malware feature card -->
                         <div class="feature-icon">
-                            <!-- Warning icon for malware threats -->
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <!-- Warning triangle icon for malware -->
                                 <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
                                 <line x1="12" y1="9" x2="12" y2="13"></line>
                                 <line x1="12" y1="17" x2="12.01" y2="17"></line>
@@ -79,9 +105,10 @@
                         <p>Understand different types of malware and how to protect your systems</p>
                     </div>
                     <div class="feature-card">
+                        <!-- Password security feature card -->
                         <div class="feature-icon">
-                            <!-- Lock icon for password security -->
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <!-- Lock icon for password security -->
                                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                                 <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                             </svg>
@@ -90,9 +117,10 @@
                         <p>Best practices for creating and managing secure passwords</p>
                     </div>
                     <div class="feature-card">
+                        <!-- Data protection feature card -->
                         <div class="feature-icon">
-                            <!-- Document/shield icon for data protection -->
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <!-- Document/shield icon for data protection -->
                                 <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
                             </svg>
                         </div>
@@ -103,39 +131,45 @@
             </div>
         </section>
 
-        <!-- Learning Modules section - educational content -->
         <section id="learning" class="section">
+            <!-- Learning Modules section -->
             <div class="container">
                 <h2>Cybersecurity Learning Modules</h2>
-                
-                <!-- Individual learning module with detailed content -->
+                <!-- Section title -->
+
                 <div class="module">
+                    <!-- Individual learning module -->
                     <h3>1. Password Security & Authentication</h3>
+                    <!-- Module title -->
                     <div class="module-content">
+                        <!-- Module content container -->
                         <p><strong>Why it matters:</strong> Passwords are the first line of defense against unauthorized access. Weak passwords are one of the most common vulnerabilities exploited by attackers.</p>
-                        
+                        <!-- Introduction paragraph -->
+
                         <h4>Best Practices:</h4>
+                        <!-- Subheading -->
                         <ul>
+                            <!-- Unordered list of best practices -->
                             <li><strong>Length and Complexity:</strong> Use passwords at least 12-16 characters long with a mix of uppercase, lowercase, numbers, and symbols</li>
                             <li><strong>Unique Passwords:</strong> Never reuse passwords across different accounts. If one account is compromised, others remain secure</li>
                             <li><strong>Password Managers:</strong> Use reputable password managers like Bitwarden, 1Password, or LastPass to generate and store complex passwords</li>
                             <li><strong>Multi-Factor Authentication (MFA):</strong> Enable MFA wherever possible. Even if your password is compromised, MFA provides an additional security layer</li>
                             <li><strong>Passphrases:</strong> Consider using memorable passphrases like "Coffee!Sunrise@Beach2024" instead of random characters</li>
                         </ul>
-                        
-                        <!-- Callout box for important warnings or tips -->
+
                         <div class="callout">
+                            <!-- Highlighted callout box for important information -->
                             <strong>Common Mistakes to Avoid:</strong> Using personal information (birthdays, names), sequential patterns (123456, abcdef), or common words (password, admin)
                         </div>
                     </div>
                 </div>
 
-                <!-- Additional learning modules for other topics -->
                 <div class="module">
+                    <!-- Phishing module -->
                     <h3>2. Phishing & Social Engineering</h3>
                     <div class="module-content">
                         <p><strong>Definition:</strong> Phishing is a cyberattack where attackers impersonate legitimate organizations to trick users into revealing sensitive information or installing malware.</p>
-                        
+
                         <h4>How to Identify Phishing:</h4>
                         <ul>
                             <li><strong>Suspicious Sender:</strong> Check the email address carefully. Attackers often use addresses that look similar to legitimate ones (e.g., support@paypa1.com instead of support@paypal.com)</li>
@@ -145,101 +179,193 @@
                             <li><strong>Spelling and Grammar:</strong> Professional organizations rarely send emails with obvious errors</li>
                             <li><strong>Suspicious Links:</strong> Hover over links before clicking to see the actual destination URL</li>
                         </ul>
-                        
+
                         <div class="callout">
                             <strong>If in doubt:</strong> Don't click links in emails. Instead, go directly to the organization's official website by typing the URL yourself, or call them using a verified phone number.
                         </div>
                     </div>
                 </div>
 
-                <!-- More modules would continue here... -->
+                <div class="module">
+                    <!-- Malware module -->
+                    <h3>3. Malware & Ransomware</h3>
+                    <div class="module-content">
+                        <p><strong>Types of Malware:</strong></p>
+                        <ul>
+                            <li><strong>Viruses:</strong> Malicious code that attaches to clean files and spreads throughout a computer system</li>
+                            <li><strong>Trojans:</strong> Malware disguised as legitimate software</li>
+                            <li><strong>Ransomware:</strong> Encrypts your files and demands payment for decryption</li>
+                            <li><strong>Spyware:</strong> Secretly monitors and collects user information</li>
+                            <li><strong>Adware:</strong> Displays unwanted advertisements and can track browsing habits</li>
+                        </ul>
 
-                <!-- Button to proceed to quiz after reading modules -->
+                        <h4>Protection Strategies:</h4>
+                        <ul>
+                            <li>Keep antivirus software updated and run regular scans</li>
+                            <li>Only download software from official sources</li>
+                            <li>Keep operating systems and applications updated with security patches</li>
+                            <li>Regular backups to external drives or cloud storage (following the 3-2-1 rule)</li>
+                            <li>Be cautious with email attachments and downloads</li>
+                            <li>Use ad blockers and avoid suspicious websites</li>
+                        </ul>
+
+                        <div class="callout">
+                            <strong>Australian Context:</strong> In 2022, several Australian healthcare providers and retailers were hit by ransomware attacks, causing significant data breaches and service disruptions.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <!-- Data protection module -->
+                    <h3>4. Data Protection & Privacy</h3>
+                    <div class="module-content">
+                        <p><strong>Australian Privacy Principles (APPs):</strong> Organizations in Australia must comply with the Privacy Act 1988, which includes 13 principles governing data collection, use, and disclosure.</p>
+
+                        <h4>Key Data Protection Practices:</h4>
+                        <ul>
+                            <li><strong>Encryption:</strong> Encrypt sensitive data both at rest and in transit (HTTPS, TLS, AES-256)</li>
+                            <li><strong>Access Controls:</strong> Implement role-based access control (RBAC) - users should only access data necessary for their role</li>
+                            <li><strong>Data Minimization:</strong> Only collect and retain data that's absolutely necessary</li>
+                            <li><strong>Secure Disposal:</strong> Properly destroy data when no longer needed (shred documents, wipe drives)</li>
+                            <li><strong>Regular Audits:</strong> Review who has access to what data and why</li>
+                            <li><strong>Notifiable Data Breaches Scheme:</strong> Under Australian law, organizations must notify individuals and the OAIC if a data breach is likely to result in serious harm</li>
+                        </ul>
+
+                        <div class="callout">
+                            <strong>Employee Responsibility:</strong> Every employee handles sensitive data. Whether it's customer information, financial records, or internal documents, protecting this data is everyone's responsibility.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <!-- Incident response module -->
+                    <h3>5. Incident Response & Reporting</h3>
+                    <div class="module-content">
+                        <p><strong>What is an Incident?</strong> Any event that compromises the confidentiality, integrity, or availability of information systems or data.</p>
+
+                        <h4>Incident Response Steps:</h4>
+                        <ol>
+                            <!-- Ordered list for sequential steps -->
+                            <li><strong>Identification:</strong> Recognize that an incident has occurred (unusual activity, alerts, user reports)</li>
+                            <li><strong>Containment:</strong> Isolate affected systems to prevent spread (disconnect from network, disable accounts)</li>
+                            <li><strong>Reporting:</strong> Immediately report to your IT security team or designated incident response contact</li>
+                            <li><strong>Eradication:</strong> Remove the threat (delete malware, patch vulnerabilities)</li>
+                            <li><strong>Recovery:</strong> Restore systems and data from clean backups</li>
+                            <li><strong>Lessons Learned:</strong> Document what happened and how to prevent it in future</li>
+                        </ol>
+
+                        <h4>What to Report:</h4>
+                        <ul>
+                            <li>Suspected phishing emails</li>
+                            <li>Lost or stolen devices</li>
+                            <li>Unauthorized access attempts</li>
+                            <li>Unusual system behavior</li>
+                            <li>Accidental data disclosure</li>
+                            <li>Malware infections</li>
+                        </ul>
+
+                        <div class="callout">
+                            <strong>Time is Critical:</strong> The faster an incident is reported, the less damage it can cause. Never try to hide a security incident - report it immediately, even if you think you caused it.
+                        </div>
+                    </div>
+                </div>
+
                 <button class="btn btn-primary" onclick="navigateTo('quiz')">Test Your Knowledge</button>
+                <!-- Button to navigate to quiz section -->
             </div>
         </section>
 
-        <!-- Quiz section to test knowledge -->
         <section id="quiz" class="section">
+            <!-- Quiz section -->
             <div class="container">
                 <h2>Cybersecurity Knowledge Quiz</h2>
                 <p class="quiz-intro">Complete this comprehensive quiz to test your understanding of cybersecurity principles. You'll receive immediate feedback with detailed explanations.</p>
-                
-                <!-- Container where quiz questions will be dynamically inserted -->
+                <!-- Quiz introduction text -->
+
                 <div id="quiz-container"></div>
-                
-                <!-- Quiz results section - initially hidden until quiz completion -->
+                <!-- Container where quiz questions will be dynamically inserted -->
+
                 <div id="quiz-results" class="hidden">
+                    <!-- Quiz results section - initially hidden -->
                     <h3>Quiz Results</h3>
                     <div id="score-display"></div>
+                    <!-- Where the score will be displayed -->
                     <div id="answers-review"></div>
-                    <!-- Buttons for post-quiz actions -->
+                    <!-- Where answer review will be shown -->
                     <button class="btn btn-primary" onclick="resetQuiz()">Retake Quiz</button>
+                    <!-- Button to retake the quiz -->
                     <button class="btn btn-secondary" onclick="navigateTo('simulations')">Continue to Simulations</button>
+                    <!-- Button to proceed to simulations -->
                 </div>
             </div>
         </section>
 
-        <!-- Interactive simulations section -->
         <section id="simulations" class="section">
+            <!-- Simulations section -->
             <div class="container">
                 <h2>Interactive Security Simulations</h2>
                 <p>Practice your cybersecurity skills with realistic scenarios based on actual security challenges.</p>
-                
-                <!-- Grid of simulation options users can choose from -->
+
                 <div class="simulation-grid">
-                    <!-- Phishing detection simulation card -->
+                    <!-- Grid layout for simulation cards -->
                     <div class="simulation-card" onclick="startSimulation('phishing')">
+                        <!-- Phishing simulation card -->
                         <h3>🎯 Simulation 1: Phishing Detection</h3>
                         <p>Analyze emails and identify phishing attempts. Learn to spot malicious content and protect your organization.</p>
                         <button class="btn btn-primary">Start Simulation</button>
+                        <!-- Button to start phishing simulation -->
                     </div>
-                    
-                    <!-- Data breach response simulation card -->
+
                     <div class="simulation-card" onclick="startSimulation('incident')">
+                        <!-- Data breach simulation card -->
                         <h3>🚨 Simulation 2: Data Breach Response</h3>
                         <p>Based on a major Australian cyber incident. Make critical decisions to contain and respond to a data breach.</p>
                         <button class="btn btn-primary">Start Simulation</button>
                     </div>
 
-                    <!-- External simulation that opens in same window -->
 					<div class="simulation-card" onclick="window.open('https://marcdonaldoconnor.github.io/netsec-interactive-project/modules/2', '_self');">
+						<!-- External advanced phishing simulation -->
 						<h3>🧠 Simulation 3: Advanced Phishing Detection</h3>
 						<p>Already a pro at identifying phishing emails? Try this simulation, where you have to justify your choices in order to proceed.</p>
 						<button class="btn btn-primary">Start Simulation</button>
 					</div>
                 </div>
 
-                <!-- Container where simulation content will be displayed -->
                 <div id="simulation-container" class="hidden"></div>
+                <!-- Container where simulation content will be displayed -->
             </div>
         </section>
 
-        <!-- Progress tracking section -->
         <section id="progress" class="section">
+            <!-- Progress tracking section -->
             <div class="container">
                 <h2>Your Progress</h2>
-                
-                <!-- Progress overview with visual progress bars -->
+
                 <div class="progress-overview">
+                    <!-- Progress overview with visual indicators -->
                     <div class="progress-card">
+                        <!-- Learning modules progress card -->
                         <h3>Learning Modules</h3>
                         <div class="progress-bar">
-                            <!-- Progress fill element that expands as user completes content -->
+                            <!-- Progress bar container -->
                             <div class="progress-fill" id="modules-progress" style="width: 0%"></div>
+                            <!-- Progress fill that expands as user progresses -->
                         </div>
                         <p id="modules-text">Not started</p>
+                        <!-- Progress status text -->
                     </div>
-                    
+
                     <div class="progress-card">
+                        <!-- Quiz progress card -->
                         <h3>Quiz Completion</h3>
                         <div class="progress-bar">
                             <div class="progress-fill" id="quiz-progress" style="width: 0%"></div>
                         </div>
                         <p id="quiz-text">Not completed</p>
                     </div>
-                    
+
                     <div class="progress-card">
+                        <!-- Simulations progress card -->
                         <h3>Simulations</h3>
                         <div class="progress-bar">
                             <div class="progress-fill" id="simulations-progress" style="width: 0%"></div>
@@ -248,27 +374,34 @@
                     </div>
                 </div>
 
-                <!-- Achievements section with unlockable badges -->
                 <div class="achievements">
+                    <!-- Achievements section -->
                     <h3>Achievements</h3>
                     <div id="achievements-list" class="achievements-grid">
-                        <!-- Individual achievement - initially locked -->
+                        <!-- Grid layout for achievement badges -->
                         <div class="achievement locked">
+                            <!-- Quiz Master achievement - initially locked -->
                             <span class="achievement-icon">🎓</span>
+                            <!-- Achievement icon -->
                             <p>Quiz Master</p>
+                            <!-- Achievement title -->
                             <small>Complete the quiz with 80%+ score</small>
+                            <!-- Achievement description -->
                         </div>
                         <div class="achievement locked">
+                            <!-- Phishing Detector achievement -->
                             <span class="achievement-icon">🔍</span>
                             <p>Phishing Detector</p>
                             <small>Complete Phishing Simulation</small>
                         </div>
                         <div class="achievement locked">
+                            <!-- Incident Responder achievement -->
                             <span class="achievement-icon">🛡️</span>
                             <p>Incident Responder</p>
                             <small>Complete Data Breach Simulation</small>
                         </div>
                         <div class="achievement locked">
+                            <!-- Security Champion achievement -->
                             <span class="achievement-icon">⭐</span>
                             <p>Security Champion</p>
                             <small>Complete all modules</small>
@@ -279,15 +412,18 @@
         </section>
     </main>
 
-    <!-- Footer with copyright and additional information -->
     <footer>
+        <!-- Footer section -->
         <div class="container">
             <p>&copy; 2025 CyberLearn. Professional Cybersecurity Training Platform</p>
+            <!-- Copyright notice -->
             <p>Building secure organizations, one employee at a time.</p>
+            <!-- Tagline -->
         </div>
     </footer>
 
-    <!-- Link to JavaScript file containing all interactive functionality -->
     <script src="script.js"></script>
+    <!-- Link to external JavaScript file for interactive functionality -->
 </body>
+
 </html>
