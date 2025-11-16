@@ -162,7 +162,6 @@ let simulationProgress = {
     incident: { completed: false, score: 0 }
 };
 
-// Function: navigateTo — handles related interactive logic
 function navigateTo(sectionId) {
     document.querySelectorAll('.section').forEach(section => {
         section.classList.remove('active');
@@ -202,7 +201,6 @@ document.addEventListener('DOMContentLoaded', () => {
     loadProgress();
 });
 
-// Function: initializeQuiz — handles related interactive logic
 function initializeQuiz() {
     currentQuestionIndex = 0;
     userAnswers = [];
@@ -210,7 +208,6 @@ function initializeQuiz() {
     renderQuiz();
 }
 
-// Function: renderQuiz — handles related interactive logic
 function renderQuiz() {
     const container = document.getElementById('quiz-container');
     container.innerHTML = '';
@@ -254,7 +251,6 @@ function renderQuiz() {
     });
 }
 
-// Function: submitAnswer — handles related interactive logic
 function submitAnswer(questionId) {
     const question = quizQuestions.find(q => q.id === questionId);
     const feedbackDiv = document.getElementById(`feedback-${questionId}`);
@@ -338,7 +334,6 @@ function submitAnswer(questionId) {
     checkQuizCompletion();
 }
 
-// Function: checkQuizCompletion — handles related interactive logic
 function checkQuizCompletion() {
     const totalQuestions = quizQuestions.length;
     const answeredQuestions = Object.keys(userAnswers).length;
@@ -350,7 +345,6 @@ function checkQuizCompletion() {
     }
 }
 
-// Function: showQuizResults — handles related interactive logic
 function showQuizResults() {
     const container = document.getElementById('quiz-container');
     const resultsDiv = document.getElementById('quiz-results');
@@ -407,7 +401,6 @@ function showQuizResults() {
     saveProgress('quiz', percentage);
 }
 
-// Function: resetQuiz — handles related interactive logic
 function resetQuiz() {
     const container = document.getElementById('quiz-container');
     container.classList.remove('hidden');
@@ -415,7 +408,6 @@ function resetQuiz() {
     window.scrollTo(0, 0);
 }
 
-// Function: startSimulation — handles related interactive logic
 function startSimulation(type) {
     const simulationContainer = document.getElementById('simulation-container');
     simulationContainer.classList.remove('hidden');
@@ -506,14 +498,12 @@ const phishingEmails = [
 let currentPhishingIndex = 0;
 let phishingScore = 0;
 
-// Function: startPhishingSimulation — handles related interactive logic
 function startPhishingSimulation() {
     currentPhishingIndex = 0;
     phishingScore = 0;
     showPhishingEmail();
 }
 
-// Function: showPhishingEmail — handles related interactive logic
 function showPhishingEmail() {
     const email = phishingEmails[currentPhishingIndex];
     const container = document.getElementById('simulation-container');
@@ -552,7 +542,6 @@ function showPhishingEmail() {
     `;
 }
 
-// Function: evaluatePhishing — handles related interactive logic
 function evaluatePhishing(userSaysPhishing) {
     const email = phishingEmails[currentPhishingIndex];
     const isCorrect = userSaysPhishing === email.isPhishing;
@@ -589,7 +578,6 @@ function evaluatePhishing(userSaysPhishing) {
     feedbackDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
-// Function: nextPhishingEmail — handles related interactive logic
 function nextPhishingEmail() {
     currentPhishingIndex++;
     
@@ -600,7 +588,6 @@ function nextPhishingEmail() {
     }
 }
 
-// Function: showPhishingResults — handles related interactive logic
 function showPhishingResults() {
     const container = document.getElementById('simulation-container');
     const percentage = Math.round((phishingScore / phishingEmails.length) * 100);
@@ -759,14 +746,12 @@ const incidentScenario = {
 let currentIncidentStage = -1;
 let incidentAnswers = [];
 
-// Function: startIncidentSimulation — handles related interactive logic
 function startIncidentSimulation() {
     currentIncidentStage = -1;
     incidentAnswers = [];
     showIncidentIntro();
 }
 
-// Function: showIncidentIntro — handles related interactive logic
 function showIncidentIntro() {
     const container = document.getElementById('simulation-container');
     
@@ -785,7 +770,6 @@ function showIncidentIntro() {
     `;
 }
 
-// Function: nextIncidentStage — handles related interactive logic
 function nextIncidentStage() {
     currentIncidentStage++;
     
@@ -796,7 +780,6 @@ function nextIncidentStage() {
     }
 }
 
-// Function: showIncidentStage — handles related interactive logic
 function showIncidentStage() {
     const stage = incidentScenario.stages[currentIncidentStage];
     const container = document.getElementById('simulation-container');
@@ -843,7 +826,6 @@ function showIncidentStage() {
     `;
 }
 
-// Function: evaluateIncidentStage — handles related interactive logic
 function evaluateIncidentStage() {
     const stage = incidentScenario.stages[currentIncidentStage];
     const selected = Array.from(document.querySelectorAll(`input[name="stage-${currentIncidentStage}"]:checked`))
@@ -924,7 +906,6 @@ function evaluateIncidentStage() {
     event.target.disabled = true;
 }
 
-// Function: showIncidentResults — handles related interactive logic
 function showIncidentResults() {
     const container = document.getElementById('simulation-container');
     
@@ -990,7 +971,6 @@ function showIncidentResults() {
     checkAllComplete();
 }
 
-// Function: updateProgress — handles related interactive logic
 function updateProgress() {
     const modulesProgress = localStorage.getItem('modules-viewed') === 'true' ? 100 : 0;
     const quizData = JSON.parse(localStorage.getItem('quiz-score') || '0');
@@ -1011,12 +991,10 @@ function updateProgress() {
     document.getElementById('simulations-text').textContent = `${simCount}/2 completed`;
 }
 
-// Function: markModulesAsViewed — handles related interactive logic
 function markModulesAsViewed() {
     localStorage.setItem('modules-viewed', 'true');
 }
 
-// Function: saveProgress — handles related interactive logic
 function saveProgress(type, score) {
     if (type === 'quiz') {
         localStorage.setItem('quiz-score', score);
@@ -1027,7 +1005,6 @@ function saveProgress(type, score) {
     }
 }
 
-// Function: loadProgress — handles related interactive logic
 function loadProgress() {
     const phishingScore = localStorage.getItem('phishing-score');
     const incidentScore = localStorage.getItem('incident-score');
@@ -1050,7 +1027,6 @@ function loadProgress() {
     checkAllComplete();
 }
 
-// Function: unlockAchievement — handles related interactive logic
 function unlockAchievement(achievementId) {
     const achievements = document.querySelectorAll('.achievement');
     
@@ -1069,7 +1045,6 @@ function unlockAchievement(achievementId) {
     }
 }
 
-// Function: checkAllComplete — handles related interactive logic
 function checkAllComplete() {
     const quizComplete = localStorage.getItem('quiz-score');
     const phishingComplete = localStorage.getItem('phishing-score');
