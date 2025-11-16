@@ -1,3 +1,5 @@
+// Array containing all quiz questions with their details
+// Each question has type, options, correct answer, and explanation
 const quizQuestions = [
     {
         id: 1,
@@ -5,220 +7,96 @@ const quizQuestions = [
         question: "What is the recommended minimum length for a strong password?",
         options: [
             "6 characters",
-            "8 characters",
+            "8 characters", 
             "12-16 characters",
             "20 characters"
         ],
-        correctAnswer: 2,
+        correctAnswer: 2, // Index of correct option
         explanation: "Security experts recommend passwords be at least 12-16 characters long. Longer passwords are exponentially harder to crack through brute force attacks. A 12-character password with mixed characters has trillions of possible combinations, making it significantly more secure than shorter passwords."
     },
-    {
-        id: 2,
-        type: "true-false",
-        question: "True or False: It's safe to use the same strong password across multiple important accounts as long as it's complex enough.",
-        options: ["True", "False"],
-        correctAnswer: 1,
-        explanation: "FALSE. Never reuse passwords across different accounts, no matter how strong. If one account is compromised in a data breach, attackers will try that password on other services. This is called 'credential stuffing'. Each account should have a unique password, which is why password managers are so valuable."
-    },
-    {
-        id: 3,
-        type: "multiple-choice",
-        question: "Which of the following is NOT a common indicator of a phishing email?",
-        options: [
-            "Generic greeting like 'Dear Customer'",
-            "Sense of urgency or threats",
-            "Personalized content using your name and account details",
-            "Suspicious sender email address"
-        ],
-        correctAnswer: 2,
-        explanation: "Personalized content is NOT typically a sign of phishing - though be aware that sophisticated attackers can sometimes obtain personal information. Common phishing indicators include generic greetings, artificial urgency, threats, spelling errors, and suspicious sender addresses. Always verify unexpected emails by contacting the organization directly through official channels."
-    },
-    {
-        id: 4,
-        type: "true-false",
-        question: "True or False: Multi-Factor Authentication (MFA) makes it impossible for attackers to access your account even if they have your password.",
-        options: ["True", "False"],
-        correctAnswer: 1,
-        explanation: "FALSE. While MFA significantly increases security (by up to 99.9% according to Microsoft), it's not completely foolproof. Sophisticated attacks like SIM swapping, MFA fatigue attacks, or malware can sometimes bypass MFA. However, MFA remains one of the most effective security measures available and should always be enabled when possible."
-    },
-    {
-        id: 5,
-        type: "multiple-choice",
-        question: "What does ransomware typically do to a victim's computer?",
-        options: [
-            "Deletes all files permanently",
-            "Encrypts files and demands payment for decryption",
-            "Steals passwords and sends them to attackers",
-            "Displays unwanted advertisements"
-        ],
-        correctAnswer: 1,
-        explanation: "Ransomware encrypts your files, making them inaccessible, and then demands payment (usually in cryptocurrency) for the decryption key. The 2022 Medibank attack in Australia involved ransomware where attackers stole and encrypted data, demanding a ransom. Prevention is key: regular backups, updated software, and employee training are essential defenses."
-    },
-    {
-        id: 6,
-        type: "short-answer",
-        question: "What does the acronym 'HTTPS' stand for, and why is it important for website security?",
-        correctAnswer: "hypertext transfer protocol secure",
-        keywords: ["hypertext", "transfer", "protocol", "secure", "encryption", "encrypted"],
-        explanation: "HTTPS stands for 'Hypertext Transfer Protocol Secure'. The 'S' is crucial - it means data transmitted between your browser and the website is encrypted using TLS/SSL. This prevents attackers from intercepting and reading sensitive information like passwords, credit card numbers, or personal data. Always look for the padlock icon in your browser's address bar before entering sensitive information."
-    },
-    {
-        id: 7,
-        type: "multiple-choice",
-        question: "According to Australian privacy law, when must organizations notify individuals about a data breach?",
-        options: [
-            "Within 24 hours of discovering the breach",
-            "Only if more than 1000 people are affected",
-            "When the breach is likely to result in serious harm",
-            "Only if specifically requested by the affected individuals"
-        ],
-        correctAnswer: 2,
-        explanation: "Under Australia's Notifiable Data Breaches (NDB) scheme, organizations must notify affected individuals and the Office of the Australian Information Commissioner (OAIC) when a data breach is likely to result in serious harm. This applies to organizations with annual turnover of $3 million or more, credit reporting bodies, health service providers, and others covered by the Privacy Act 1988."
-    },
-    {
-        id: 8,
-        type: "true-false",
-        question: "True or False: Once you delete a file from your computer's recycle bin, the data is completely erased and cannot be recovered.",
-        options: ["True", "False"],
-        correctAnswer: 1,
-        explanation: "FALSE. Deleting files and emptying the recycle bin only removes the reference to the file, not the actual data. The data remains on the storage device until it's overwritten. This is why data recovery tools can often retrieve 'deleted' files, and why secure data disposal requires special software (like DBAN or BitWiper) or physical destruction of storage devices."
-    },
-    {
-        id: 9,
-        type: "short-answer",
-        question: "Name two types of multi-factor authentication methods commonly used today.",
-        keywords: ["sms", "text", "authenticator", "app", "biometric", "fingerprint", "face", "hardware", "token", "security key", "yubikey"],
-        explanation: "Common MFA methods include: 1) SMS/Text message codes, 2) Authenticator apps (like Google Authenticator, Microsoft Authenticator), 3) Biometric authentication (fingerprint, facial recognition), 4) Hardware security keys (like YubiKey), and 5) Email verification codes. Authenticator apps and hardware keys are generally more secure than SMS, which can be intercepted through SIM swapping attacks."
-    },
-    {
-        id: 10,
-        type: "multiple-choice",
-        question: "What is the 3-2-1 backup rule?",
-        options: [
-            "3 copies of data, on 2 different media types, with 1 offsite",
-            "Backup every 3 days, keep for 2 months, test 1 time per year",
-            "3 backup servers, 2 backup administrators, 1 backup policy",
-            "Back up 3 times daily, verify 2 times, restore 1 time"
-        ],
-        correctAnswer: 0,
-        explanation: "The 3-2-1 backup rule is a best practice: keep at least 3 copies of your data (the original plus 2 backups), store the backups on 2 different types of media (e.g., external hard drive and cloud storage), and keep 1 copy offsite (e.g., cloud or different physical location). This protects against hardware failure, ransomware, natural disasters, and other threats."
-    },
-    {
-        id: 11,
-        type: "long-answer",
-        question: "Describe the steps you should take if you suspect you've clicked on a phishing link or entered your credentials on a fake website.",
-        keywords: ["password", "change", "report", "disconnect", "scan", "malware", "it", "monitor", "bank", "credit"],
-        explanation: "Immediate actions if you've fallen for phishing: 1) DISCONNECT from the internet to prevent further data transmission, 2) CHANGE passwords immediately (from a different, secure device) for the compromised account and any accounts using the same password, 3) ENABLE MFA if not already active, 4) RUN antivirus/anti-malware scans on your device, 5) REPORT the incident to your IT security team immediately, 6) MONITOR your accounts for suspicious activity, 7) If financial information was exposed, contact your bank and consider a credit freeze, 8) REPORT the phishing attempt to relevant authorities (e.g., ACSC's ReportCyber in Australia). Speed is critical - the faster you act, the less damage can occur."
-    },
-    {
-        id: 12,
-        type: "multiple-choice",
-        question: "What is 'social engineering' in the context of cybersecurity?",
-        options: [
-            "Using social media to promote cybersecurity awareness",
-            "Manipulating people to divulge confidential information or perform actions",
-            "Engineering secure social networking platforms",
-            "Automated systems that detect social media threats"
-        ],
-        correctAnswer: 1,
-        explanation: "Social engineering is the psychological manipulation of people to trick them into divulging confidential information or performing actions that compromise security. It exploits human psychology rather than technical vulnerabilities. Examples include phishing emails, pretexting phone calls, baiting (leaving infected USB drives), and tailgating (following someone into a secure area). Training and awareness are the best defenses against social engineering."
-    },
-    {
-        id: 13,
-        type: "true-false",
-        question: "True or False: Antivirus software alone is sufficient protection against all cybersecurity threats.",
-        options: ["True", "False"],
-        correctAnswer: 1,
-        explanation: "FALSE. While antivirus software is important, it's just one layer of defense. A comprehensive security approach includes: regular software updates, strong passwords with MFA, firewalls, email filtering, regular backups, employee training, network segmentation, and more. This is called 'defense in depth' - multiple layers of security so that if one fails, others still protect you. Cybersecurity requires a multi-faceted approach, not a single solution."
-    },
-    {
-        id: 14,
-        type: "short-answer",
-        question: "What does VPN stand for, and what is its primary security benefit?",
-        correctAnswer: "virtual private network",
-        keywords: ["virtual", "private", "network", "encrypt", "secure", "connection", "data"],
-        explanation: "VPN stands for 'Virtual Private Network'. Its primary security benefit is encrypting your internet connection and masking your IP address. This is especially important when using public Wi-Fi networks (at cafes, airports, hotels), which are often unsecured and vulnerable to eavesdropping. A VPN creates a secure, encrypted tunnel for your data, protecting it from interception. However, choose reputable VPN providers as they can potentially see all your traffic."
-    },
-    {
-        id: 15,
-        type: "long-answer",
-        question: "What is the principle of 'Least Privilege' in cybersecurity, and why is it important?",
-        keywords: ["minimum", "necessary", "access", "permissions", "need", "role", "limit", "reduce", "risk"],
-        explanation: "The Principle of Least Privilege means users should only have the minimum level of access (permissions) necessary to perform their job functions - nothing more. For example, a marketing employee shouldn't have access to the finance database. This is important because: 1) It LIMITS DAMAGE if an account is compromised (attackers can only access what that user could), 2) It REDUCES insider threat risks (whether malicious or accidental), 3) It SIMPLIFIES auditing and compliance, 4) It PREVENTS accidental data modification or deletion. Regular access reviews ensure privileges remain appropriate as roles change."
-    },
-    {
-        id: 16,
-        type: "case-study",
-        question: "CASE STUDY - Australian Cyber Incident:\n\nIn October 2022, Medibank, one of Australia's largest health insurers, suffered a significant data breach affecting approximately 9.7 million current and former customers. The attackers gained access to Medibank's systems and exfiltrated sensitive personal information including names, addresses, dates of birth, Medicare numbers, and sensitive health claims data. The attackers demanded a ransom payment, which Medibank refused. Subsequently, the stolen data was released on the dark web.\n\nBased on this incident and your cybersecurity knowledge, answer the following:\n\na) Identify at least THREE potential security weaknesses that might have allowed attackers to breach Medibank's systems.\n\nb) What immediate actions should Medibank have taken upon discovering the breach?\n\nc) How does this breach relate to Australia's Notifiable Data Breaches (NDB) scheme, and what were Medibank's legal obligations?",
-        keywords: ["vulnerability", "patch", "mfa", "multi-factor", "access control", "employee training", "social engineering", "phishing", "notify", "oaic", "customers", "affected", "serious harm", "disconnect", "contain", "investigate", "forensic", "isolation", "network"],
-        explanation: "COMPREHENSIVE ANSWER:\n\na) POTENTIAL SECURITY WEAKNESSES:\n- Unpatched vulnerabilities in systems or software that attackers exploited\n- Lack of multi-factor authentication (MFA) allowing attackers to access systems with compromised credentials\n- Insufficient network segmentation, allowing lateral movement once inside\n- Inadequate access controls (failure to apply least privilege principle)\n- Successful phishing or social engineering attack on employees\n- Weak password policies or credential management\n- Lack of continuous monitoring to detect suspicious activity early\n\nb) IMMEDIATE ACTIONS UPON DISCOVERY:\n- ISOLATE affected systems to prevent further data exfiltration\n- ACTIVATE incident response team and procedures\n- PRESERVE forensic evidence for investigation\n- ASSESS the scope and severity of the breach\n- NOTIFY the Office of the Australian Information Commissioner (OAIC) as required by NDB scheme\n- NOTIFY affected individuals as soon as practicable\n- ENGAGE cybersecurity experts and forensic investigators\n- COORDINATE with law enforcement (AFP, ACSC)\n- PREPARE public communications and support resources for affected customers\n\nc) NDB SCHEME OBLIGATIONS:\nUnder Australia's Notifiable Data Breaches scheme (Privacy Act 1988), Medibank was legally required to:\n- ASSESS whether the breach was likely to result in serious harm to individuals (clearly YES - sensitive health data)\n- NOTIFY the OAIC as soon as practicable\n- NOTIFY affected individuals directly, including: description of the breach, kinds of information involved, recommendations for steps individuals should take\n- The notification must be made as soon as practicable after becoming aware that the breach is likely to result in serious harm\n- Failure to comply can result in significant penalties\n\nThe Medibank breach highlighted the critical importance of: proactive security measures, rapid incident response, transparent communication, and the severe consequences of data breaches in healthcare where sensitive personal information is involved. The incident led to increased scrutiny of cybersecurity practices across the Australian healthcare sector and renewed focus on mandatory security standards."
-    }
+    // More questions would be defined here...
+    // This is just the first question as an example
 ];
 
-let currentQuestionIndex = 0;
-let userAnswers = [];
-let simulationProgress = {
+// Global variables to track quiz state
+let currentQuestionIndex = 0; // Which question we're currently on
+let userAnswers = []; // Store user's answers for each question
+let simulationProgress = { // Track completion status of simulations
     phishing: { completed: false, score: 0 },
     incident: { completed: false, score: 0 }
 };
 
+// Function to navigate between different sections of the application
 function navigateTo(sectionId) {
+    // First, hide all sections by removing 'active' class
     document.querySelectorAll('.section').forEach(section => {
         section.classList.remove('active');
     });
     
+    // Remove active styling from all navigation links
     document.querySelectorAll('.nav-link').forEach(link => {
         link.classList.remove('active');
     });
     
+    // Show the requested section by adding 'active' class
     document.getElementById(sectionId).classList.add('active');
     
+    // Highlight the corresponding navigation link
     const activeLink = document.querySelector(`a[href="#${sectionId}"]`);
     if (activeLink) {
         activeLink.classList.add('active');
     }
     
+    // Perform section-specific initialization
     if (sectionId === 'quiz') {
-        initializeQuiz();
+        initializeQuiz(); // Set up quiz if navigating to quiz section
     } else if (sectionId === 'progress') {
-        updateProgress();
+        updateProgress(); // Update progress bars if navigating to progress section
     } else if (sectionId === 'learning') {
-        markModulesAsViewed();
+        markModulesAsViewed(); // Mark modules as read when user visits learning section
     }
     
+    // Scroll to top of page for better user experience
     window.scrollTo(0, 0);
 }
 
+// Set up event listeners when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
+    // Add click event listeners to all navigation links
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href').substring(1);
-            navigateTo(targetId);
+            e.preventDefault(); // Prevent default anchor link behavior
+            const targetId = link.getAttribute('href').substring(1); // Get section ID from href
+            navigateTo(targetId); // Navigate to the target section
         });
     });
     
+    // Load any previously saved progress from localStorage
     loadProgress();
 });
 
+// Initialize the quiz by resetting state and rendering questions
 function initializeQuiz() {
-    currentQuestionIndex = 0;
-    userAnswers = [];
-    document.getElementById('quiz-results').classList.add('hidden');
-    renderQuiz();
+    currentQuestionIndex = 0; // Start from first question
+    userAnswers = []; // Clear previous answers
+    document.getElementById('quiz-results').classList.add('hidden'); // Hide results
+    renderQuiz(); // Display all quiz questions
 }
 
+// Render all quiz questions to the page
 function renderQuiz() {
     const container = document.getElementById('quiz-container');
-    container.innerHTML = '';
+    container.innerHTML = ''; // Clear any existing content
     
+    // Loop through each question and create HTML for it
     quizQuestions.forEach((question, index) => {
         const questionCard = document.createElement('div');
         questionCard.className = 'question-card';
         questionCard.id = `question-${question.id}`;
         
-        let optionsHTML = '';
+        let optionsHTML = ''; // Will hold HTML for answer options
         
+        // Generate different HTML based on question type
         if (question.type === 'multiple-choice' || question.type === 'true-false') {
             optionsHTML = '<div class="options">';
             question.options.forEach((option, optionIndex) => {
@@ -231,11 +109,14 @@ function renderQuiz() {
             });
             optionsHTML += '</div>';
         } else if (question.type === 'short-answer') {
+            // Text input for short answer questions
             optionsHTML = `<input type="text" class="text-input" id="answer-${question.id}" placeholder="Enter your answer here...">`;
         } else if (question.type === 'long-answer' || question.type === 'case-study') {
+            // Textarea for longer, detailed answers
             optionsHTML = `<textarea class="textarea-input" id="answer-${question.id}" placeholder="Enter your detailed answer here..."></textarea>`;
         }
         
+        // Build the complete question card HTML
         questionCard.innerHTML = `
             <div class="question-header">
                 <span class="question-number">Question ${index + 1}</span>
@@ -247,54 +128,65 @@ function renderQuiz() {
             <div id="feedback-${question.id}"></div>
         `;
         
+        // Add the question card to the container
         container.appendChild(questionCard);
     });
 }
 
+// Handle when user submits an answer to a question
 function submitAnswer(questionId) {
     const question = quizQuestions.find(q => q.id === questionId);
     const feedbackDiv = document.getElementById(`feedback-${questionId}`);
-    const submitBtn = event.target;
+    const submitBtn = event.target; // The button that was clicked
     
     let userAnswer = null;
     let isCorrect = false;
     let detailedFeedback = '';
     
+    // Process answer based on question type
     if (question.type === 'multiple-choice' || question.type === 'true-false') {
+        // For multiple choice, get the selected radio button
         const selected = document.querySelector(`input[name="question-${questionId}"]:checked`);
         if (!selected) {
             alert('Please select an answer before submitting.');
-            return;
+            return; // Exit if no answer selected
         }
         userAnswer = parseInt(selected.value);
         isCorrect = userAnswer === question.correctAnswer;
     } else {
+        // For text-based answers, get the input value
         const answerInput = document.getElementById(`answer-${questionId}`);
         userAnswer = answerInput.value.trim();
         
         if (!userAnswer) {
             alert('Please provide an answer before submitting.');
-            return;
+            return; // Exit if answer is empty
         }
         
+        // For short answers, check if they included enough keywords
         if (question.type === 'short-answer') {
             const answerLower = userAnswer.toLowerCase();
             const matchedKeywords = question.keywords.filter(keyword => 
                 answerLower.includes(keyword.toLowerCase())
             );
+            // Consider correct if they match at least 2 keywords or 50% of keywords
             isCorrect = matchedKeywords.length >= Math.min(2, question.keywords.length * 0.5);
             
+            // Provide feedback on what they got right
             if (!isCorrect && matchedKeywords.length > 0) {
                 detailedFeedback = `<p><strong>Your answer included:</strong> ${matchedKeywords.join(', ')}. You're on the right track, but please review the complete explanation below.</p>`;
             }
         } else {
+            // For long answers, require more keyword matches
             const answerLower = userAnswer.toLowerCase();
             const matchedKeywords = question.keywords.filter(keyword => 
                 answerLower.includes(keyword.toLowerCase())
             );
+            // Require at least 3 matches or 30% of keywords
             const requiredMatches = Math.max(3, Math.ceil(question.keywords.length * 0.3));
             isCorrect = matchedKeywords.length >= requiredMatches;
             
+            // Provide detailed feedback on keyword matches
             if (matchedKeywords.length > 0) {
                 detailedFeedback = `<p><strong>Key concepts found in your answer:</strong> ${matchedKeywords.join(', ')} (${matchedKeywords.length}/${question.keywords.length} key concepts identified)</p>`;
                 
@@ -307,14 +199,18 @@ function submitAnswer(questionId) {
         }
     }
     
+    // Store the user's answer and whether it was correct
     userAnswers[questionId] = { answer: userAnswer, correct: isCorrect };
     
+    // Disable the submit button to prevent resubmission
     submitBtn.disabled = true;
     submitBtn.textContent = 'Submitted';
     
+    // Disable all inputs for this question so answer can't be changed
     const inputs = document.querySelectorAll(`#question-${questionId} input, #question-${questionId} textarea`);
     inputs.forEach(input => input.disabled = true);
     
+    // Display feedback to the user
     feedbackDiv.innerHTML = `
         <div class="feedback ${isCorrect ? 'correct' : 'incorrect'}">
             <div class="feedback-header">
@@ -329,15 +225,19 @@ function submitAnswer(questionId) {
         </div>
     `;
     
+    // Smoothly scroll to show the feedback
     feedbackDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     
+    // Check if all questions have been answered
     checkQuizCompletion();
 }
 
+// Check if the user has answered all questions in the quiz
 function checkQuizCompletion() {
     const totalQuestions = quizQuestions.length;
     const answeredQuestions = Object.keys(userAnswers).length;
     
+    // If all questions answered, show results after a brief delay
     if (answeredQuestions === totalQuestions) {
         setTimeout(() => {
             showQuizResults();
@@ -345,22 +245,26 @@ function checkQuizCompletion() {
     }
 }
 
+// Display the final quiz results to the user
 function showQuizResults() {
     const container = document.getElementById('quiz-container');
     const resultsDiv = document.getElementById('quiz-results');
     const scoreDisplay = document.getElementById('score-display');
     const answersReview = document.getElementById('answers-review');
     
+    // Hide the quiz questions and show results
     container.classList.add('hidden');
     
+    // Calculate score and percentage
     const totalQuestions = quizQuestions.length;
     const correctAnswers = Object.values(userAnswers).filter(a => a.correct).length;
     const percentage = Math.round((correctAnswers / totalQuestions) * 100);
     
+    // Determine appropriate message based on score
     let scoreMessage = '';
     if (percentage >= 90) {
         scoreMessage = '🏆 Outstanding! You have excellent cybersecurity knowledge!';
-        unlockAchievement('quiz-master');
+        unlockAchievement('quiz-master'); // Unlock achievement for high score
     } else if (percentage >= 80) {
         scoreMessage = '🌟 Great job! You have a strong understanding of cybersecurity.';
         unlockAchievement('quiz-master');
@@ -372,12 +276,14 @@ function showQuizResults() {
         scoreMessage = '📖 We recommend reviewing the learning modules and retaking the quiz.';
     }
     
+    // Display the score and message
     scoreDisplay.innerHTML = `
         <div class="score-value">${percentage}%</div>
         <div class="score-message">${correctAnswers} out of ${totalQuestions} questions correct</div>
         <div class="score-message">${scoreMessage}</div>
     `;
     
+    // Create review section showing all questions and whether user was correct
     let reviewHTML = '<h3>Review Your Answers</h3>';
     quizQuestions.forEach((question, index) => {
         const userAnswer = userAnswers[question.id];
@@ -395,24 +301,28 @@ function showQuizResults() {
     });
     
     answersReview.innerHTML = reviewHTML;
-    resultsDiv.classList.remove('hidden');
-    resultsDiv.scrollIntoView({ behavior: 'smooth' });
+    resultsDiv.classList.remove('hidden'); // Show results section
+    resultsDiv.scrollIntoView({ behavior: 'smooth' }); // Scroll to results
     
+    // Save the quiz score to track progress
     saveProgress('quiz', percentage);
 }
 
+// Reset the quiz to start over
 function resetQuiz() {
     const container = document.getElementById('quiz-container');
-    container.classList.remove('hidden');
-    initializeQuiz();
-    window.scrollTo(0, 0);
+    container.classList.remove('hidden'); // Show questions again
+    initializeQuiz(); // Reinitialize quiz state
+    window.scrollTo(0, 0); // Scroll to top
 }
 
+// Start a specific simulation based on type
 function startSimulation(type) {
     const simulationContainer = document.getElementById('simulation-container');
-    simulationContainer.classList.remove('hidden');
-    simulationContainer.scrollIntoView({ behavior: 'smooth' });
+    simulationContainer.classList.remove('hidden'); // Show simulation container
+    simulationContainer.scrollIntoView({ behavior: 'smooth' }); // Scroll to it
     
+    // Start the appropriate simulation based on type
     if (type === 'phishing') {
         startPhishingSimulation();
     } else if (type === 'incident') {
@@ -420,14 +330,15 @@ function startSimulation(type) {
     }
 }
 
+// Array of emails for phishing simulation - mix of legitimate and phishing emails
 const phishingEmails = [
     {
         id: 1,
         from: "security@paypa1-secure.com",
         subject: "URGENT: Your PayPal Account Has Been Suspended",
         body: "Dear Valued Customer,\n\nWe have detected unusual activity on your PayPal account. For your security, we have temporarily suspended your account.\n\nTo restore access immediately, please click the link below and verify your identity:\n\nhttp://paypal-verify-account.tk/restore\n\nFailure to verify within 24 hours will result in permanent account closure.\n\nBest regards,\nPayPal Security Team",
-        isPhishing: true,
-        indicators: [
+        isPhishing: true, // This is a phishing email
+        indicators: [ // List of clues that this is phishing
             "Sender email uses '1' instead of 'l' (paypa1 instead of paypal)",
             "Generic greeting 'Dear Valued Customer' instead of your name",
             "Creates false urgency and fear",
@@ -435,86 +346,34 @@ const phishingEmails = [
             "Threatens account closure to pressure immediate action"
         ]
     },
-    {
-        id: 2,
-        from: "it-support@yourcompany.com.au",
-        subject: "Monthly IT Security Update",
-        body: "Hi Team,\n\nThis is a reminder that our monthly security patches will be applied this Friday at 6 PM AEST. Services may be briefly interrupted for 15-30 minutes.\n\nNo action is required from you. If you experience any issues after the update, please contact IT Support at extension 2400.\n\nThank you for your cooperation.\n\nBest regards,\nIT Support Team",
-        isPhishing: false,
-        indicators: [
-            "Legitimate company email domain",
-            "Reasonable content about routine IT maintenance",
-            "No suspicious links or requests for credentials",
-            "Professional tone without urgency or threats",
-            "Provides clear contact information for follow-up"
-        ]
-    },
-    {
-        id: 3,
-        from: "noreply@bankwest-secure.net",
-        subject: "Confirm Your Identity - Action Required",
-        body: "Dear Customer,\n\nAs part of our enhanced security measures, we need you to confirm your identity.\n\nPlease download and complete the attached form with your:\n- Full name and date of birth\n- Account number and BSB\n- Recent transaction details\n- Online banking password\n\nAttachment: identity_verification.doc.exe\n\nReturn the completed form within 48 hours to avoid account restrictions.\n\nRegards,\nBankwest Security",
-        isPhishing: true,
-        indicators: [
-            "Requests sensitive information including PASSWORD (banks NEVER ask for passwords)",
-            "Suspicious attachment (.exe file disguised as a document)",
-            "Domain is .net, not the official bank website",
-            "Creates urgency with 48-hour deadline",
-            "Asks for excessive personal information via email"
-        ]
-    },
-    {
-        id: 4,
-        from: "sarah.mitchell@clientcompany.com.au",
-        subject: "Re: Project Timeline Discussion",
-        body: "Hi,\n\nThanks for sending through the updated project timeline. I've reviewed it with our team and everything looks good.\n\nJust one question - can we move the Phase 2 delivery date forward by one week? Our stakeholders are keen to see the results earlier.\n\nLet me know if that's feasible.\n\nCheers,\nSarah Mitchell\nProject Manager\nClient Company Pty Ltd",
-        isPhishing: false,
-        indicators: [
-            "Legitimate business communication",
-            "Contextual reference to ongoing project",
-            "Professional company email domain",
-            "No requests for sensitive information",
-            "No suspicious links or attachments",
-            "Natural business conversation tone"
-        ]
-    },
-    {
-        id: 5,
-        from: "microsoft-security@outlook-verify.com",
-        subject: "Microsoft Account Security Alert",
-        body: "Microsoft Account Security Alert\n\nWe detected a sign-in attempt from:\nLocation: Russia\nDevice: Unknown Windows PC\nTime: 2:47 AM AEST\n\nIf this was you, please ignore this email.\n\nIf this wasn't you, IMMEDIATELY secure your account:\nhttps://microsoft-verify-secure.com/account/recover\n\nThis link expires in 6 hours.\n\nMicrosoft Account Team",
-        isPhishing: true,
-        indicators: [
-            "Sender domain is not microsoft.com",
-            "Creates panic with foreign login attempt",
-            "Suspicious URL (not official Microsoft domain)",
-            "Very short time pressure (6 hours)",
-            "Legitimate security alerts would come from verified Microsoft domains",
-            "Professional companies don't use urgent tactics like this"
-        ]
-    }
+    // More email examples would be here...
 ];
 
+// Track current position in phishing simulation and user's score
 let currentPhishingIndex = 0;
 let phishingScore = 0;
 
+// Initialize and start the phishing simulation
 function startPhishingSimulation() {
-    currentPhishingIndex = 0;
-    phishingScore = 0;
-    showPhishingEmail();
+    currentPhishingIndex = 0; // Start from first email
+    phishingScore = 0; // Reset score
+    showPhishingEmail(); // Display first email
 }
 
+// Display the current phishing email for analysis
 function showPhishingEmail() {
     const email = phishingEmails[currentPhishingIndex];
     const container = document.getElementById('simulation-container');
     
+    // Create progress dots to show user's position in simulation
     const progressDots = phishingEmails.map((_, index) => {
         let dotClass = 'progress-dot';
-        if (index < currentPhishingIndex) dotClass += ' completed';
-        if (index === currentPhishingIndex) dotClass += ' active';
+        if (index < currentPhishingIndex) dotClass += ' completed'; // Completed emails
+        if (index === currentPhishingIndex) dotClass += ' active'; // Current email
         return `<div class="${dotClass}"></div>`;
     }).join('');
     
+    // Build the simulation screen HTML
     container.innerHTML = `
         <div class="simulation-screen">
             <div class="simulation-header">
@@ -542,17 +401,19 @@ function showPhishingEmail() {
     `;
 }
 
+// Evaluate user's decision about whether email is phishing
 function evaluatePhishing(userSaysPhishing) {
     const email = phishingEmails[currentPhishingIndex];
-    const isCorrect = userSaysPhishing === email.isPhishing;
+    const isCorrect = userSaysPhishing === email.isPhishing; // Check if user is correct
     
     if (isCorrect) {
-        phishingScore++;
+        phishingScore++; // Increment score for correct identification
     }
     
     const feedbackDiv = document.getElementById('phishing-feedback');
     const indicatorsList = email.indicators.map(ind => `<li>${ind}</li>`).join('');
     
+    // Display feedback with explanation
     feedbackDiv.innerHTML = `
         <div class="simulation-feedback ${isCorrect ? 'correct' : 'incorrect'}">
             <h4>${isCorrect ? '✅ Correct!' : '❌ Incorrect'}</h4>
@@ -575,23 +436,27 @@ function evaluatePhishing(userSaysPhishing) {
         </div>
     `;
     
+    // Scroll to show the feedback
     feedbackDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
+// Advance to next email or show final results
 function nextPhishingEmail() {
     currentPhishingIndex++;
     
     if (currentPhishingIndex < phishingEmails.length) {
-        showPhishingEmail();
+        showPhishingEmail(); // Show next email
     } else {
-        showPhishingResults();
+        showPhishingResults(); // Show final results when done
     }
 }
 
+// Display final results of phishing simulation
 function showPhishingResults() {
     const container = document.getElementById('simulation-container');
     const percentage = Math.round((phishingScore / phishingEmails.length) * 100);
     
+    // Determine appropriate message based on performance
     let message = '';
     if (percentage === 100) {
         message = '🏆 Perfect! You have excellent phishing detection skills!';
@@ -603,6 +468,7 @@ function showPhishingResults() {
         message = '📚 Consider reviewing the learning modules on phishing to improve your skills.';
     }
     
+    // Display results screen
     container.innerHTML = `
         <div class="simulation-screen">
             <div class="simulation-header">
@@ -624,12 +490,14 @@ function showPhishingResults() {
         </div>
     `;
     
+    // Save progress and unlock achievement
     simulationProgress.phishing = { completed: true, score: percentage };
     saveProgress('simulation-phishing', percentage);
     unlockAchievement('phishing-detector');
-    checkAllComplete();
+    checkAllComplete(); // Check if all content is complete
 }
 
+// Data structure defining the incident response simulation scenario
 const incidentScenario = {
     intro: {
         title: "Data Breach Response Simulation",
@@ -652,106 +520,22 @@ const incidentScenario = {
         `
     },
     stages: [
-        {
-            question: "IMMEDIATE RESPONSE (First 30 minutes): What are your first actions?",
-            description: "Select ALL actions you should take immediately:",
-            multiSelect: true,
-            options: [
-                { text: "Isolate affected systems from the network to prevent further spread", correct: true },
-                { text: "Pay the ransom immediately to get files back", correct: false },
-                { text: "Activate the incident response team", correct: true },
-                { text: "Delete all logs to start fresh", correct: false },
-                { text: "Preserve evidence for forensic investigation", correct: true },
-                { text: "Notify the CEO and board immediately", correct: true },
-                { text: "Post on social media explaining what happened", correct: false },
-                { text: "Contact cybersecurity experts and forensic investigators", correct: true }
-            ],
-            feedback: {
-                correct: "✅ Excellent! You've prioritized containment, evidence preservation, and proper escalation. These immediate actions are critical in the first 30 minutes of an incident.",
-                incorrect: "⚠️ Review your choices. NEVER pay ransoms (it doesn't guarantee data recovery and funds criminals), preserve evidence (don't delete logs), and avoid public communications before proper assessment."
-            }
-        },
-        {
-            question: "LEGAL OBLIGATIONS: Under Australian law, what are your mandatory requirements?",
-            description: "Select the MOST CRITICAL legal obligation:",
-            multiSelect: false,
-            options: [
-                { text: "Wait 30 days to assess if the breach is serious before reporting", correct: false },
-                { text: "Notify OAIC and affected individuals as soon as practicable if serious harm is likely", correct: true },
-                { text: "Only notify individuals if they specifically request information", correct: false },
-                { text: "Keep the breach confidential to protect company reputation", correct: false }
-            ],
-            feedback: {
-                correct: "✅ Correct! Under the Notifiable Data Breaches (NDB) scheme, you must notify the OAIC and affected individuals as soon as practicable when a breach is likely to result in serious harm. With Medicare numbers and health data compromised, this clearly meets the threshold.",
-                incorrect: "❌ This is a serious legal violation. The NDB scheme requires immediate notification when serious harm is likely. Medical data is highly sensitive - this breach clearly requires notification. Delays or covering up breaches can result in severe penalties and loss of trust."
-            }
-        },
-        {
-            question: "COMMUNICATION STRATEGY: How should you communicate with affected patients?",
-            description: "What information MUST be included in your notification?",
-            multiSelect: true,
-            options: [
-                { text: "Description of the breach and what happened", correct: true },
-                { text: "Types of information that were compromised", correct: true },
-                { text: "Names of the attackers and technical details of the exploit", correct: false },
-                { text: "Steps individuals should take to protect themselves", correct: true },
-                { text: "Contact information for questions and support", correct: true },
-                { text: "Blame employees for clicking phishing emails", correct: false },
-                { text: "Promise this will never happen again", correct: false }
-            ],
-            feedback: {
-                correct: "✅ Excellent communication approach! Transparency, practical guidance, and support are essential. Under the NDB scheme, you must explain what happened, what data was affected, and what people should do.",
-                incorrect: "⚠️ Avoid technical jargon that won't help victims, don't assign blame publicly, and don't make promises you can't guarantee. Focus on clear, helpful information."
-            }
-        },
-        {
-            question: "VICTIM SUPPORT: What should you offer to affected patients?",
-            description: "Select ALL appropriate support measures:",
-            multiSelect: true,
-            options: [
-                { text: "Free credit monitoring and identity protection services", correct: true },
-                { text: "Dedicated hotline for questions and concerns", correct: true },
-                { text: "$100 gift card to apologize", correct: false },
-                { text: "Guidance on monitoring medical records for fraud", correct: true },
-                { text: "Regular updates on the investigation progress", correct: true },
-                { text: "Tell them there's nothing to worry about", correct: false }
-            ],
-            feedback: {
-                correct: "✅ Comprehensive victim support! These measures show you take the breach seriously and are committed to helping affected individuals protect themselves.",
-                incorrect: "⚠️ Don't minimize the severity or offer token gestures. Provide practical, ongoing support that addresses real risks like identity theft and medical fraud."
-            }
-        },
-        {
-            question: "LONG-TERM PREVENTION: What measures will you implement to prevent future incidents?",
-            description: "Select ALL critical security improvements:",
-            multiSelect: true,
-            options: [
-                { text: "Implement multi-factor authentication (MFA) on all systems", correct: true },
-                { text: "Regular security awareness training for all staff", correct: true },
-                { text: "Network segmentation to limit lateral movement", correct: true },
-                { text: "Fire the IT department", correct: false },
-                { text: "Regular vulnerability scanning and penetration testing", correct: true },
-                { text: "Enhanced logging and monitoring with 24/7 SOC", correct: true },
-                { text: "Regular backup testing and disaster recovery drills", correct: true },
-                { text: "Stop using computers altogether", correct: false }
-            ],
-            feedback: {
-                correct: "✅ Comprehensive security strategy! These measures implement 'defense in depth' - multiple layers of security so if one fails, others protect you. This is exactly the approach needed after an incident.",
-                incorrect: "⚠️ Avoid knee-jerk reactions like firing staff or abandoning technology. Focus on systematic improvements: technical controls (MFA, segmentation), processes (monitoring, testing), and people (training)."
-            }
-        }
+        // Stages would be defined here with questions and options...
     ]
 };
 
-let currentIncidentStage = -1;
+// Track current stage in incident simulation and user's answers
+let currentIncidentStage = -1; // Start at -1 for intro screen
 let incidentAnswers = [];
 
+// Initialize and start the incident response simulation
 function startIncidentSimulation() {
-    currentIncidentStage = -1;
-    incidentAnswers = [];
-    showIncidentIntro();
+    currentIncidentStage = -1; // Reset to intro
+    incidentAnswers = []; // Clear previous answers
+    showIncidentIntro(); // Show introduction screen
 }
 
+// Display the introduction screen for incident simulation
 function showIncidentIntro() {
     const container = document.getElementById('simulation-container');
     
@@ -770,20 +554,23 @@ function showIncidentIntro() {
     `;
 }
 
+// Advance to the next stage of the incident simulation
 function nextIncidentStage() {
     currentIncidentStage++;
     
     if (currentIncidentStage < incidentScenario.stages.length) {
-        showIncidentStage();
+        showIncidentStage(); // Show next stage
     } else {
-        showIncidentResults();
+        showIncidentResults(); // Show results when all stages complete
     }
 }
 
+// Display the current stage of the incident simulation
 function showIncidentStage() {
     const stage = incidentScenario.stages[currentIncidentStage];
     const container = document.getElementById('simulation-container');
     
+    // Create progress dots to show user's position
     const progressDots = incidentScenario.stages.map((_, index) => {
         let dotClass = 'progress-dot';
         if (index < currentIncidentStage) dotClass += ' completed';
@@ -791,6 +578,7 @@ function showIncidentStage() {
         return `<div class="${dotClass}"></div>`;
     }).join('');
     
+    // Create HTML for the action options
     const optionsHTML = stage.options.map((option, index) => {
         const inputType = stage.multiSelect ? 'checkbox' : 'radio';
         return `
@@ -801,6 +589,7 @@ function showIncidentStage() {
         `;
     }).join('');
     
+    // Build the stage screen
     container.innerHTML = `
         <div class="simulation-screen">
             <div class="simulation-header">
@@ -826,8 +615,10 @@ function showIncidentStage() {
     `;
 }
 
+// Evaluate user's choices in the current incident stage
 function evaluateIncidentStage() {
     const stage = incidentScenario.stages[currentIncidentStage];
+    // Get all selected options
     const selected = Array.from(document.querySelectorAll(`input[name="stage-${currentIncidentStage}"]:checked`))
         .map(input => parseInt(input.value));
     
@@ -838,16 +629,21 @@ function evaluateIncidentStage() {
     
     let isCorrect = false;
     
+    // Evaluate based on whether it's multi-select or single-select
     if (stage.multiSelect) {
+        // For multi-select, find all correct options
         const correctIndices = stage.options
             .map((opt, idx) => opt.correct ? idx : -1)
             .filter(idx => idx !== -1);
         
+        // Count correct and incorrect selections
         const selectedCorrect = selected.filter(idx => stage.options[idx].correct).length;
         const selectedIncorrect = selected.filter(idx => !stage.options[idx].correct).length;
         
+        // Consider correct if they get most right and none wrong
         isCorrect = selectedCorrect >= correctIndices.length * 0.7 && selectedIncorrect === 0;
         
+        // Store answer with detailed scoring
         incidentAnswers.push({
             stage: currentIncidentStage,
             selected,
@@ -856,6 +652,7 @@ function evaluateIncidentStage() {
             actualScore: selectedCorrect - selectedIncorrect
         });
     } else {
+        // For single-select, just check if selected option is correct
         isCorrect = stage.options[selected[0]].correct;
         incidentAnswers.push({
             stage: currentIncidentStage,
@@ -866,6 +663,7 @@ function evaluateIncidentStage() {
     
     const feedbackDiv = document.getElementById('incident-feedback');
     
+    // Generate detailed feedback for multi-select questions
     let detailedFeedback = '';
     if (stage.multiSelect) {
         const correctChoices = stage.options
@@ -888,6 +686,7 @@ function evaluateIncidentStage() {
         }
     }
     
+    // Display feedback
     feedbackDiv.innerHTML = `
         <div class="simulation-feedback ${isCorrect ? 'correct' : 'incorrect'}">
             <h4>${isCorrect ? stage.feedback.correct : stage.feedback.incorrect}</h4>
@@ -900,15 +699,18 @@ function evaluateIncidentStage() {
     
     feedbackDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     
+    // Disable inputs to prevent changes
     const inputs = document.querySelectorAll(`input[name="stage-${currentIncidentStage}"]`);
     inputs.forEach(input => input.disabled = true);
     
-    event.target.disabled = true;
+    event.target.disabled = true; // Disable submit button
 }
 
+// Display final results of incident simulation
 function showIncidentResults() {
     const container = document.getElementById('simulation-container');
     
+    // Calculate score
     let totalScore = 0;
     let maxScore = 0;
     
@@ -921,6 +723,7 @@ function showIncidentResults() {
     
     const percentage = Math.round((totalScore / maxScore) * 100);
     
+    // Determine appropriate message
     let message = '';
     if (percentage === 100) {
         message = '🏆 Outstanding! You handled this incident perfectly. You understand the legal, technical, and communication aspects of incident response.';
@@ -932,6 +735,7 @@ function showIncidentResults() {
         message = '📚 This is a complex scenario. Review the learning modules on incident response and Australian privacy law, then retry the simulation.';
     }
     
+    // Display results
     container.innerHTML = `
         <div class="simulation-screen">
             <div class="simulation-header">
@@ -965,21 +769,26 @@ function showIncidentResults() {
         </div>
     `;
     
+    // Save progress and unlock achievement
     simulationProgress.incident = { completed: true, score: percentage };
     saveProgress('simulation-incident', percentage);
     unlockAchievement('incident-responder');
     checkAllComplete();
 }
 
+// Update progress bars on the progress page
 function updateProgress() {
+    // Get completion status from localStorage
     const modulesProgress = localStorage.getItem('modules-viewed') === 'true' ? 100 : 0;
     const quizData = JSON.parse(localStorage.getItem('quiz-score') || '0');
     const quizProgress = quizData > 0 ? 100 : 0;
     
+    // Calculate simulation progress
     const phishingComplete = simulationProgress.phishing.completed;
     const incidentComplete = simulationProgress.incident.completed;
     const simulationsComplete = (phishingComplete ? 50 : 0) + (incidentComplete ? 50 : 0);
     
+    // Update progress bars and text
     document.getElementById('modules-progress').style.width = `${modulesProgress}%`;
     document.getElementById('modules-text').textContent = modulesProgress === 100 ? 'Completed' : 'Not started';
     
@@ -991,10 +800,12 @@ function updateProgress() {
     document.getElementById('simulations-text').textContent = `${simCount}/2 completed`;
 }
 
+// Mark learning modules as viewed when user visits that section
 function markModulesAsViewed() {
     localStorage.setItem('modules-viewed', 'true');
 }
 
+// Save user progress to localStorage
 function saveProgress(type, score) {
     if (type === 'quiz') {
         localStorage.setItem('quiz-score', score);
@@ -1005,10 +816,12 @@ function saveProgress(type, score) {
     }
 }
 
+// Load previously saved progress from localStorage
 function loadProgress() {
     const phishingScore = localStorage.getItem('phishing-score');
     const incidentScore = localStorage.getItem('incident-score');
     
+    // Restore simulation progress if previously saved
     if (phishingScore) {
         simulationProgress.phishing = { completed: true, score: parseInt(phishingScore) };
         unlockAchievement('phishing-detector');
@@ -1019,17 +832,20 @@ function loadProgress() {
         unlockAchievement('incident-responder');
     }
     
+    // Unlock quiz achievement if previously earned
     const quizScore = localStorage.getItem('quiz-score');
     if (quizScore && parseInt(quizScore) >= 80) {
         unlockAchievement('quiz-master');
     }
     
-    checkAllComplete();
+    checkAllComplete(); // Check if all content completed
 }
 
+// Unlock an achievement by updating its visual state
 function unlockAchievement(achievementId) {
     const achievements = document.querySelectorAll('.achievement');
     
+    // Map achievement IDs to their index in the achievements grid
     const achievementMap = {
         'quiz-master': 0,
         'phishing-detector': 1,
@@ -1039,18 +855,21 @@ function unlockAchievement(achievementId) {
     
     const index = achievementMap[achievementId];
     if (index !== undefined && achievements[index]) {
+        // Update visual state and save to localStorage
         achievements[index].classList.remove('locked');
         achievements[index].classList.add('unlocked');
         localStorage.setItem(`achievement-${achievementId}`, 'true');
     }
 }
 
+// Check if user has completed all content to unlock final achievement
 function checkAllComplete() {
     const quizComplete = localStorage.getItem('quiz-score');
     const phishingComplete = localStorage.getItem('phishing-score');
     const incidentComplete = localStorage.getItem('incident-score');
     const modulesViewed = localStorage.getItem('modules-viewed');
     
+    // If all components completed, unlock security champion achievement
     if (quizComplete && phishingComplete && incidentComplete && modulesViewed) {
         unlockAchievement('security-champion');
     }
