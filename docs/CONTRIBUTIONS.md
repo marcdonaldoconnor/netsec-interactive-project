@@ -22,3 +22,4 @@ We hereby agree that the above summary is complete and true to our knowledge as 
 
 Signed:
 - Liam O'Connor
+- George Houen
