@@ -1,7 +1,7 @@
 
 {
     "tutorial":{
-        "sender": "tutorial@email_Safety.com",
+        "sender": "tutorial@cyberlearn.net",
         "content": "In this game, you will have to select which words are red flags in a series of spam emails.\n Click on words thast are suspicious, like \\!THIS! \n there are also \"yellow flags\" like \\?THIS! Yellow flags might look suspicious, so feel free to select it for extra points, but it's fine if you miss it. \n When you are satisfied with your choices, press \"Verify\". Remember that there can also be red flags in the sender's address and the email subject.",
         "subject": "The tutorial",
         "explanation": "Awesome! Normally there would be some feedback here, but there's nothing yet. Press \"continue\" to go to the first question."
