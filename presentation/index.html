@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Welcome to Manadatory Cybersecurity Training!</h2>
+					<img src="https://media1.tenor.com/m/tY8EBqkuF7IAAAAd/cat-keyboard-smash.gif" width="300" height="300" alt="A cat wearing a blue shirt is sitting in front of a laptop computer, smashing the keyboard keys with it's paws.">
+				</section>
+				<section data-markdown><textarea data-template>
+					<!-- Markdown is used here to have the dot points correctly fade in-->
+					## What we will cover today: <!-- .element: class="fragment semi-fade-out" data-fragment-index="1" -->
+
+					- Introduction to basic cybersecurity <!-- .element: class="fragment fade-in-then-semi-out" data-fragment-index="1" -->
+					- Malware  <!-- .element: class="fragment fade-in-then-semi-out" -->
+					- Ethical hacking  <!-- .element: class="fragment fade-in-then-semi-out" -->
+					- Incident detection & mitigation  <!-- .element: class="fragment fade-in-then-semi-out" -->
+					- Disaster recovery  <!-- .element: class="fragment fade-in-then-semi-out" -->
+				</textarea></section>
+				<section>
+					<h2>Test Your Knowledge</h2>
+					<h2><a href="../modules/1/">Introduction Quiz</a></h2>
+					<!-- TODO: Show a QR code or something else as well? -->
+				</section>
+				<section>
+					<!-- TODO: Change the name to something less corporate -->
+					<h3>Content Area 1</h3>
+					<h1>Malware</h1>
+				</section>
+				<section data-markdown><textarea data-template>
+					<!-- Markdown is used here to have the dot points correctly fade in-->
+					#### What is malware? <!-- .element: class="fragment semi-fade-out" data-fragment-index="1" -->
+
+					- Malicious software <!-- .element: class="fragment fade-in-then-semi-out" data-fragment-index="1" -->
+					- Interferes with normal computer work  <!-- .element: class="fragment fade-in-then-semi-out" -->
+					- Lots of different types  <!-- .element: class="fragment fade-in-then-semi-out" -->
+				</textarea></section>
+				<section>
+					<h2>Why care about malware?</h2>
+				</section>
+				<section>
+					<h3>2022 Medibank Data Breach</h3>
+					<!--TODO: Image here-->
+				</section>
+				<section data-markdown><textarea data-template>
+					<!-- Markdown is used here to have the dot points correctly fade in-->
+					#### Types of malware: <!-- .element: class="fragment semi-fade-out" data-fragment-index="1" -->
+
+					- Ransomware <!-- .element: class="fragment fade-in-then-semi-out" data-fragment-index="1" -->
+					- Spyware  <!-- .element: class="fragment fade-in-then-semi-out" -->
+					- Worms  <!-- .element: class="fragment fade-in-then-semi-out" -->
+					- Trojans  <!-- .element: class="fragment fade-in-then-semi-out" -->
+					- Keyloggers  <!-- .element: class="fragment fade-in-then-semi-out" -->
+					- Rootkits  <!-- .element: class="fragment fade-in-then-semi-out" -->
+				</textarea></section>
+				<section>
+					<h1>How can you keep yourself safe?</h1>
+				</section>
+				<section data-markdown><textarea data-template>
+					<!-- Markdown is used here to have the dot points correctly fade in-->
+					#### Signs of illegitimacy: <!-- .element: class="fragment semi-fade-out" data-fragment-index="1" -->
+
+					- Typos <!-- .element: class="fragment fade-in-then-semi-out" data-fragment-index="1" -->
+					- Asks you to download something  <!-- .element: class="fragment fade-in-then-semi-out" -->
+					- Time-sensitive calls to action  <!-- .element: class="fragment fade-in-then-semi-out" -->
+					- Sounds too good to be true  <!-- .element: class="fragment fade-in-then-semi-out" -->
+				</textarea></section>
+				<section>
+					<h2>Test Your Skills</h2>
+					<h2><a href="../modules/2/">Spotting Suspicious Emails</a></h2>
+					<!-- TODO: Show a QR code or something else as well? -->
+				</section>
+				<!-- TODO: have a nicer transition between the areas -->
+				<section>
+					<!-- TODO: Change the name to something less corporate -->
+					<h3>Content Area 2</h3>
+					<h1>Ethical Hacking</h1>
+				</section>
+				<section>
+					<h2>What is ethical hacking?</h2>
+				</section>
+				<section data-markdown><textarea data-template>
+					<!-- Markdown is used here to have the dot points correctly fade in-->
+					### The three main hackers: <!-- .element: class="fragment semi-fade-out" data-fragment-index="1" -->
+
+					- White hat <!-- .element: class="fragment fade-in-then-semi-out" data-fragment-index="1" -->
+					- Black hat  <!-- .element: class="fragment fade-in-then-semi-out" -->
+					- Grey hat  <!-- .element: class="fragment fade-in-then-semi-out" -->
+
+					notes: We will be predominately focused on the first one, white hats
+				</textarea></section>
+				<section>
+					<h2>The importance of ethical hacking</h2>
+				</section>
+				<section>
+					<h2>When will you be involved with ethical hacking?</h2>
+				</section>
+				<section>
+					<!-- TODO: Change the name to something less corporate -->
+					<h3>Content Area 3</h3>
+					<h1>Incident Detection</h1>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				controls: false,
+				progress: false,
+				previewLinks: true,
+				transition: 'none',
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
