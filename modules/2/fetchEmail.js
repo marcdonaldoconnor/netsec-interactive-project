@@ -244,7 +244,7 @@ async function attemptFinish(){//attempts to finish the game
     const unfinishedList = await checkIfDone();
 
     if (unfinishedList.length > 0) {//is there any unfinished question
-        alert("You must complete all modules");
+        alert("You must answer all questions before continuing!");
         load(unfinishedList[0]);
     } else {
         saveDict("stats", listOfCompleted);//if all questions are finished then save
