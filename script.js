@@ -1,3 +1,20 @@
+/**
+ * CYBERLEARN - Cybersecurity Training Platform
+ * Main JavaScript functionality for interactive learning experience
+ * 
+ * This file handles:
+ * - Navigation between sections
+ * - Quiz functionality and scoring
+ * - Interactive simulations
+ * - Progress tracking and achievements
+ * - Local storage for persistence
+ */
+
+/**
+ * QUIZ QUESTIONS DATA STRUCTURE
+ * Comprehensive set of questions covering all learning modules
+ * Each question includes type, content, correct answer, and detailed explanation
+ */
 const quizQuestions = [
     {
         id: 1,
@@ -5,11 +22,11 @@ const quizQuestions = [
         question: "What is the recommended minimum length for a strong password?",
         options: [
             "6 characters",
-            "8 characters",
-            "12-16 characters",
+            "8 characters", 
+            "12-16 characters",  // Correct answer
             "20 characters"
         ],
-        correctAnswer: 2,
+        correctAnswer: 2,  // Index of correct option (zero-based)
         explanation: "Security experts recommend passwords be at least 12-16 characters long. Longer passwords are exponentially harder to crack through brute force attacks. A 12-character password with mixed characters has trillions of possible combinations, making it significantly more secure than shorter passwords."
     },
     {
@@ -155,22 +172,33 @@ const quizQuestions = [
     }
 ];
 
-let currentQuestionIndex = 0;
-let userAnswers = [];
-let simulationProgress = {
+/**
+ * APPLICATION STATE MANAGEMENT
+ * Tracks current progress through quiz and simulations
+ */
+let currentQuestionIndex = 0;      // Current position in quiz
+let userAnswers = [];              // Stores user's quiz answers
+let simulationProgress = {         // Tracks completion status of simulations
     phishing: { completed: false, score: 0 },
     incident: { completed: false, score: 0 }
 };
 
+/**
+ * NAVIGATION SYSTEM
+ * Handles section switching and maintains active state
+ */
 function navigateTo(sectionId) {
+    // Hide all sections
     document.querySelectorAll('.section').forEach(section => {
         section.classList.remove('active');
     });
     
+    // Remove active class from all navigation links
     document.querySelectorAll('.nav-link').forEach(link => {
         link.classList.remove('active');
     });
     
+    // Show target section and activate corresponding nav link
     document.getElementById(sectionId).classList.add('active');
     
     const activeLink = document.querySelector(`a[href="#${sectionId}"]`);
@@ -178,40 +206,57 @@ function navigateTo(sectionId) {
         activeLink.classList.add('active');
     }
     
+    // Initialize specific section functionality
     if (sectionId === 'quiz') {
-        initializeQuiz();
+        initializeQuiz();  // Set up quiz if navigating to quiz section
     } else if (sectionId === 'progress') {
-        updateProgress();
+        updateProgress();  // Refresh progress display
     } else if (sectionId === 'learning') {
-        markModulesAsViewed();
+        markModulesAsViewed();  // Track that user viewed learning content
     }
     
+    // Scroll to top for better user experience
     window.scrollTo(0, 0);
 }
 
+/**
+ * INITIALIZATION
+ * Sets up event listeners when DOM is fully loaded
+ */
 document.addEventListener('DOMContentLoaded', () => {
+    // Add click handlers to navigation links
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href').substring(1);
+            e.preventDefault();  // Prevent default anchor behavior
+            const targetId = link.getAttribute('href').substring(1);  // Remove # from href
             navigateTo(targetId);
         });
     });
     
+    // Load any previously saved progress from localStorage
     loadProgress();
 });
 
+/**
+ * QUIZ INITIALIZATION
+ * Resets quiz state and renders questions
+ */
 function initializeQuiz() {
     currentQuestionIndex = 0;
     userAnswers = [];
     document.getElementById('quiz-results').classList.add('hidden');
-    renderQuiz();
+    renderQuiz();  // Generate quiz HTML
 }
 
+/**
+ * QUIZ RENDERING
+ * Dynamically creates quiz interface based on questions data
+ */
 function renderQuiz() {
     const container = document.getElementById('quiz-container');
-    container.innerHTML = '';
+    container.innerHTML = '';  // Clear previous content
     
+    // Create HTML for each question
     quizQuestions.forEach((question, index) => {
         const questionCard = document.createElement('div');
         questionCard.className = 'question-card';
@@ -219,6 +264,7 @@ function renderQuiz() {
         
         let optionsHTML = '';
         
+        // Generate appropriate input type based on question type
         if (question.type === 'multiple-choice' || question.type === 'true-false') {
             optionsHTML = '<div class="options">';
             question.options.forEach((option, optionIndex) => {
@@ -236,6 +282,7 @@ function renderQuiz() {
             optionsHTML = `<textarea class="textarea-input" id="answer-${question.id}" placeholder="Enter your detailed answer here..."></textarea>`;
         }
         
+        // Build question card HTML
         questionCard.innerHTML = `
             <div class="question-header">
                 <span class="question-number">Question ${index + 1}</span>
@@ -251,6 +298,10 @@ function renderQuiz() {
     });
 }
 
+/**
+ * ANSWER SUBMISSION AND VALIDATION
+ * Evaluates user's answer and provides immediate feedback
+ */
 function submitAnswer(questionId) {
     const question = quizQuestions.find(q => q.id === questionId);
     const feedbackDiv = document.getElementById(`feedback-${questionId}`);
@@ -260,6 +311,7 @@ function submitAnswer(questionId) {
     let isCorrect = false;
     let detailedFeedback = '';
     
+    // Handle different question types
     if (question.type === 'multiple-choice' || question.type === 'true-false') {
         const selected = document.querySelector(`input[name="question-${questionId}"]:checked`);
         if (!selected) {
@@ -269,6 +321,7 @@ function submitAnswer(questionId) {
         userAnswer = parseInt(selected.value);
         isCorrect = userAnswer === question.correctAnswer;
     } else {
+        // Text-based answers (short answer, long answer, case study)
         const answerInput = document.getElementById(`answer-${questionId}`);
         userAnswer = answerInput.value.trim();
         
@@ -277,17 +330,21 @@ function submitAnswer(questionId) {
             return;
         }
         
+        // Evaluate text answers based on keyword matching
         if (question.type === 'short-answer') {
             const answerLower = userAnswer.toLowerCase();
             const matchedKeywords = question.keywords.filter(keyword => 
                 answerLower.includes(keyword.toLowerCase())
             );
+            // Consider answer correct if it contains sufficient relevant keywords
             isCorrect = matchedKeywords.length >= Math.min(2, question.keywords.length * 0.5);
             
+            // Provide specific feedback on which keywords were found
             if (!isCorrect && matchedKeywords.length > 0) {
                 detailedFeedback = `<p><strong>Your answer included:</strong> ${matchedKeywords.join(', ')}. You're on the right track, but please review the complete explanation below.</p>`;
             }
         } else {
+            // Long answers and case studies require more comprehensive keyword coverage
             const answerLower = userAnswer.toLowerCase();
             const matchedKeywords = question.keywords.filter(keyword => 
                 answerLower.includes(keyword.toLowerCase())
@@ -295,6 +352,7 @@ function submitAnswer(questionId) {
             const requiredMatches = Math.max(3, Math.ceil(question.keywords.length * 0.3));
             isCorrect = matchedKeywords.length >= requiredMatches;
             
+            // Detailed feedback on keyword coverage
             if (matchedKeywords.length > 0) {
                 detailedFeedback = `<p><strong>Key concepts found in your answer:</strong> ${matchedKeywords.join(', ')} (${matchedKeywords.length}/${question.keywords.length} key concepts identified)</p>`;
                 
@@ -307,14 +365,17 @@ function submitAnswer(questionId) {
         }
     }
     
+    // Store user's answer for results calculation
     userAnswers[questionId] = { answer: userAnswer, correct: isCorrect };
     
+    // Disable inputs after submission to prevent changes
     submitBtn.disabled = true;
     submitBtn.textContent = 'Submitted';
     
     const inputs = document.querySelectorAll(`#question-${questionId} input, #question-${questionId} textarea`);
     inputs.forEach(input => input.disabled = true);
     
+    // Display feedback to user
     feedbackDiv.innerHTML = `
         <div class="feedback ${isCorrect ? 'correct' : 'incorrect'}">
             <div class="feedback-header">
@@ -329,22 +390,33 @@ function submitAnswer(questionId) {
         </div>
     `;
     
+    // Smooth scroll to feedback for better UX
     feedbackDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     
+    // Check if quiz is complete
     checkQuizCompletion();
 }
 
+/**
+ * QUIZ COMPLETION CHECK
+ * Determines if all questions have been answered
+ */
 function checkQuizCompletion() {
     const totalQuestions = quizQuestions.length;
     const answeredQuestions = Object.keys(userAnswers).length;
     
+    // Show results when all questions are answered
     if (answeredQuestions === totalQuestions) {
         setTimeout(() => {
             showQuizResults();
-        }, 1000);
+        }, 1000);  // Brief delay for better flow
     }
 }
 
+/**
+ * QUIZ RESULTS DISPLAY
+ * Calculates score and shows detailed results
+ */
 function showQuizResults() {
     const container = document.getElementById('quiz-container');
     const resultsDiv = document.getElementById('quiz-results');
@@ -353,10 +425,12 @@ function showQuizResults() {
     
     container.classList.add('hidden');
     
+    // Calculate score
     const totalQuestions = quizQuestions.length;
     const correctAnswers = Object.values(userAnswers).filter(a => a.correct).length;
     const percentage = Math.round((correctAnswers / totalQuestions) * 100);
     
+    // Generate appropriate message based on score
     let scoreMessage = '';
     if (percentage >= 90) {
         scoreMessage = '🏆 Outstanding! You have excellent cybersecurity knowledge!';
@@ -372,12 +446,14 @@ function showQuizResults() {
         scoreMessage = '📖 We recommend reviewing the learning modules and retaking the quiz.';
     }
     
+    // Display score and message
     scoreDisplay.innerHTML = `
         <div class="score-value">${percentage}%</div>
         <div class="score-message">${correctAnswers} out of ${totalQuestions} questions correct</div>
         <div class="score-message">${scoreMessage}</div>
     `;
     
+    // Generate review of all answers
     let reviewHTML = '<h3>Review Your Answers</h3>';
     quizQuestions.forEach((question, index) => {
         const userAnswer = userAnswers[question.id];
@@ -398,9 +474,14 @@ function showQuizResults() {
     resultsDiv.classList.remove('hidden');
     resultsDiv.scrollIntoView({ behavior: 'smooth' });
     
+    // Save progress to localStorage
     saveProgress('quiz', percentage);
 }
 
+/**
+ * QUIZ RESET
+ * Allows user to retake the quiz
+ */
 function resetQuiz() {
     const container = document.getElementById('quiz-container');
     container.classList.remove('hidden');
@@ -408,11 +489,16 @@ function resetQuiz() {
     window.scrollTo(0, 0);
 }
 
+/**
+ * SIMULATION MANAGEMENT
+ * Handles starting different simulation types
+ */
 function startSimulation(type) {
     const simulationContainer = document.getElementById('simulation-container');
     simulationContainer.classList.remove('hidden');
     simulationContainer.scrollIntoView({ behavior: 'smooth' });
     
+    // Start appropriate simulation based on type
     if (type === 'phishing') {
         startPhishingSimulation();
     } else if (type === 'incident') {
@@ -420,6 +506,10 @@ function startSimulation(type) {
     }
 }
 
+/**
+ * PHISHING SIMULATION DATA
+ * Realistic email examples for phishing detection practice
+ */
 const phishingEmails = [
     {
         id: 1,
@@ -498,16 +588,25 @@ const phishingEmails = [
 let currentPhishingIndex = 0;
 let phishingScore = 0;
 
+/**
+ * PHISHING SIMULATION INITIALIZATION
+ * Sets up phishing detection simulation
+ */
 function startPhishingSimulation() {
     currentPhishingIndex = 0;
     phishingScore = 0;
     showPhishingEmail();
 }
 
+/**
+ * PHISHING EMAIL DISPLAY
+ * Shows current email for analysis
+ */
 function showPhishingEmail() {
     const email = phishingEmails[currentPhishingIndex];
     const container = document.getElementById('simulation-container');
     
+    // Generate progress indicator dots
     const progressDots = phishingEmails.map((_, index) => {
         let dotClass = 'progress-dot';
         if (index < currentPhishingIndex) dotClass += ' completed';
@@ -515,6 +614,7 @@ function showPhishingEmail() {
         return `<div class="${dotClass}"></div>`;
     }).join('');
     
+    // Build simulation interface
     container.innerHTML = `
         <div class="simulation-screen">
             <div class="simulation-header">
@@ -542,10 +642,15 @@ function showPhishingEmail() {
     `;
 }
 
+/**
+ * PHISHING EVALUATION
+ * Checks user's phishing detection decision
+ */
 function evaluatePhishing(userSaysPhishing) {
     const email = phishingEmails[currentPhishingIndex];
     const isCorrect = userSaysPhishing === email.isPhishing;
     
+    // Update score
     if (isCorrect) {
         phishingScore++;
     }
@@ -553,6 +658,7 @@ function evaluatePhishing(userSaysPhishing) {
     const feedbackDiv = document.getElementById('phishing-feedback');
     const indicatorsList = email.indicators.map(ind => `<li>${ind}</li>`).join('');
     
+    // Provide detailed feedback
     feedbackDiv.innerHTML = `
         <div class="simulation-feedback ${isCorrect ? 'correct' : 'incorrect'}">
             <h4>${isCorrect ? '✅ Correct!' : '❌ Incorrect'}</h4>
@@ -578,6 +684,10 @@ function evaluatePhishing(userSaysPhishing) {
     feedbackDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
+/**
+ * PHISHING SIMULATION NAVIGATION
+ * Moves to next email or shows results
+ */
 function nextPhishingEmail() {
     currentPhishingIndex++;
     
@@ -588,6 +698,10 @@ function nextPhishingEmail() {
     }
 }
 
+/**
+ * PHISHING RESULTS DISPLAY
+ * Shows final score and performance feedback
+ */
 function showPhishingResults() {
     const container = document.getElementById('simulation-container');
     const percentage = Math.round((phishingScore / phishingEmails.length) * 100);
@@ -624,12 +738,17 @@ function showPhishingResults() {
         </div>
     `;
     
+    // Update progress and unlock achievement
     simulationProgress.phishing = { completed: true, score: percentage };
     saveProgress('simulation-phishing', percentage);
     unlockAchievement('phishing-detector');
     checkAllComplete();
 }
 
+/**
+ * INCIDENT RESPONSE SIMULATION DATA
+ * Multi-stage scenario based on real Australian cyber incident
+ */
 const incidentScenario = {
     intro: {
         title: "Data Breach Response Simulation",
@@ -746,6 +865,10 @@ const incidentScenario = {
 let currentIncidentStage = -1;
 let incidentAnswers = [];
 
+/**
+ * INCIDENT SIMULATION INITIALIZATION
+ * Sets up data breach response simulation
+ */
 function startIncidentSimulation() {
     currentIncidentStage = -1;
     incidentAnswers = [];
@@ -971,7 +1094,12 @@ function showIncidentResults() {
     checkAllComplete();
 }
 
+/**
+ * PROGRESS TRACKING
+ * Updates visual progress indicators based on user activity
+ */
 function updateProgress() {
+    // Calculate progress from localStorage data
     const modulesProgress = localStorage.getItem('modules-viewed') === 'true' ? 100 : 0;
     const quizData = JSON.parse(localStorage.getItem('quiz-score') || '0');
     const quizProgress = quizData > 0 ? 100 : 0;
@@ -980,6 +1108,7 @@ function updateProgress() {
     const incidentComplete = simulationProgress.incident.completed;
     const simulationsComplete = (phishingComplete ? 50 : 0) + (incidentComplete ? 50 : 0);
     
+    // Update progress bars and text
     document.getElementById('modules-progress').style.width = `${modulesProgress}%`;
     document.getElementById('modules-text').textContent = modulesProgress === 100 ? 'Completed' : 'Not started';
     
@@ -991,10 +1120,18 @@ function updateProgress() {
     document.getElementById('simulations-text').textContent = `${simCount}/2 completed`;
 }
 
+/**
+ * MODULE COMPLETION TRACKING
+ * Marks learning modules as viewed when user navigates to them
+ */
 function markModulesAsViewed() {
     localStorage.setItem('modules-viewed', 'true');
 }
 
+/**
+ * PROGRESS PERSISTENCE
+ * Saves user progress to localStorage for continuity between sessions
+ */
 function saveProgress(type, score) {
     if (type === 'quiz') {
         localStorage.setItem('quiz-score', score);
@@ -1005,10 +1142,15 @@ function saveProgress(type, score) {
     }
 }
 
+/**
+ * PROGRESS LOADING
+ * Retrieves saved progress from localStorage on page load
+ */
 function loadProgress() {
     const phishingScore = localStorage.getItem('phishing-score');
     const incidentScore = localStorage.getItem('incident-score');
     
+    // Restore simulation progress
     if (phishingScore) {
         simulationProgress.phishing = { completed: true, score: parseInt(phishingScore) };
         unlockAchievement('phishing-detector');
@@ -1019,6 +1161,7 @@ function loadProgress() {
         unlockAchievement('incident-responder');
     }
     
+    // Restore quiz achievement if applicable
     const quizScore = localStorage.getItem('quiz-score');
     if (quizScore && parseInt(quizScore) >= 80) {
         unlockAchievement('quiz-master');
@@ -1027,9 +1170,14 @@ function loadProgress() {
     checkAllComplete();
 }
 
+/**
+ * ACHIEVEMENT UNLOCKING
+ * Provides gamification through achievement system
+ */
 function unlockAchievement(achievementId) {
     const achievements = document.querySelectorAll('.achievement');
     
+    // Map achievement IDs to DOM positions
     const achievementMap = {
         'quiz-master': 0,
         'phishing-detector': 1,
@@ -1039,18 +1187,24 @@ function unlockAchievement(achievementId) {
     
     const index = achievementMap[achievementId];
     if (index !== undefined && achievements[index]) {
+        // Visual feedback for unlocked achievement
         achievements[index].classList.remove('locked');
         achievements[index].classList.add('unlocked');
         localStorage.setItem(`achievement-${achievementId}`, 'true');
     }
 }
 
+/**
+ * COMPLETION CHECK
+ * Determines if user has completed all content
+ */
 function checkAllComplete() {
     const quizComplete = localStorage.getItem('quiz-score');
     const phishingComplete = localStorage.getItem('phishing-score');
     const incidentComplete = localStorage.getItem('incident-score');
     const modulesViewed = localStorage.getItem('modules-viewed');
     
+    // Unlock ultimate achievement if everything is complete
     if (quizComplete && phishingComplete && incidentComplete && modulesViewed) {
         unlockAchievement('security-champion');
     }

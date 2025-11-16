@@ -1,43 +1,63 @@
+/* 
+ * CSS Variables (Custom Properties) for consistent theming
+ * Using CSS variables allows easy global changes and maintains design consistency
+ */
 :root {
-    --primary-orange: #E67E22;
-    --primary-dark: #D35400;
-    --text-primary: #2C3E50;
-    --text-secondary: #7F8C8D;
-    --text-light: #95A5A6;
-    --background: #FFFFFF;
-    --background-light: #F8F9FA;
-    --card-bg: #FAF8F6;
-    --border-color: #E8E8E8;
-    --success: #27AE60;
-    --error: #E74C3C;
-    --warning: #F39C12;
-    --border-radius: 8px;
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
-    --shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.08);
-    --transition: all 0.3s ease;
+    --primary-orange: #E67E22;     /* Main brand color - warm, attention-grabbing */
+    --primary-dark: #D35400;       /* Darker shade for hover states and accents */
+    --text-primary: #2C3E50;       /* Main text color - dark blue-gray for readability */
+    --text-secondary: #7F8C8D;     /* Secondary text - lighter gray for less important content */
+    --text-light: #95A5A6;         /* Muted text for disabled or tertiary content */
+    --background: #FFFFFF;         /* Main background - clean white */
+    --background-light: #F8F9FA;   /* Light gray background for sections/footer */
+    --card-bg: #FAF8F6;           /* Card backgrounds - slightly off-white for depth */
+    --border-color: #E8E8E8;      /* Subtle borders for separation */
+    --success: #27AE60;           Green for positive feedback/correct answers */
+    --error: #E74C3C;             /* Red for errors/incorrect answers */
+    --warning: #F39C12;           /* Orange-yellow for warnings */
+    --border-radius: 8px;         /* Consistent border radius for modern look */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);  /* Subtle shadow for small elevations */
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.06);     /* Medium shadow for cards */
+    --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.08); /* Large shadow for prominent elements */
+    --transition: all 0.3s ease;  /* Standard transition for interactive elements */
 }
 
+/* Reset and base styles for consistent cross-browser rendering */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box;  /* Includes padding and border in element's total width/height */
 }
 
+/* 
+ * Base body styles 
+ * Using system fonts for better performance and native feel
+ * Line height optimized for readability
+ */
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
     background-color: var(--background);
     color: var(--text-primary);
-    line-height: 1.7;
+    line-height: 1.7;  /* Improved readability with generous line height */
     font-size: 16px;
 }
 
+/* 
+ * Container for consistent content width and centering
+ * Max-width prevents content from becoming too wide on large screens
+ * Padding ensures content doesn't touch viewport edges on small screens
+ */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
+/* 
+ * Sticky header for persistent navigation
+ * Shadow and border provide visual separation from content
+ * High z-index ensures header stays above other content
+ */
 header {
     background: var(--background);
     color: var(--text-primary);
@@ -48,6 +68,7 @@ header {
     border-bottom: 1px solid var(--border-color);
 }
 
+/* Navigation bar with flexible layout */
 .navbar {
     padding: 1rem 0;
 }
@@ -56,22 +77,25 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap;  /* Allows wrapping on mobile */
 }
 
+/* Logo styling - prominent but not overwhelming */
 .logo h1 {
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--text-primary);
 }
 
+/* Navigation menu with adequate spacing between items */
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 2.5rem;
+    gap: 2.5rem;  /* Consistent spacing between nav items */
     flex-wrap: wrap;
 }
 
+/* Navigation links with hover and active states */
 .nav-link {
     color: var(--text-secondary);
     text-decoration: none;
@@ -82,18 +106,27 @@ header {
 }
 
 .nav-link:hover {
-    color: var(--primary-orange);
+    color: var(--primary-orange);  /* Brand color on hover for visual feedback */
 }
 
 .nav-link.active {
     color: var(--primary-orange);
-    font-weight: 600;
+    font-weight: 600;  /* Bold weight for current page indication */
 }
 
+/* 
+ * Main content area 
+ * Calculated min-height ensures footer stays at bottom when content is short
+ */
 main {
-    min-height: calc(100vh - 200px);
+    min-height: calc(100vh - 200px);  /* Viewport height minus header/footer approx height */
 }
 
+/* 
+ * Section management system
+ * Only active section is displayed, others are hidden
+ * Fade-in animation provides smooth transitions between sections
+ */
 .section {
     display: none;
     padding: 3rem 0;
@@ -107,7 +140,7 @@ main {
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(20px);  /* Subtle slide-up effect */
     }
     to {
         opacity: 1;
@@ -115,6 +148,11 @@ main {
     }
 }
 
+/* 
+ * Hero section - primary landing area
+ * Large padding for visual prominence
+ * Centered text for focus
+ */
 .hero {
     text-align: center;
     padding: 5rem 2rem 4rem;
@@ -145,13 +183,15 @@ main {
     line-height: 1.7;
 }
 
+/* Call-to-action buttons container */
 .cta-buttons {
     display: flex;
     gap: 1rem;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap;  /* Wrap on mobile if needed */
 }
 
+/* Base button styles */
 .btn {
     padding: 0.75rem 1.75rem;
     font-size: 0.95rem;
@@ -164,6 +204,7 @@ main {
     display: inline-block;
 }
 
+/* Primary button - main action */
 .btn-primary {
     background: var(--primary-orange);
     color: white;
@@ -173,10 +214,11 @@ main {
 .btn-primary:hover {
     background: var(--primary-dark);
     border-color: var(--primary-dark);
-    transform: translateY(-1px);
+    transform: translateY(-1px);  /* Lift effect on hover */
     box-shadow: var(--shadow);
 }
 
+/* Secondary button - alternative action */
 .btn-secondary {
     background: white;
     color: var(--text-primary);
@@ -189,6 +231,10 @@ main {
     transform: translateY(-1px);
 }
 
+/* 
+ * Features grid - responsive card layout
+ * auto-fit with minmax creates flexible columns that wrap appropriately
+ */
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -196,6 +242,7 @@ main {
     margin-top: 3rem;
 }
 
+/* Feature cards with hover effects for interactivity */
 .feature-card {
     background: var(--card-bg);
     padding: 2.5rem 2rem;
@@ -207,14 +254,15 @@ main {
 }
 
 .feature-card:hover {
-    transform: translateY(-2px);
+    transform: translateY(-2px);  /* Lift effect on hover */
     box-shadow: var(--shadow);
 }
 
+/* Feature icon container with brand-colored background */
 .feature-icon {
     width: 48px;
     height: 48px;
-    background: #FFF5ED;
+    background: #FFF5ED;  /* Light orange background to complement brand */
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -237,6 +285,11 @@ main {
     line-height: 1.6;
 }
 
+/* 
+ * Learning module styling
+ * Left border provides visual connection to brand color
+ * Card-like appearance for content separation
+ */
 .module {
     background: var(--card-bg);
     padding: 2.5rem;
@@ -244,7 +297,7 @@ main {
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-sm);
     border: 1px solid var(--border-color);
-    border-left: 3px solid var(--primary-orange);
+    border-left: 3px solid var(--primary-orange);  /* Accent border */
 }
 
 .module h3 {
@@ -276,6 +329,7 @@ main {
     margin-bottom: 0.75rem;
 }
 
+/* Callout boxes for important information within modules */
 .callout {
     background: #FFF5ED;
     border-left: 3px solid var(--primary-orange);
@@ -285,6 +339,7 @@ main {
     color: var(--text-primary);
 }
 
+/* Quiz introduction styling */
 .quiz-intro {
     text-align: center;
     font-size: 1.1rem;
@@ -292,6 +347,7 @@ main {
     color: var(--text-light);
 }
 
+/* Question card layout */
 .question-card {
     background: var(--card-bg);
     padding: 2.5rem;
@@ -330,6 +386,7 @@ main {
     color: var(--text-primary);
 }
 
+/* Answer options layout */
 .options {
     display: flex;
     flex-direction: column;
@@ -364,6 +421,7 @@ main {
     flex: 1;
 }
 
+/* Form input styling */
 .text-input,
 .textarea-input {
     width: 100%;
@@ -378,14 +436,15 @@ main {
 .text-input:focus,
 .textarea-input:focus {
     outline: none;
-    border-color: var(--primary-orange);
+    border-color: var(--primary-orange);  /* Brand color on focus */
 }
 
 .textarea-input {
     min-height: 150px;
-    resize: vertical;
+    resize: vertical;  /* Allow vertical resizing only */
 }
 
+/* Answer submission button */
 .submit-answer-btn {
     margin-top: 1rem;
     background: var(--primary-orange);
@@ -408,6 +467,7 @@ main {
     cursor: not-allowed;
 }
 
+/* Feedback display with slide-down animation */
 .feedback {
     margin-top: 1rem;
     padding: 1rem;
@@ -457,10 +517,12 @@ main {
     line-height: 1.6;
 }
 
+/* Utility class for hiding elements */
 .hidden {
     display: none !important;
 }
 
+/* Quiz results section */
 #quiz-results {
     background: var(--card-bg);
     padding: 2rem;
@@ -508,6 +570,7 @@ main {
     border-left-color: var(--error);
 }
 
+/* Simulations grid layout */
 .simulation-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -559,6 +622,7 @@ main {
     margin-bottom: 2rem;
 }
 
+/* Progress indicator for multi-step simulations */
 .simulation-progress {
     display: flex;
     justify-content: center;
@@ -581,6 +645,7 @@ main {
     background: var(--success);
 }
 
+/* Email preview styling for phishing simulation */
 .email-preview {
     background: white;
     border: 2px solid #E0E0E0;
@@ -610,6 +675,7 @@ main {
     line-height: 1.6;
 }
 
+/* Choice buttons for simulation decisions */
 .choice-buttons {
     display: flex;
     gap: 1rem;
@@ -652,6 +718,7 @@ main {
     border-left: 4px solid var(--error);
 }
 
+/* Scenario box for incident simulation context */
 .scenario-box {
     background: #FFF5ED;
     padding: 1.5rem;
@@ -680,7 +747,7 @@ main {
 
 .action-item:hover {
     border-color: var(--primary-orange);
-    transform: translateX(5px);
+    transform: translateX(5px);  /* Slide effect on hover */
 }
 
 .action-item input[type="checkbox"] {
@@ -689,6 +756,7 @@ main {
     cursor: pointer;
 }
 
+/* Progress tracking overview */
 .progress-overview {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -720,10 +788,11 @@ main {
 .progress-fill {
     height: 100%;
     background: var(--primary-orange);
-    transition: width 0.5s ease;
+    transition: width 0.5s ease;  /* Smooth animation when progress updates */
     border-radius: 10px;
 }
 
+/* Achievements grid for gamification */
 .achievements-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -741,13 +810,13 @@ main {
 }
 
 .achievement.locked {
-    opacity: 0.5;
+    opacity: 0.5;  /* Visual indication of locked achievement */
 }
 
 .achievement.unlocked {
     opacity: 1;
     border: 2px solid var(--primary-orange);
-    animation: unlock 0.5s ease;
+    animation: unlock 0.5s ease;  /* Celebration animation when unlocked */
 }
 
 @keyframes unlock {
@@ -755,7 +824,7 @@ main {
         transform: scale(1);
     }
     50% {
-        transform: scale(1.1);
+        transform: scale(1.1);  /* Bounce effect for visual feedback */
     }
 }
 
@@ -776,6 +845,7 @@ main {
     font-size: 0.85rem;
 }
 
+/* Footer styling */
 footer {
     background: var(--background-light);
     color: var(--text-secondary);
@@ -790,9 +860,13 @@ footer p {
     font-size: 0.95rem;
 }
 
+/* 
+ * Responsive design for mobile devices
+ * These rules apply when screen width is 768px or less
+ */
 @media (max-width: 768px) {
     .navbar .container {
-        flex-direction: column;
+        flex-direction: column;  /* Stack logo and nav vertically */
         gap: 1rem;
     }
 
@@ -807,7 +881,7 @@ footer p {
     }
 
     .hero h2 {
-        font-size: 2rem;
+        font-size: 2rem;  /* Smaller heading on mobile */
     }
 
     .subtitle {
@@ -817,7 +891,7 @@ footer p {
     .features-grid,
     .simulation-grid,
     .progress-overview {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr;  /* Single column layout on mobile */
     }
 
     .choice-buttons {
@@ -825,15 +899,16 @@ footer p {
     }
 
     .choice-btn {
-        min-width: 100%;
+        min-width: 100%;  /* Full width buttons on mobile */
     }
 }
 
+/* Print styles for better printing experience */
 @media print {
     header,
     footer,
     .cta-buttons,
     .btn {
-        display: none;
+        display: none;  /* Hide non-essential elements when printing */
     }
 }
