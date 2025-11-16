@@ -11,3 +11,5 @@ The CyberLearn website can be accessed at [this link](https://marcdonaldoconnor.
 The presentation can be accessed [here](https://marcdonaldoconnor.github.io/netsec-interactive-project/presentation/).
 
 The introductionary quiz can be accessed [here](https://marcdonaldoconnor.github.io/netsec-interactive-project/modules/1/). The other simulations are on the website.
+
+The Summary of Contributions is available in this repository under `docs/CONTRIBUTIONS.md`.
