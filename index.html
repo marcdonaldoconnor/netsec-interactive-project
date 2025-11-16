@@ -8,17 +8,20 @@
     <link rel="shortcut icon" type="image/x-icon" href="./assets/favicon.ico">
 </head>
 <body>
+    <!-- Header with sticky navigation for easy access to all sections -->
     <header>
         <nav class="navbar">
             <div class="container">
                 <div class="logo">
-                    <h1>CyberLearn</h1>
+                    <h1>CyberLearn</h1> <!-- Brand identity -->
                 </div>
+                <!-- Mobile menu toggle (hidden in current implementation but ready for enhancement) -->
                 <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
+                <!-- Main navigation menu -->
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="#home" class="nav-link active">Home</a></li>
                     <li><a href="#learning" class="nav-link">Learning Modules</a></li>
@@ -31,6 +34,7 @@
     </header>
 
     <main>
+        <!-- Home/Landing Section - First thing users see -->
         <section id="home" class="section active">
             <div class="container">
                 <div class="hero">
@@ -38,14 +42,18 @@
                     <p class="subtitle">Comprehensive, interactive training designed for Australian businesses. Master essential cybersecurity concepts through engaging quizzes and real-world simulations.</p>
                     <p>Enhance your team's security awareness with interactive training modules, comprehensive quizzes, and real-world simulations based on Australian cybersecurity incidents.</p>
                     <div class="cta-buttons">
+                        <!-- Primary call-to-action: Start learning immediately -->
                         <button class="btn btn-primary" onclick="navigateTo('learning')">Start Training</button>
+                        <!-- Secondary CTA: View progress for returning users -->
                         <button class="btn btn-secondary" onclick="navigateTo('progress')">View Progress</button>
                     </div>
                 </div>
 
+                <!-- Features grid showcasing the platform's key offerings -->
                 <div class="features-grid">
                     <div class="feature-card">
                         <div class="feature-icon">
+                            <!-- SVG icon representing email/communication for phishing topic -->
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                                 <polyline points="22,6 12,13 2,6"></polyline>
@@ -56,6 +64,7 @@
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">
+                            <!-- Warning triangle icon for malware threats -->
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
                                 <line x1="12" y1="9" x2="12" y2="13"></line>
@@ -67,6 +76,7 @@
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">
+                            <!-- Lock icon for password security -->
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                                 <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
@@ -77,6 +87,7 @@
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">
+                            <!-- Shield/dollar icon representing data protection and privacy -->
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
                             </svg>
@@ -88,10 +99,12 @@
             </div>
         </section>
 
+        <!-- Learning Modules Section - Core educational content -->
         <section id="learning" class="section">
             <div class="container">
                 <h2>Cybersecurity Learning Modules</h2>
                 
+                <!-- Module 1: Password Security -->
                 <div class="module">
                     <h3>1. Password Security & Authentication</h3>
                     <div class="module-content">
@@ -106,12 +119,14 @@
                             <li><strong>Passphrases:</strong> Consider using memorable passphrases like "Coffee!Sunrise@Beach2024" instead of random characters</li>
                         </ul>
                         
+                        <!-- Callout box for critical information users must remember -->
                         <div class="callout">
                             <strong>Common Mistakes to Avoid:</strong> Using personal information (birthdays, names), sequential patterns (123456, abcdef), or common words (password, admin)
                         </div>
                     </div>
                 </div>
 
+                <!-- Module 2: Phishing Awareness -->
                 <div class="module">
                     <h3>2. Phishing & Social Engineering</h3>
                     <div class="module-content">
@@ -133,6 +148,7 @@
                     </div>
                 </div>
 
+                <!-- Module 3: Malware Education -->
                 <div class="module">
                     <h3>3. Malware & Ransomware</h3>
                     <div class="module-content">
@@ -155,12 +171,14 @@
                             <li>Use ad blockers and avoid suspicious websites</li>
                         </ul>
                         
+                        <!-- Australian context makes the content relevant to local users -->
                         <div class="callout">
                             <strong>Australian Context:</strong> In 2022, several Australian healthcare providers and retailers were hit by ransomware attacks, causing significant data breaches and service disruptions.
                         </div>
                     </div>
                 </div>
 
+                <!-- Module 4: Data Protection with Australian focus -->
                 <div class="module">
                     <h3>4. Data Protection & Privacy</h3>
                     <div class="module-content">
@@ -182,6 +200,7 @@
                     </div>
                 </div>
 
+                <!-- Module 5: Incident Response Procedures -->
                 <div class="module">
                     <h3>5. Incident Response & Reporting</h3>
                     <div class="module-content">
@@ -213,45 +232,54 @@
                     </div>
                 </div>
 
+                <!-- Navigation to test knowledge after learning -->
                 <button class="btn btn-primary" onclick="navigateTo('quiz')">Test Your Knowledge</button>
             </div>
         </section>
 
+        <!-- Quiz Section - Assessment of learning -->
         <section id="quiz" class="section">
             <div class="container">
                 <h2>Cybersecurity Knowledge Quiz</h2>
                 <p class="quiz-intro">Complete this comprehensive quiz to test your understanding of cybersecurity principles. You'll receive immediate feedback with detailed explanations.</p>
                 
+                <!-- Dynamic quiz content will be injected here by JavaScript -->
                 <div id="quiz-container"></div>
                 
+                <!-- Results section shown after quiz completion -->
                 <div id="quiz-results" class="hidden">
                     <h3>Quiz Results</h3>
                     <div id="score-display"></div>
                     <div id="answers-review"></div>
+                    <!-- Options after quiz completion -->
                     <button class="btn btn-primary" onclick="resetQuiz()">Retake Quiz</button>
                     <button class="btn btn-secondary" onclick="navigateTo('simulations')">Continue to Simulations</button>
                 </div>
             </div>
         </section>
 
+        <!-- Simulations Section - Practical application of knowledge -->
         <section id="simulations" class="section">
             <div class="container">
                 <h2>Interactive Security Simulations</h2>
                 <p>Practice your cybersecurity skills with realistic scenarios based on actual security challenges.</p>
                 
                 <div class="simulation-grid">
+                    <!-- Phishing detection simulation -->
                     <div class="simulation-card" onclick="startSimulation('phishing')">
                         <h3>🎯 Simulation 1: Phishing Detection</h3>
                         <p>Analyze emails and identify phishing attempts. Learn to spot malicious content and protect your organization.</p>
                         <button class="btn btn-primary">Start Simulation</button>
                     </div>
                     
+                    <!-- Incident response simulation -->
                     <div class="simulation-card" onclick="startSimulation('incident')">
                         <h3>🚨 Simulation 2: Data Breach Response</h3>
                         <p>Based on a major Australian cyber incident. Make critical decisions to contain and respond to a data breach.</p>
                         <button class="btn btn-primary">Start Simulation</button>
                     </div>
 
+                    <!-- External simulation link -->
 					<div class="simulation-card" onclick="window.open('https://marcdonaldoconnor.github.io/netsec-interactive-project/modules/2', '_self');">
 						<h3>🧠 Simulation 3: Advanced Phishing Detection</h3>
 						<p>Already a pro at identifying phishing emails? Try this simulation, where you have to justify your choices in order to proceed.</p>
@@ -259,14 +287,17 @@
 					</div>
                 </div>
 
+                <!-- Dynamic simulation content will be injected here -->
                 <div id="simulation-container" class="hidden"></div>
             </div>
         </section>
 
+        <!-- Progress Tracking Section - Gamification and motivation -->
         <section id="progress" class="section">
             <div class="container">
                 <h2>Your Progress</h2>
                 
+                <!-- Visual progress indicators -->
                 <div class="progress-overview">
                     <div class="progress-card">
                         <h3>Learning Modules</h3>
@@ -293,6 +324,7 @@
                     </div>
                 </div>
 
+                <!-- Achievements for gamification and user motivation -->
                 <div class="achievements">
                     <h3>Achievements</h3>
                     <div id="achievements-list" class="achievements-grid">
@@ -322,13 +354,15 @@
         </section>
     </main>
 
+    <!-- Footer with branding and completion message -->
     <footer>
         <div class="container">
             <p>&copy; 2025 CyberLearn. Professional Cybersecurity Training Platform</p>
-            <p>Building secure organizations, one employee at a time.</p>
+            <p>Building secure organizations, one employee at a time.</p> <!-- Mission statement -->
         </div>
     </footer>
 
+    <!-- Main JavaScript functionality -->
     <script src="script.js"></script>
 </body>
 </html>
