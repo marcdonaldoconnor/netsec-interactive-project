@@ -1,3 +1,4 @@
+/* Styles for :root — layout and visual configuration */
 :root {
     --primary-orange: #E67E22;
     --primary-dark: #D35400;
@@ -18,12 +19,14 @@
     --transition: all 0.3s ease;
 }
 
+/* Styles for * — layout and visual configuration */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Styles for body — layout and visual configuration */
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
     background-color: var(--background);
@@ -32,12 +35,14 @@ body {
     font-size: 16px;
 }
 
+/* Styles for .container — layout and visual configuration */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
+/* Styles for header — layout and visual configuration */
 header {
     background: var(--background);
     color: var(--text-primary);
@@ -48,10 +53,12 @@ header {
     border-bottom: 1px solid var(--border-color);
 }
 
+/* Styles for .navbar — layout and visual configuration */
 .navbar {
     padding: 1rem 0;
 }
 
+/* Styles for .navbar .container — layout and visual configuration */
 .navbar .container {
     display: flex;
     justify-content: space-between;
@@ -59,12 +66,14 @@ header {
     flex-wrap: wrap;
 }
 
+/* Styles for .logo h1 — layout and visual configuration */
 .logo h1 {
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--text-primary);
 }
 
+/* Styles for .nav-menu — layout and visual configuration */
 .nav-menu {
     display: flex;
     list-style: none;
@@ -72,6 +81,7 @@ header {
     flex-wrap: wrap;
 }
 
+/* Styles for .nav-link — layout and visual configuration */
 .nav-link {
     color: var(--text-secondary);
     text-decoration: none;
@@ -81,40 +91,48 @@ header {
     font-size: 0.95rem;
 }
 
+/* Styles for .nav-link:hover — layout and visual configuration */
 .nav-link:hover {
     color: var(--primary-orange);
 }
 
+/* Styles for .nav-link.active — layout and visual configuration */
 .nav-link.active {
     color: var(--primary-orange);
     font-weight: 600;
 }
 
+/* Styles for main — layout and visual configuration */
 main {
     min-height: calc(100vh - 200px);
 }
 
+/* Styles for .section — layout and visual configuration */
 .section {
     display: none;
     padding: 3rem 0;
     animation: fadeIn 0.5s ease;
 }
 
+/* Styles for .section.active — layout and visual configuration */
 .section.active {
     display: block;
 }
 
 @keyframes fadeIn {
+/* Styles for from — layout and visual configuration */
     from {
         opacity: 0;
         transform: translateY(20px);
     }
+/* Styles for to — layout and visual configuration */
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
+/* Styles for .hero — layout and visual configuration */
 .hero {
     text-align: center;
     padding: 5rem 2rem 4rem;
@@ -122,6 +140,7 @@ main {
     margin-bottom: 4rem;
 }
 
+/* Styles for .hero h2 — layout and visual configuration */
 .hero h2 {
     font-size: 2.75rem;
     color: var(--text-primary);
@@ -130,6 +149,7 @@ main {
     line-height: 1.3;
 }
 
+/* Styles for .subtitle — layout and visual configuration */
 .subtitle {
     font-size: 1.15rem;
     color: var(--text-secondary);
@@ -137,6 +157,7 @@ main {
     font-weight: 400;
 }
 
+/* Styles for .hero p — layout and visual configuration */
 .hero p {
     font-size: 1.05rem;
     max-width: 700px;
@@ -145,6 +166,7 @@ main {
     line-height: 1.7;
 }
 
+/* Styles for .cta-buttons — layout and visual configuration */
 .cta-buttons {
     display: flex;
     gap: 1rem;
@@ -152,6 +174,7 @@ main {
     flex-wrap: wrap;
 }
 
+/* Styles for .btn — layout and visual configuration */
 .btn {
     padding: 0.75rem 1.75rem;
     font-size: 0.95rem;
@@ -164,12 +187,14 @@ main {
     display: inline-block;
 }
 
+/* Styles for .btn-primary — layout and visual configuration */
 .btn-primary {
     background: var(--primary-orange);
     color: white;
     border-color: var(--primary-orange);
 }
 
+/* Styles for .btn-primary:hover — layout and visual configuration */
 .btn-primary:hover {
     background: var(--primary-dark);
     border-color: var(--primary-dark);
@@ -177,18 +202,21 @@ main {
     box-shadow: var(--shadow);
 }
 
+/* Styles for .btn-secondary — layout and visual configuration */
 .btn-secondary {
     background: white;
     color: var(--text-primary);
     border-color: var(--border-color);
 }
 
+/* Styles for .btn-secondary:hover — layout and visual configuration */
 .btn-secondary:hover {
     border-color: var(--primary-orange);
     color: var(--primary-orange);
     transform: translateY(-1px);
 }
 
+/* Styles for .features-grid — layout and visual configuration */
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -196,6 +224,7 @@ main {
     margin-top: 3rem;
 }
 
+/* Styles for .feature-card — layout and visual configuration */
 .feature-card {
     background: var(--card-bg);
     padding: 2.5rem 2rem;
@@ -206,11 +235,13 @@ main {
     border: 1px solid var(--border-color);
 }
 
+/* Styles for .feature-card:hover — layout and visual configuration */
 .feature-card:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow);
 }
 
+/* Styles for .feature-icon — layout and visual configuration */
 .feature-icon {
     width: 48px;
     height: 48px;
@@ -224,6 +255,7 @@ main {
     color: var(--primary-orange);
 }
 
+/* Styles for .feature-card h3 — layout and visual configuration */
 .feature-card h3 {
     color: var(--text-primary);
     margin-bottom: 0.75rem;
@@ -231,12 +263,14 @@ main {
     font-size: 1.15rem;
 }
 
+/* Styles for .feature-card p — layout and visual configuration */
 .feature-card p {
     color: var(--text-secondary);
     font-size: 0.95rem;
     line-height: 1.6;
 }
 
+/* Styles for .module — layout and visual configuration */
 .module {
     background: var(--card-bg);
     padding: 2.5rem;
@@ -247,6 +281,7 @@ main {
     border-left: 3px solid var(--primary-orange);
 }
 
+/* Styles for .module h3 — layout and visual configuration */
 .module h3 {
     color: var(--text-primary);
     font-size: 1.4rem;
@@ -254,6 +289,7 @@ main {
     font-weight: 600;
 }
 
+/* Styles for .module h4 — layout and visual configuration */
 .module h4 {
     color: var(--text-primary);
     margin-top: 1.75rem;
@@ -262,20 +298,24 @@ main {
     font-size: 1.1rem;
 }
 
+/* Styles for .module-content — layout and visual configuration */
 .module-content {
     color: var(--text-primary);
 }
 
 .module-content ul,
+/* Styles for .module-content ol — layout and visual configuration */
 .module-content ol {
     margin-left: 1.5rem;
     margin-top: 0.5rem;
 }
 
+/* Styles for .module-content li — layout and visual configuration */
 .module-content li {
     margin-bottom: 0.75rem;
 }
 
+/* Styles for .callout — layout and visual configuration */
 .callout {
     background: #FFF5ED;
     border-left: 3px solid var(--primary-orange);
@@ -285,6 +325,7 @@ main {
     color: var(--text-primary);
 }
 
+/* Styles for .quiz-intro — layout and visual configuration */
 .quiz-intro {
     text-align: center;
     font-size: 1.1rem;
@@ -292,6 +333,7 @@ main {
     color: var(--text-light);
 }
 
+/* Styles for .question-card — layout and visual configuration */
 .question-card {
     background: var(--card-bg);
     padding: 2.5rem;
@@ -301,6 +343,7 @@ main {
     border: 1px solid var(--border-color);
 }
 
+/* Styles for .question-header — layout and visual configuration */
 .question-header {
     display: flex;
     justify-content: space-between;
@@ -308,6 +351,7 @@ main {
     margin-bottom: 1rem;
 }
 
+/* Styles for .question-number — layout and visual configuration */
 .question-number {
     background: var(--primary-orange);
     color: white;
@@ -317,12 +361,14 @@ main {
     font-size: 0.9rem;
 }
 
+/* Styles for .question-type — layout and visual configuration */
 .question-type {
     color: var(--text-light);
     font-size: 0.9rem;
     font-style: italic;
 }
 
+/* Styles for .question-text — layout and visual configuration */
 .question-text {
     font-size: 1.1rem;
     font-weight: 500;
@@ -330,12 +376,14 @@ main {
     color: var(--text-primary);
 }
 
+/* Styles for .options — layout and visual configuration */
 .options {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
 }
 
+/* Styles for .option — layout and visual configuration */
 .option {
     display: flex;
     align-items: center;
@@ -347,11 +395,13 @@ main {
     transition: all 0.3s ease;
 }
 
+/* Styles for .option:hover — layout and visual configuration */
 .option:hover {
     border-color: var(--primary-orange);
     background: white;
 }
 
+/* Styles for .option input[type="radio"] — layout and visual configuration */
 .option input[type="radio"] {
     margin-right: 1rem;
     width: 20px;
@@ -359,12 +409,14 @@ main {
     cursor: pointer;
 }
 
+/* Styles for .option label — layout and visual configuration */
 .option label {
     cursor: pointer;
     flex: 1;
 }
 
 .text-input,
+/* Styles for .textarea-input — layout and visual configuration */
 .textarea-input {
     width: 100%;
     padding: 1rem;
@@ -376,16 +428,19 @@ main {
 }
 
 .text-input:focus,
+/* Styles for .textarea-input:focus — layout and visual configuration */
 .textarea-input:focus {
     outline: none;
     border-color: var(--primary-orange);
 }
 
+/* Styles for .textarea-input — layout and visual configuration */
 .textarea-input {
     min-height: 150px;
     resize: vertical;
 }
 
+/* Styles for .submit-answer-btn — layout and visual configuration */
 .submit-answer-btn {
     margin-top: 1rem;
     background: var(--primary-orange);
@@ -398,16 +453,19 @@ main {
     transition: var(--transition);
 }
 
+/* Styles for .submit-answer-btn:hover:not(:disabled) — layout and visual configuration */
 .submit-answer-btn:hover:not(:disabled) {
     background: var(--primary-dark);
     transform: translateY(-2px);
 }
 
+/* Styles for .submit-answer-btn:disabled — layout and visual configuration */
 .submit-answer-btn:disabled {
     opacity: 0.5;
     cursor: not-allowed;
 }
 
+/* Styles for .feedback — layout and visual configuration */
 .feedback {
     margin-top: 1rem;
     padding: 1rem;
@@ -416,26 +474,31 @@ main {
 }
 
 @keyframes slideDown {
+/* Styles for from — layout and visual configuration */
     from {
         opacity: 0;
         max-height: 0;
     }
+/* Styles for to — layout and visual configuration */
     to {
         opacity: 1;
         max-height: 500px;
     }
 }
 
+/* Styles for .feedback.correct — layout and visual configuration */
 .feedback.correct {
     background: rgba(39, 174, 96, 0.1);
     border-left: 4px solid var(--success);
 }
 
+/* Styles for .feedback.incorrect — layout and visual configuration */
 .feedback.incorrect {
     background: rgba(231, 76, 60, 0.1);
     border-left: 4px solid var(--error);
 }
 
+/* Styles for .feedback-header — layout and visual configuration */
 .feedback-header {
     font-weight: 600;
     margin-bottom: 0.5rem;
@@ -444,23 +507,28 @@ main {
     gap: 0.5rem;
 }
 
+/* Styles for .feedback.correct .feedback-header — layout and visual configuration */
 .feedback.correct .feedback-header {
     color: var(--success);
 }
 
+/* Styles for .feedback.incorrect .feedback-header — layout and visual configuration */
 .feedback.incorrect .feedback-header {
     color: var(--error);
 }
 
+/* Styles for .feedback-explanation — layout and visual configuration */
 .feedback-explanation {
     margin-top: 0.5rem;
     line-height: 1.6;
 }
 
+/* Styles for .hidden — layout and visual configuration */
 .hidden {
     display: none !important;
 }
 
+/* Styles for #quiz-results — layout and visual configuration */
 #quiz-results {
     background: var(--card-bg);
     padding: 2rem;
@@ -468,6 +536,7 @@ main {
     box-shadow: var(--shadow);
 }
 
+/* Styles for #score-display — layout and visual configuration */
 #score-display {
     text-align: center;
     padding: 3rem 2rem;
@@ -476,22 +545,26 @@ main {
     border-radius: var(--border-radius);
 }
 
+/* Styles for .score-value — layout and visual configuration */
 .score-value {
     font-size: 4rem;
     font-weight: 700;
     color: var(--primary-orange);
 }
 
+/* Styles for .score-message — layout and visual configuration */
 .score-message {
     font-size: 1.2rem;
     margin-top: 1rem;
     color: var(--text-primary);
 }
 
+/* Styles for #answers-review — layout and visual configuration */
 #answers-review {
     margin-top: 2rem;
 }
 
+/* Styles for .review-item — layout and visual configuration */
 .review-item {
     background: var(--background);
     padding: 1.5rem;
@@ -500,14 +573,17 @@ main {
     border-left: 4px solid var(--text-light);
 }
 
+/* Styles for .review-item.correct — layout and visual configuration */
 .review-item.correct {
     border-left-color: var(--success);
 }
 
+/* Styles for .review-item.incorrect — layout and visual configuration */
 .review-item.incorrect {
     border-left-color: var(--error);
 }
 
+/* Styles for .simulation-grid — layout and visual configuration */
 .simulation-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -515,6 +591,7 @@ main {
     margin-top: 2rem;
 }
 
+/* Styles for .simulation-card — layout and visual configuration */
 .simulation-card {
     background: var(--card-bg);
     padding: 2.5rem 2rem;
@@ -525,11 +602,13 @@ main {
     border: 1px solid var(--border-color);
 }
 
+/* Styles for .simulation-card:hover — layout and visual configuration */
 .simulation-card:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow);
 }
 
+/* Styles for .simulation-card h3 — layout and visual configuration */
 .simulation-card h3 {
     color: var(--text-primary);
     margin-bottom: 1rem;
@@ -537,15 +616,18 @@ main {
     font-size: 1.2rem;
 }
 
+/* Styles for .simulation-card p — layout and visual configuration */
 .simulation-card p {
     color: var(--text-secondary);
     line-height: 1.6;
 }
 
+/* Styles for #simulation-container — layout and visual configuration */
 #simulation-container {
     margin-top: 2rem;
 }
 
+/* Styles for .simulation-screen — layout and visual configuration */
 .simulation-screen {
     background: var(--card-bg);
     padding: 2rem;
@@ -554,11 +636,13 @@ main {
     margin-bottom: 1.5rem;
 }
 
+/* Styles for .simulation-header — layout and visual configuration */
 .simulation-header {
     text-align: center;
     margin-bottom: 2rem;
 }
 
+/* Styles for .simulation-progress — layout and visual configuration */
 .simulation-progress {
     display: flex;
     justify-content: center;
@@ -566,6 +650,7 @@ main {
     margin-bottom: 2rem;
 }
 
+/* Styles for .progress-dot — layout and visual configuration */
 .progress-dot {
     width: 12px;
     height: 12px;
@@ -573,14 +658,17 @@ main {
     background: #E0E0E0;
 }
 
+/* Styles for .progress-dot.active — layout and visual configuration */
 .progress-dot.active {
     background: var(--primary-orange);
 }
 
+/* Styles for .progress-dot.completed — layout and visual configuration */
 .progress-dot.completed {
     background: var(--success);
 }
 
+/* Styles for .email-preview — layout and visual configuration */
 .email-preview {
     background: white;
     border: 2px solid #E0E0E0;
@@ -589,27 +677,32 @@ main {
     margin: 1.5rem 0;
 }
 
+/* Styles for .email-header — layout and visual configuration */
 .email-header {
     border-bottom: 1px solid #E0E0E0;
     padding-bottom: 1rem;
     margin-bottom: 1rem;
 }
 
+/* Styles for .email-field — layout and visual configuration */
 .email-field {
     display: flex;
     margin-bottom: 0.5rem;
     font-size: 0.95rem;
 }
 
+/* Styles for .email-field strong — layout and visual configuration */
 .email-field strong {
     min-width: 80px;
     color: var(--text-light);
 }
 
+/* Styles for .email-body — layout and visual configuration */
 .email-body {
     line-height: 1.6;
 }
 
+/* Styles for .choice-buttons — layout and visual configuration */
 .choice-buttons {
     display: flex;
     gap: 1rem;
@@ -617,6 +710,7 @@ main {
     flex-wrap: wrap;
 }
 
+/* Styles for .choice-btn — layout and visual configuration */
 .choice-btn {
     flex: 1;
     min-width: 150px;
@@ -630,11 +724,13 @@ main {
     transition: var(--transition);
 }
 
+/* Styles for .choice-btn:hover — layout and visual configuration */
 .choice-btn:hover {
     background: var(--primary-orange);
     color: white;
 }
 
+/* Styles for .simulation-feedback — layout and visual configuration */
 .simulation-feedback {
     margin-top: 1.5rem;
     padding: 1.5rem;
@@ -642,16 +738,19 @@ main {
     animation: slideDown 0.3s ease;
 }
 
+/* Styles for .simulation-feedback.correct — layout and visual configuration */
 .simulation-feedback.correct {
     background: rgba(39, 174, 96, 0.1);
     border-left: 4px solid var(--success);
 }
 
+/* Styles for .simulation-feedback.incorrect — layout and visual configuration */
 .simulation-feedback.incorrect {
     background: rgba(231, 76, 60, 0.1);
     border-left: 4px solid var(--error);
 }
 
+/* Styles for .scenario-box — layout and visual configuration */
 .scenario-box {
     background: #FFF5ED;
     padding: 1.5rem;
@@ -660,11 +759,13 @@ main {
     margin: 1.5rem 0;
 }
 
+/* Styles for .action-list — layout and visual configuration */
 .action-list {
     list-style: none;
     margin: 1rem 0;
 }
 
+/* Styles for .action-item — layout and visual configuration */
 .action-item {
     background: white;
     padding: 1rem;
@@ -678,17 +779,20 @@ main {
     gap: 0.75rem;
 }
 
+/* Styles for .action-item:hover — layout and visual configuration */
 .action-item:hover {
     border-color: var(--primary-orange);
     transform: translateX(5px);
 }
 
+/* Styles for .action-item input[type="checkbox"] — layout and visual configuration */
 .action-item input[type="checkbox"] {
     width: 20px;
     height: 20px;
     cursor: pointer;
 }
 
+/* Styles for .progress-overview — layout and visual configuration */
 .progress-overview {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -696,6 +800,7 @@ main {
     margin-bottom: 3rem;
 }
 
+/* Styles for .progress-card — layout and visual configuration */
 .progress-card {
     background: var(--card-bg);
     padding: 2rem;
@@ -703,11 +808,13 @@ main {
     box-shadow: var(--shadow);
 }
 
+/* Styles for .progress-card h3 — layout and visual configuration */
 .progress-card h3 {
     color: var(--primary-orange);
     margin-bottom: 1rem;
 }
 
+/* Styles for .progress-bar — layout and visual configuration */
 .progress-bar {
     width: 100%;
     height: 8px;
@@ -717,6 +824,7 @@ main {
     margin: 1rem 0;
 }
 
+/* Styles for .progress-fill — layout and visual configuration */
 .progress-fill {
     height: 100%;
     background: var(--primary-orange);
@@ -724,6 +832,7 @@ main {
     border-radius: 10px;
 }
 
+/* Styles for .achievements-grid — layout and visual configuration */
 .achievements-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -731,6 +840,7 @@ main {
     margin-top: 1.5rem;
 }
 
+/* Styles for .achievement — layout and visual configuration */
 .achievement {
     background: var(--card-bg);
     padding: 1.5rem;
@@ -740,10 +850,12 @@ main {
     transition: all 0.3s ease;
 }
 
+/* Styles for .achievement.locked — layout and visual configuration */
 .achievement.locked {
     opacity: 0.5;
 }
 
+/* Styles for .achievement.unlocked — layout and visual configuration */
 .achievement.unlocked {
     opacity: 1;
     border: 2px solid var(--primary-orange);
@@ -751,31 +863,37 @@ main {
 }
 
 @keyframes unlock {
+/* Styles for 0%, 100% — layout and visual configuration */
     0%, 100% {
         transform: scale(1);
     }
+/* Styles for 50% — layout and visual configuration */
     50% {
         transform: scale(1.1);
     }
 }
 
+/* Styles for .achievement-icon — layout and visual configuration */
 .achievement-icon {
     font-size: 3rem;
     display: block;
     margin-bottom: 0.5rem;
 }
 
+/* Styles for .achievement p — layout and visual configuration */
 .achievement p {
     font-weight: 600;
     color: var(--primary-orange);
     margin-bottom: 0.25rem;
 }
 
+/* Styles for .achievement small — layout and visual configuration */
 .achievement small {
     color: var(--text-light);
     font-size: 0.85rem;
 }
 
+/* Styles for footer — layout and visual configuration */
 footer {
     background: var(--background-light);
     color: var(--text-secondary);
@@ -785,45 +903,54 @@ footer {
     border-top: 1px solid var(--border-color);
 }
 
+/* Styles for footer p — layout and visual configuration */
 footer p {
     margin: 0.5rem 0;
     font-size: 0.95rem;
 }
 
 @media (max-width: 768px) {
+/* Styles for .navbar .container — layout and visual configuration */
     .navbar .container {
         flex-direction: column;
         gap: 1rem;
     }
 
+/* Styles for .nav-menu — layout and visual configuration */
     .nav-menu {
         flex-direction: column;
         gap: 0.5rem;
         width: 100%;
     }
 
+/* Styles for .nav-link — layout and visual configuration */
     .nav-link {
         text-align: center;
     }
 
+/* Styles for .hero h2 — layout and visual configuration */
     .hero h2 {
         font-size: 2rem;
     }
 
+/* Styles for .subtitle — layout and visual configuration */
     .subtitle {
         font-size: 1.1rem;
     }
 
     .features-grid,
     .simulation-grid,
+/* Styles for .progress-overview — layout and visual configuration */
     .progress-overview {
         grid-template-columns: 1fr;
     }
 
+/* Styles for .choice-buttons — layout and visual configuration */
     .choice-buttons {
         flex-direction: column;
     }
 
+/* Styles for .choice-btn — layout and visual configuration */
     .choice-btn {
         min-width: 100%;
     }
@@ -833,6 +960,7 @@ footer p {
     header,
     footer,
     .cta-buttons,
+/* Styles for .btn — layout and visual configuration */
     .btn {
         display: none;
     }
