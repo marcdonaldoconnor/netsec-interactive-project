@@ -21,3 +21,4 @@ Liam has:
 We hereby agree that the above summary is complete and true to our knowledge as of the submission date. Signage of this document can be verified using `git blame` and the commit information can be verified on GitHub, where a "Verified" label is attached to each commit.
 
 Signed:
+- Liam O'Connor
