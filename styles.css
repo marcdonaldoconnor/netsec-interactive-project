@@ -1,135 +1,158 @@
+/* CSS Custom Properties (variables) for consistent theming */
+/* These define our color scheme, spacing, and effects */
 :root {
-    --primary-orange: #E67E22;
-    --primary-dark: #D35400;
-    --text-primary: #2C3E50;
-    --text-secondary: #7F8C8D;
-    --text-light: #95A5A6;
-    --background: #FFFFFF;
-    --background-light: #F8F9FA;
-    --card-bg: #FAF8F6;
-    --border-color: #E8E8E8;
-    --success: #27AE60;
-    --error: #E74C3C;
-    --warning: #F39C12;
-    --border-radius: 8px;
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
-    --shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.08);
-    --transition: all 0.3s ease;
+    --primary-orange: #E67E22; /* Main brand color */
+    --primary-dark: #D35400;   /* Darker shade for hover states */
+    --text-primary: #2C3E50;   /* Main text color */
+    --text-secondary: #7F8C8D; /* Secondary text color */
+    --text-light: #95A5A6;     /* Light text for less important elements */
+    --background: #FFFFFF;     /* Main background color */
+    --background-light: #F8F9FA; /* Light background for sections */
+    --card-bg: #FAF8F6;       /* Background for cards and modules */
+    --border-color: #E8E8E8;  /* Border color for elements */
+    --success: #27AE60;       /* Green for success states */
+    --error: #E74C3C;         /* Red for error states */
+    --warning: #F39C12;       /* Orange for warnings */
+    --border-radius: 8px;     /* Consistent border radius */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04); /* Small shadow */
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.06);    /* Medium shadow */
+    --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.08); /* Large shadow */
+    --transition: all 0.3s ease; /* Smooth transitions */
 }
 
+/* Reset default browser styles */
+/* This ensures consistent styling across different browsers */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Include padding and border in element's total width/height */
 }
 
+/* Base body styles */
+/* Sets up the foundational typography and colors */
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
     background-color: var(--background);
     color: var(--text-primary);
-    line-height: 1.7;
+    line-height: 1.7; /* Comfortable line spacing for readability */
     font-size: 16px;
 }
 
+/* Container class for consistent max-width and padding */
+/* Centers content and provides responsive padding */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    max-width: 1200px; /* Maximum width on large screens */
+    margin: 0 auto;    /* Center horizontally */
+    padding: 0 20px;   /* Padding on left and right */
 }
 
+/* Header styles - fixed at top of page */
 header {
     background: var(--background);
     color: var(--text-primary);
-    box-shadow: 0 1px 0 var(--border-color);
-    position: sticky;
+    box-shadow: 0 1px 0 var(--border-color); /* Subtle bottom shadow */
+    position: sticky; /* Stays at top when scrolling */
     top: 0;
-    z-index: 1000;
+    z-index: 1000; /* Ensure header stays above other content */
     border-bottom: 1px solid var(--border-color);
 }
 
+/* Navigation bar styling */
 .navbar {
-    padding: 1rem 0;
+    padding: 1rem 0; /* Vertical padding */
 }
 
+/* Flex container for logo and navigation */
 .navbar .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Space between logo and nav */
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
 }
 
+/* Logo styling */
 .logo h1 {
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--text-primary);
 }
 
+/* Navigation menu list */
 .nav-menu {
     display: flex;
-    list-style: none;
-    gap: 2.5rem;
-    flex-wrap: wrap;
+    list-style: none; /* Remove bullet points */
+    gap: 2.5rem; /* Space between menu items */
+    flex-wrap: wrap; /* Allow wrapping on small screens */
 }
 
+/* Navigation link styling */
 .nav-link {
     color: var(--text-secondary);
-    text-decoration: none;
+    text-decoration: none; /* Remove underline */
     font-weight: 500;
-    transition: var(--transition);
+    transition: var(--transition); /* Smooth color transition */
     padding: 0.5rem 0;
     font-size: 0.95rem;
 }
 
+/* Hover state for navigation links */
 .nav-link:hover {
     color: var(--primary-orange);
 }
 
+/* Active state for current page link */
 .nav-link.active {
     color: var(--primary-orange);
     font-weight: 600;
 }
 
+/* Main content area - ensures footer stays at bottom */
 main {
-    min-height: calc(100vh - 200px);
+    min-height: calc(100vh - 200px); /* Viewport height minus header/footer */
 }
 
+/* Section base styling - only active section is visible */
 .section {
-    display: none;
-    padding: 3rem 0;
-    animation: fadeIn 0.5s ease;
+    display: none; /* Hidden by default */
+    padding: 3rem 0; /* Vertical padding */
+    animation: fadeIn 0.5s ease; /* Fade in animation when activated */
 }
 
+/* Active section is visible */
 .section.active {
     display: block;
 }
 
+/* Fade in animation for section transitions */
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(20px); /* Start slightly lower */
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0); /* End at normal position */
     }
 }
 
+/* Hero section - main banner area on home page */
 .hero {
     text-align: center;
-    padding: 5rem 2rem 4rem;
+    padding: 5rem 2rem 4rem; /* Generous padding for visual impact */
     background: var(--background);
     margin-bottom: 4rem;
 }
 
+/* Main headline in hero section */
 .hero h2 {
     font-size: 2.75rem;
     color: var(--text-primary);
     margin-bottom: 1.25rem;
     font-weight: 700;
-    line-height: 1.3;
+    line-height: 1.3; /* Tighter line height for headlines */
 }
 
+/* Subtitle text in hero section */
 .subtitle {
     font-size: 1.15rem;
     color: var(--text-secondary);
@@ -137,21 +160,24 @@ main {
     font-weight: 400;
 }
 
+/* Description text in hero section */
 .hero p {
     font-size: 1.05rem;
-    max-width: 700px;
-    margin: 0 auto 2.5rem;
+    max-width: 700px; /* Limit width for better readability */
+    margin: 0 auto 2.5rem; /* Center and add bottom margin */
     color: var(--text-secondary);
     line-height: 1.7;
 }
 
+/* Container for call-to-action buttons */
 .cta-buttons {
     display: flex;
-    gap: 1rem;
+    gap: 1rem; /* Space between buttons */
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Stack on small screens */
 }
 
+/* Base button styles */
 .btn {
     padding: 0.75rem 1.75rem;
     font-size: 0.95rem;
@@ -164,38 +190,44 @@ main {
     display: inline-block;
 }
 
+/* Primary button - main action button */
 .btn-primary {
     background: var(--primary-orange);
     color: white;
     border-color: var(--primary-orange);
 }
 
+/* Hover state for primary button */
 .btn-primary:hover {
     background: var(--primary-dark);
     border-color: var(--primary-dark);
-    transform: translateY(-1px);
+    transform: translateY(-1px); /* Lift effect on hover */
     box-shadow: var(--shadow);
 }
 
+/* Secondary button - alternative action */
 .btn-secondary {
     background: white;
     color: var(--text-primary);
     border-color: var(--border-color);
 }
 
+/* Hover state for secondary button */
 .btn-secondary:hover {
     border-color: var(--primary-orange);
     color: var(--primary-orange);
     transform: translateY(-1px);
 }
 
+/* Grid layout for feature cards on home page */
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+    gap: 2rem; /* Space between cards */
     margin-top: 3rem;
 }
 
+/* Individual feature card styling */
 .feature-card {
     background: var(--card-bg);
     padding: 2.5rem 2rem;
@@ -206,16 +238,18 @@ main {
     border: 1px solid var(--border-color);
 }
 
+/* Hover effect for feature cards */
 .feature-card:hover {
-    transform: translateY(-2px);
+    transform: translateY(-2px); /* Lift on hover */
     box-shadow: var(--shadow);
 }
 
+/* Icon container for feature cards */
 .feature-icon {
     width: 48px;
     height: 48px;
-    background: #FFF5ED;
-    border-radius: 50%;
+    background: #FFF5ED; /* Light orange background */
+    border-radius: 50%; /* Circular icon */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -224,6 +258,7 @@ main {
     color: var(--primary-orange);
 }
 
+/* Feature card title */
 .feature-card h3 {
     color: var(--text-primary);
     margin-bottom: 0.75rem;
@@ -231,12 +266,14 @@ main {
     font-size: 1.15rem;
 }
 
+/* Feature card description */
 .feature-card p {
     color: var(--text-secondary);
     font-size: 0.95rem;
     line-height: 1.6;
 }
 
+/* Learning module container */
 .module {
     background: var(--card-bg);
     padding: 2.5rem;
@@ -244,9 +281,10 @@ main {
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-sm);
     border: 1px solid var(--border-color);
-    border-left: 3px solid var(--primary-orange);
+    border-left: 3px solid var(--primary-orange); /* Accent border */
 }
 
+/* Module title */
 .module h3 {
     color: var(--text-primary);
     font-size: 1.4rem;
@@ -254,6 +292,7 @@ main {
     font-weight: 600;
 }
 
+/* Module subsection headings */
 .module h4 {
     color: var(--text-primary);
     margin-top: 1.75rem;
@@ -262,29 +301,34 @@ main {
     font-size: 1.1rem;
 }
 
+/* Module content text */
 .module-content {
     color: var(--text-primary);
 }
 
+/* Lists within modules */
 .module-content ul,
 .module-content ol {
-    margin-left: 1.5rem;
+    margin-left: 1.5rem; /* Indent lists */
     margin-top: 0.5rem;
 }
 
+/* List items within modules */
 .module-content li {
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.75rem; /* Space between list items */
 }
 
+/* Callout boxes for important information */
 .callout {
-    background: #FFF5ED;
-    border-left: 3px solid var(--primary-orange);
+    background: #FFF5ED; /* Light orange background */
+    border-left: 3px solid var(--primary-orange); /* Accent border */
     padding: 1.25rem 1.5rem;
     margin-top: 1.25rem;
     border-radius: var(--border-radius);
     color: var(--text-primary);
 }
 
+/* Quiz introduction text */
 .quiz-intro {
     text-align: center;
     font-size: 1.1rem;
@@ -292,6 +336,7 @@ main {
     color: var(--text-light);
 }
 
+/* Individual quiz question card */
 .question-card {
     background: var(--card-bg);
     padding: 2.5rem;
@@ -301,6 +346,7 @@ main {
     border: 1px solid var(--border-color);
 }
 
+/* Question header with number and type */
 .question-header {
     display: flex;
     justify-content: space-between;
@@ -308,21 +354,24 @@ main {
     margin-bottom: 1rem;
 }
 
+/* Question number badge */
 .question-number {
     background: var(--primary-orange);
     color: white;
     padding: 0.4rem 0.9rem;
-    border-radius: 50px;
+    border-radius: 50px; /* Pill shape */
     font-weight: 600;
     font-size: 0.9rem;
 }
 
+/* Question type label */
 .question-type {
     color: var(--text-light);
     font-size: 0.9rem;
     font-style: italic;
 }
 
+/* Question text styling */
 .question-text {
     font-size: 1.1rem;
     font-weight: 500;
@@ -330,12 +379,14 @@ main {
     color: var(--text-primary);
 }
 
+/* Container for answer options */
 .options {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.75rem; /* Space between options */
 }
 
+/* Individual answer option */
 .option {
     display: flex;
     align-items: center;
@@ -347,11 +398,13 @@ main {
     transition: all 0.3s ease;
 }
 
+/* Hover state for options */
 .option:hover {
     border-color: var(--primary-orange);
     background: white;
 }
 
+/* Radio buttons within options */
 .option input[type="radio"] {
     margin-right: 1rem;
     width: 20px;
@@ -359,11 +412,13 @@ main {
     cursor: pointer;
 }
 
+/* Labels for options */
 .option label {
     cursor: pointer;
-    flex: 1;
+    flex: 1; /* Take remaining space */
 }
 
+/* Text input fields for short answers */
 .text-input,
 .textarea-input {
     width: 100%;
@@ -371,21 +426,24 @@ main {
     border: 2px solid #E0E0E0;
     border-radius: var(--border-radius);
     font-size: 1rem;
-    font-family: inherit;
+    font-family: inherit; /* Use same font as rest of site */
     transition: border-color 0.3s ease;
 }
 
+/* Focus state for inputs */
 .text-input:focus,
 .textarea-input:focus {
     outline: none;
     border-color: var(--primary-orange);
 }
 
+/* Textarea for long answers */
 .textarea-input {
-    min-height: 150px;
-    resize: vertical;
+    min-height: 150px; /* Minimum height */
+    resize: vertical; /* Allow vertical resizing only */
 }
 
+/* Submit answer button */
 .submit-answer-btn {
     margin-top: 1rem;
     background: var(--primary-orange);
@@ -398,23 +456,27 @@ main {
     transition: var(--transition);
 }
 
+/* Hover state for submit button */
 .submit-answer-btn:hover:not(:disabled) {
     background: var(--primary-dark);
     transform: translateY(-2px);
 }
 
+/* Disabled state for submit button */
 .submit-answer-btn:disabled {
     opacity: 0.5;
     cursor: not-allowed;
 }
 
+/* Feedback container after answering */
 .feedback {
     margin-top: 1rem;
     padding: 1rem;
     border-radius: var(--border-radius);
-    animation: slideDown 0.3s ease;
+    animation: slideDown 0.3s ease; /* Slide down animation */
 }
 
+/* Slide down animation for feedback */
 @keyframes slideDown {
     from {
         opacity: 0;
@@ -426,16 +488,19 @@ main {
     }
 }
 
+/* Correct answer feedback styling */
 .feedback.correct {
-    background: rgba(39, 174, 96, 0.1);
-    border-left: 4px solid var(--success);
+    background: rgba(39, 174, 96, 0.1); /* Light green background */
+    border-left: 4px solid var(--success); /* Green accent border */
 }
 
+/* Incorrect answer feedback styling */
 .feedback.incorrect {
-    background: rgba(231, 76, 60, 0.1);
-    border-left: 4px solid var(--error);
+    background: rgba(231, 76, 60, 0.1); /* Light red background */
+    border-left: 4px solid var(--error); /* Red accent border */
 }
 
+/* Feedback header with correct/incorrect indicator */
 .feedback-header {
     font-weight: 600;
     margin-bottom: 0.5rem;
@@ -444,23 +509,28 @@ main {
     gap: 0.5rem;
 }
 
+/* Color for correct feedback header */
 .feedback.correct .feedback-header {
     color: var(--success);
 }
 
+/* Color for incorrect feedback header */
 .feedback.incorrect .feedback-header {
     color: var(--error);
 }
 
+/* Explanation text in feedback */
 .feedback-explanation {
     margin-top: 0.5rem;
     line-height: 1.6;
 }
 
+/* Utility class to hide elements */
 .hidden {
     display: none !important;
 }
 
+/* Quiz results container */
 #quiz-results {
     background: var(--card-bg);
     padding: 2rem;
@@ -468,53 +538,62 @@ main {
     box-shadow: var(--shadow);
 }
 
+/* Score display area */
 #score-display {
     text-align: center;
     padding: 3rem 2rem;
     margin-bottom: 2rem;
-    background: #FFF5ED;
+    background: #FFF5ED; /* Light orange background */
     border-radius: var(--border-radius);
 }
 
+/* Large score value */
 .score-value {
     font-size: 4rem;
     font-weight: 700;
     color: var(--primary-orange);
 }
 
+/* Score message text */
 .score-message {
     font-size: 1.2rem;
     margin-top: 1rem;
     color: var(--text-primary);
 }
 
+/* Answers review section */
 #answers-review {
     margin-top: 2rem;
 }
 
+/* Individual review item */
 .review-item {
     background: var(--background);
     padding: 1.5rem;
     margin-bottom: 1rem;
     border-radius: var(--border-radius);
-    border-left: 4px solid var(--text-light);
+    border-left: 4px solid var(--text-light); /* Default gray border */
 }
 
+/* Correct answer review item */
 .review-item.correct {
-    border-left-color: var(--success);
+    border-left-color: var(--success); /* Green border for correct */
 }
 
+/* Incorrect answer review item */
 .review-item.incorrect {
-    border-left-color: var(--error);
+    border-left-color: var(--error); /* Red border for incorrect */
 }
 
+/* Grid layout for simulation cards */
 .simulation-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Responsive columns */
     gap: 2rem;
     margin-top: 2rem;
 }
 
+/* Individual simulation card */
 .simulation-card {
     background: var(--card-bg);
     padding: 2.5rem 2rem;
@@ -525,11 +604,13 @@ main {
     border: 1px solid var(--border-color);
 }
 
+/* Hover effect for simulation cards */
 .simulation-card:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow);
 }
 
+/* Simulation card title */
 .simulation-card h3 {
     color: var(--text-primary);
     margin-bottom: 1rem;
@@ -537,15 +618,18 @@ main {
     font-size: 1.2rem;
 }
 
+/* Simulation card description */
 .simulation-card p {
     color: var(--text-secondary);
     line-height: 1.6;
 }
 
+/* Container for simulation content */
 #simulation-container {
     margin-top: 2rem;
 }
 
+/* Simulation screen container */
 .simulation-screen {
     background: var(--card-bg);
     padding: 2rem;
@@ -554,11 +638,13 @@ main {
     margin-bottom: 1.5rem;
 }
 
+/* Simulation header */
 .simulation-header {
     text-align: center;
     margin-bottom: 2rem;
 }
 
+/* Progress dots for multi-step simulations */
 .simulation-progress {
     display: flex;
     justify-content: center;
@@ -566,21 +652,25 @@ main {
     margin-bottom: 2rem;
 }
 
+/* Individual progress dot */
 .progress-dot {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: #E0E0E0;
+    background: #E0E0E0; /* Default gray */
 }
 
+/* Active progress dot */
 .progress-dot.active {
-    background: var(--primary-orange);
+    background: var(--primary-orange); /* Orange for current step */
 }
 
+/* Completed progress dot */
 .progress-dot.completed {
-    background: var(--success);
+    background: var(--success); /* Green for completed steps */
 }
 
+/* Email preview in phishing simulation */
 .email-preview {
     background: white;
     border: 2px solid #E0E0E0;
@@ -589,251 +679,30 @@ main {
     margin: 1.5rem 0;
 }
 
+/* Email header section */
 .email-header {
     border-bottom: 1px solid #E0E0E0;
     padding-bottom: 1rem;
     margin-bottom: 1rem;
 }
 
+/* Individual email field (From, Subject) */
 .email-field {
     display: flex;
     margin-bottom: 0.5rem;
     font-size: 0.95rem;
 }
 
+/* Email field labels */
 .email-field strong {
-    min-width: 80px;
+    min-width: 80px; /* Consistent label width */
     color: var(--text-light);
 }
 
+/* Email body text */
 .email-body {
     line-height: 1.6;
 }
 
-.choice-buttons {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem;
-    flex-wrap: wrap;
-}
-
-.choice-btn {
-    flex: 1;
-    min-width: 150px;
-    padding: 1rem 1.5rem;
-    border: 2px solid var(--primary-orange);
-    background: white;
-    color: var(--primary-orange);
-    border-radius: var(--border-radius);
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.choice-btn:hover {
-    background: var(--primary-orange);
-    color: white;
-}
-
-.simulation-feedback {
-    margin-top: 1.5rem;
-    padding: 1.5rem;
-    border-radius: var(--border-radius);
-    animation: slideDown 0.3s ease;
-}
-
-.simulation-feedback.correct {
-    background: rgba(39, 174, 96, 0.1);
-    border-left: 4px solid var(--success);
-}
-
-.simulation-feedback.incorrect {
-    background: rgba(231, 76, 60, 0.1);
-    border-left: 4px solid var(--error);
-}
-
-.scenario-box {
-    background: #FFF5ED;
-    padding: 1.5rem;
-    border-radius: var(--border-radius);
-    border-left: 4px solid var(--primary-orange);
-    margin: 1.5rem 0;
-}
-
-.action-list {
-    list-style: none;
-    margin: 1rem 0;
-}
-
-.action-item {
-    background: white;
-    padding: 1rem;
-    margin-bottom: 0.75rem;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    border: 2px solid transparent;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.action-item:hover {
-    border-color: var(--primary-orange);
-    transform: translateX(5px);
-}
-
-.action-item input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-}
-
-.progress-overview {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
-}
-
-.progress-card {
-    background: var(--card-bg);
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-}
-
-.progress-card h3 {
-    color: var(--primary-orange);
-    margin-bottom: 1rem;
-}
-
-.progress-bar {
-    width: 100%;
-    height: 8px;
-    background: var(--border-color);
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 1rem 0;
-}
-
-.progress-fill {
-    height: 100%;
-    background: var(--primary-orange);
-    transition: width 0.5s ease;
-    border-radius: 10px;
-}
-
-.achievements-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-}
-
-.achievement {
-    background: var(--card-bg);
-    padding: 1.5rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.achievement.locked {
-    opacity: 0.5;
-}
-
-.achievement.unlocked {
-    opacity: 1;
-    border: 2px solid var(--primary-orange);
-    animation: unlock 0.5s ease;
-}
-
-@keyframes unlock {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-}
-
-.achievement-icon {
-    font-size: 3rem;
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.achievement p {
-    font-weight: 600;
-    color: var(--primary-orange);
-    margin-bottom: 0.25rem;
-}
-
-.achievement small {
-    color: var(--text-light);
-    font-size: 0.85rem;
-}
-
-footer {
-    background: var(--background-light);
-    color: var(--text-secondary);
-    text-align: center;
-    padding: 3rem 0;
-    margin-top: 5rem;
-    border-top: 1px solid var(--border-color);
-}
-
-footer p {
-    margin: 0.5rem 0;
-    font-size: 0.95rem;
-}
-
-@media (max-width: 768px) {
-    .navbar .container {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .nav-menu {
-        flex-direction: column;
-        gap: 0.5rem;
-        width: 100%;
-    }
-
-    .nav-link {
-        text-align: center;
-    }
-
-    .hero h2 {
-        font-size: 2rem;
-    }
-
-    .subtitle {
-        font-size: 1.1rem;
-    }
-
-    .features-grid,
-    .simulation-grid,
-    .progress-overview {
-        grid-template-columns: 1fr;
-    }
-
-    .choice-buttons {
-        flex-direction: column;
-    }
-
-    .choice-btn {
-        min-width: 100%;
-    }
-}
-
-@media print {
-    header,
-    footer,
-    .cta-buttons,
-    .btn {
-        display: none;
-    }
-}
+/* Container for choice buttons in simulations */
+.choice-buttons
